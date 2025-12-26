@@ -1,0 +1,124 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background:transparent;
+    color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    z-index: 1000;
+    backdrop-filter: blur(30px);
+}
+
+.navbar::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 0;
+    height: 1px;
+    background: #585858;
+    pointer-events: none;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.linksContainer {
+    display: flex;
+    align-items: center;
+    transition: none;
+}
+.linksContainer ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.linksContainer li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.mobileToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    z-index: 3000;
+}
+
+.mobileClose {
+    display: none;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 3001;
+}
+
+@media (max-width: 768px) {
+    .linksContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80vw;
+        max-width: 340px;
+        background: rgba(17, 17, 17, 0.85);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        padding: 2.5rem 1.5rem 1.5rem 2rem;
+        z-index: 2000;
+        box-shadow: -2px 0 16px 0 rgba(0,0,0,0.18);
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+    }
+    .linksContainer.open {
+        transform: translateX(0);
+    }
+    .linksContainer ul {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+    .mobileToggle {
+        display: block;
+    }
+    .mobileClose {
+        display: block;
+    }
+    .desktopOnly {
+        display: none !important;
+    }
+    .mobileOnly {
+        display: block !important;
+    }
+}
+
+.mobileOnly {
+    display: none;
+}
+.desktopOnly {
+    display: inline-block;
+}
