@@ -10,7 +10,7 @@ export const courses = [
     students: 450,
     price: "₹99,999",
     monthlyPrice: "₹8,499",
-    image: "./courseCards/Diploma in Data Analytics & AI (12 Months) SQL.png",
+    image: "/TensorFlow (1)/Diploma in Data Analytics & AI (12 Months) SQL.png",
     description:
       "For beginners and working pros alike. Master Python, R, Machine Learning, Deep Learning, SQL, Statistics and BI tools through real projects.",
     fullDescription:
@@ -127,7 +127,7 @@ export const courses = [
     students: 520,
     price: "₹89,999",
     monthlyPrice: "₹9,000",
-    image: "/uploads/nidad-cource card/Diploma in Data Analytics & AI (12 Months) SQL.png",
+    image: "/TensorFlow (1)/Diploma in Data Analytics & AI (12 Months) SQL.png",
     description:
       "Ideal for future analysts. Learn Excel, SQL, Python, Statistics, Machine Learning and Power BI with business datasets.",
     fullDescription:
@@ -236,7 +236,7 @@ export const courses = [
     students: 380,
     price: "₹79,999",
     monthlyPrice: "₹13,333",
-    image: "/uploads/nidad-cource card/Advanced Certification in Data Science & AI (6 Months).png",
+    image: "/TensorFlow (1)/Advanced Certification in Data Science & AI (6 Months).png",
     description:
       "For candidates with basic analytics knowledge. Deep-dive into advanced ML, AI model deployment and statistical techniques.",
     fullDescription:
@@ -338,7 +338,7 @@ export const courses = [
     students: 290,
     price: "₹69,999",
     monthlyPrice: "₹11,666",
-    image: "/uploads/nidad-cource card/Advanced Certification in Data Analytics & AI (6 Months).png",
+    image: "/TensorFlow (1)/Advanced Certification in Data Analytics & AI (6 Months.png",
     description:
       "For upskillers in analytics. Gain advanced expertise in data modeling, ML applications, dashboards and BI tools.",
     fullDescription:
@@ -440,7 +440,7 @@ export const courses = [
     students: 680,
     price: "₹49,999",
     monthlyPrice: "₹16,666",
-    image: "/uploads/nidad-cource card/Certification in Data Analytics & AI (3 Months).png",
+    image: "/TensorFlow (1)/Certification in Data Analytics & AI (3 Months).png",
     description:
       "Intensive fundamentals course. Cover Excel, SQL, Python basics, data visualization and statistical analysis.",
     fullDescription:
@@ -533,7 +533,7 @@ export const courses = [
     students: 540,
     price: "₹39,999",
     monthlyPrice: "₹13,333",
-    image: "/uploads/nidad-cource card/Applied Data Analytics with Python & SQL (3 Months).png",
+    image: "/TensorFlow (1)/Applied Data Analytics with Python & SQL (3 Months).png",
     description:
       "Focused training on Python data libraries and SQL querying. Analyze and visualize data to derive insights.",
     fullDescription:
@@ -626,7 +626,7 @@ export const courses = [
     students: 720,
     price: "₹29,999",
     monthlyPrice: "₹10,000",
-    image: "/uploads/nidad-cource card/Business Intelligence with Power BI (3 Months).png",
+    image: "/TensorFlow (1)/Business Intelligence with Power BI (3 Months).png",
     description:
       "Become a Power BI expert. Learn data modeling, DAX formulas and interactive dashboard design.",
     fullDescription:
@@ -719,7 +719,7 @@ export const courses = [
     students: 410,
     price: "₹34,999",
     monthlyPrice: "₹11,666",
-    image: "/uploads/nidad-cource card/Data Science for Product Managers (3 Months).png",
+    image: "/TensorFlow (1)/Data Science for Product Managers (3 Months).png",
     description:
       "Analytics for PMs. Learn to use data in product decisions, run A/B tests, track KPIs, and interpret user data.",
     fullDescription:
@@ -812,7 +812,7 @@ export const courses = [
     students: 350,
     price: "₹44,999",
     monthlyPrice: "₹14,999",
-    image: "/uploads/nidad-cource card/Advanced Data Visualization (3 Months).png",
+    image: "/TensorFlow (1)/Advanced Data Visualization (3 Months).png",
     description:
       "Elevate your storytelling. Master Tableau and Power BI advanced techniques to present data clearly and persuasively.",
     fullDescription:

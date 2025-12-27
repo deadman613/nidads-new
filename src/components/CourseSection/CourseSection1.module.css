@@ -1,0 +1,237 @@
+/* ============================
+   SECTION BASE
+============================ */
+.section {
+  background: #05070c;
+  padding: 120px 24px 60PX 24PX;
+  border-bottom: 1px solid #b8c2e2;
+  color: #ffffff;
+}
+
+/* ============================
+   CONTAINER
+============================ */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: stretch;
+}
+
+/* ============================
+   LEFT CONTENT
+============================ */
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  color: #7aa2ff;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.heading span {
+  display: block;
+  color: #7aa2ff;
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #c9d1e4;
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+/* ============================
+   METRICS
+============================ */
+.metrics {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.metrics div {
+  display: flex;
+  flex-direction: column;
+}
+
+.metrics strong {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.metrics span {
+  font-size: 13px;
+  color: #9aa4c7;
+  margin-top: 4px;
+}
+
+/* ============================
+   ACTIONS
+============================ */
+.actions {
+  display: flex;
+  gap: 18px;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #7aa2ff, #4f6fff);
+  color: #05070c;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(122, 162, 255, 0.35);
+}
+
+.secondaryBtn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #ffffff;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.25s ease, border 0.25s ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* ============================
+   RIGHT VISUAL
+============================ */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  background: radial-gradient(
+    circle at top,
+    rgba(122,162,255,0.18),
+    rgba(5,7,12,0.95)
+  );
+  border-radius: 22px;
+  padding: 36px 36px 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.55);
+  max-width: 380px;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 60px rgba(0,0,0,0.6));
+}
+
+.cardInfo {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(20px);
+  width: 100% ;
+  padding: 10px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius:   22px;
+}
+
+.cardInfo h4 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.cardInfo p {
+  font-size: 14px;
+  color: #b8c2e2;
+  margin-bottom: 8px;
+}
+
+.cardInfo span {
+  font-size: 12px;
+  color: #7aa2ff;
+  letter-spacing: 0.08em;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .metrics {
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 80px 16px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .metrics {
+    gap: 24px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

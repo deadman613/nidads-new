@@ -1,0 +1,122 @@
+.wrapper {
+  width: 100%;
+  color: #fff;
+  box-sizing: border-box;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  padding: 0;
+  /* background: #0b0b0b; */
+}
+
+/* Desktop grid layout */
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 32px;
+  padding: 60px 6vw 32px 6vw;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(2.8rem, 9vw, 7.5rem);
+  /* font-weight: 900; */
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+  text-align: left;
+
+   background: linear-gradient(135deg, #4da6ff 0%, #80bfff 50%, #b3d9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+
+.leftDesc { margin-top: 16px; }
+.detail {
+  font-weight: 500;
+  font-size: 1.05rem;
+  opacity: 0.7;
+  margin-bottom: 0.65em;
+}
+.subdesc {
+  font-size: 0.98rem;
+  opacity: 0.6;
+  line-height: 1.5;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImg {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 2rem;
+  object-fit:contain;
+  display: block;
+  box-shadow: 0 2px 36px #0008;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Responsive Styles */
+@media (max-width: 1150px) {
+  .topGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .mainImg {
+    max-width: 340px;
+  }
+  .right {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+    padding: 36px 4vw 28px 4vw;
+  }
+
+  .right {
+    order: 1;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .middle {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+  .left {
+    order: 3;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .mainImg {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heading {
+    font-size: 2.5rem;
+    text-align: right;
+  }
+  .subdesc, .detail {
+    font-size: 0.90rem;
+  }
+}

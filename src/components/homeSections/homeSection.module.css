@@ -4,9 +4,8 @@
 .BannerContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 8;
   height: auto;
-  min-height: clamp(520px, 62vw, 860px);
   padding-top: 100px;
   padding-bottom: 40px;
   overflow: hidden;
@@ -18,7 +17,11 @@
     radial-gradient(circle 700px at 60% 85%, rgba(0, 255, 255, 0.13) 0, rgba(0, 255, 255, 0) 80%);
   background-blend-mode: lighten;
 }
-
+@media(max-width:1048px){
+  .BannerContainer {
+  min-height: clamp(520px, 62vw, 860px);
+}
+}
 /* ===============================
    DITHER BACKGROUND LAYER
 ================================ */

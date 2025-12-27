@@ -12,7 +12,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <img
-              src="/uploads/Nidads-2.png"
+              src="/Nidads-2.webp"
               alt="NIDADS"
               className={styles.logo}
             />

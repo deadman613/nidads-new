@@ -1,0 +1,81 @@
+.wrapper {
+  /* background: #111; */
+  color: #fff;
+  width: 100%;
+  padding: 70px 0 0 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 32px;
+  padding: 60px 5vw 32px 6vw;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(2.8rem, 9vw, 7.5rem);
+  /* font-weight: 900; */
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+
+
+   background: linear-gradient(135deg, #4da6ff 0%, #80bfff 50%, #b3d9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+
+.leftDesc { margin-top: 16px; }
+.detail { font-weight: 500; font-size: 1.05rem; opacity: 0.7; margin-bottom: 0.65em; }
+.subdesc { font-size: 0.98rem; opacity: 0.6; line-height: 1.5; }
+
+.middle { display: flex; align-items: center; justify-content: center; }
+
+.mainImg {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 2rem;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 36px #0008;
+}
+
+.right { display: flex; flex-direction: column; align-items: flex-start; }
+.philosophyImg { width: 100%; max-width: 210px; border-radius: 1.3rem; object-fit: cover; box-shadow: 0 2px 20px #0006; }
+.philosophyTextBlock { margin-top: 16px; }
+.philosophyTitle { font-weight: 700; font-size: 1.28rem; font-family: 'Montserrat', Arial, sans-serif; margin-bottom: 8px; }
+.philosophyText { font-size: 0.99rem; opacity: 0.7; line-height: 1.45; }
+
+/* Responsive Styles */
+@media (max-width: 1150px) {
+  .topGrid { grid-template-columns: 1fr 1fr; }
+  .right { margin-top: 32px; }
+  .mainImg { max-width: 340px; }
+}
+@media (max-width: 900px) {
+  .topGrid {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+    padding: 36px 4vw 28px 4vw;
+  }
+  .middle, .right, .left { justify-content: center; align-items: center; }
+  .philosophyImg { max-width: 320px; }
+  .mainImg { max-width: 300px; }
+}
+@media (max-width: 400px) {
+  .heading { font-size: 2.5rem; }
+  .subdesc, .detail, .philosophyText { font-size: 0.90rem; }
+}
+
+@media (max-width: 350px) {
+  .topGrid { grid-template-columns: 1fr; row-gap: 18px; padding: 18px 2vw 12px 2vw; }
+  .mainImg, .philosophyImg { max-width: 90vw; }
+}

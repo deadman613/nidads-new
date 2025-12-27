@@ -26,7 +26,7 @@ export default function Banner() {
       {/* CONTENT WRAPPER */}
       <div className={Style.contentWrapper}>
         <div className={Style.rightContent}>
-          <h1 className={Style.heading}>Master Data Science, AI, Machine Learning and Data Analytics</h1>
+          <h1 className={Style.heading}>Master <span style={{color:"#38b6ff"}}>Data Science</span>, <span style={{color:"#38b6ff"}}>AI</span>, <span style={{color:"#38b6ff"}}>Machine Learning</span> and <span style={{color:"#38b6ff"}}>Data Analytics</span></h1>
           
           <p className={Style.description}>
             Launch your career with practical Data Analytics & AI training aligned
