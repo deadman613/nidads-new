@@ -115,28 +115,55 @@
   position: absolute;
   width: calc((100% - 44px) / 3);
   height: 180px;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
   will-change: transform;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px rgba(56, 182, 255, 0.4), 0 0 20px rgba(56, 182, 255, 0.2);
+  z-index: 10;
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+<<<<<<< HEAD
   border-radius: 10px;
+=======
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+>>>>>>> 08f15dd (change 2.21am)
 }
 
 .label {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   font-size: 13px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.55);
+  font-weight: 500;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.75);
   color: white;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(56, 182, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 182, 255, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.card:hover .label {
+  background: rgba(56, 182, 255, 0.2);
+  border-color: rgba(56, 182, 255, 0.6);
+  transform: translateY(-2px);
 }
 /* Mobile: normal grid, no animation */
 @media (max-width: 768px) {

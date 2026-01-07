@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import styles from "./CourseSection1.module.css";
 
 export default function CourseSection1() {
@@ -36,12 +37,16 @@ export default function CourseSection1() {
           </div>
 
           <div className={styles.actions}>
-            <button className={styles.primaryBtn}>
-              Explore Programs
-            </button>
-            <button className={styles.secondaryBtn}>
-              Download Curriculum
-            </button>
+            <Link href="/course">
+              <button className={styles.primaryBtn}>
+                Explore Programs
+              </button>
+            </Link>
+            <Link href="/contact-us">
+              <button className={styles.secondaryBtn}>
+                Download Curriculum
+              </button>
+            </Link>
           </div>
         </div>
 

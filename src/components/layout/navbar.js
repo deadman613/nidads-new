@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import Link from "next/link";
 import Style from "./navbar.module.css";
 
 export default function Navbar() {
@@ -11,9 +11,9 @@ export default function Navbar() {
 
     return (
         <nav className={Style.navbar}>
-            <div className={Style.logo}>
+            <Link href="/" className={Style.logo}>
                 <img src="/Nidads-2.webp" alt="Nidads Logo" style={{ height: '40px', width: 'auto' }} />
-            </div>
+            </Link>
             {/* Hamburger button (only shows when menu is closed on mobile) */}
             <button
                 className={Style.mobileToggle}
@@ -40,14 +40,37 @@ export default function Navbar() {
                   ✕
                 </button>
                 <ul>
-                    <li><a href="#courses" onClick={handleNavClick}>Courses</a></li>
-                    <li><a href="#domain" onClick={handleNavClick}>Domain</a></li>
-                    <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
-                    <li><a href="#about" onClick={handleNavClick}>About</a></li>
-                    <li className={Style.mobileOnly}><a href="#councelling" onClick={handleNavClick}>Councelling</a></li>
+                    <li><Link href="/course" onClick={handleNavClick}>Courses</Link></li>
+                    <li><Link href="/about" onClick={handleNavClick}>About</Link></li>
+                    <li><Link href="/contact-us" onClick={handleNavClick}>Contact</Link></li>
+                    <li className={Style.mobileOnly}>
+                        <button 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleNavClick();
+                                if (typeof window !== 'undefined') {
+                                    window.dispatchEvent(new Event('openEnquiryPopup'));
+                                }
+                            }}
+                            style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit', padding: 0 }}
+                        >
+                            Councelling
+                        </button>
+                    </li>
                 </ul>
             </div>
-            <a href="#councelling" className={Style.desktopOnly} onClick={handleNavClick} style={{ color: '#fff', marginLeft: '1rem', textDecoration: 'none' }}>Councelling</a>
+            <button
+                onClick={(e) => {
+                    e.preventDefault();
+                    if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new Event('openEnquiryPopup'));
+                    }
+                }}
+                className={Style.desktopOnly}
+                style={{ color: '#fff', marginLeft: '1rem', background: 'none', border: 'none', cursor: 'pointer', font: 'inherit' }}
+            >
+                Councelling
+            </button>
         </nav>
     );
 }

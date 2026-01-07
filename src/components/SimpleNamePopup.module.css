@@ -2,14 +2,15 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 23, 0.92);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
 
   display: flex;
   align-items: center;
   justify-content: center;
-pointer-events: auto;
-  padding: 20px;
+  pointer-events: auto;
+  padding: 32px 24px;
+  overflow-y: auto;
 
   /* 🚨 ABSOLUTE TOP */
   z-index: 2147483647;
@@ -21,14 +22,17 @@ pointer-events: auto;
 /* ===== POPUP ===== */
 .popup {
   position: relative;
-  width: 100%;
-  max-width: 860px;
-  background: radial-gradient(circle at top left, #0f172a, #020617 70%);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  width: min(100%, 860px);
+  background-color: #000;
+  background-image:
+    radial-gradient(circle 520px at 14% 18%, rgba(80, 180, 255, 0.18) 0, rgba(80, 180, 255, 0) 80%),
+    radial-gradient(circle 320px at 82% 22%, rgba(36, 80, 255, 0.14) 0, rgba(36, 80, 255, 0) 80%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 32px 36px;
-  color: #e5f0ff;
-  box-shadow: 0 40px 80px rgba(2, 6, 23, 0.9);
+  color: #fff;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.75);
+  margin: 0 auto;
 }
 
 /* ===== CLOSE ===== */
@@ -39,11 +43,15 @@ pointer-events: auto;
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: #020617;
-  color: #e5f0ff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
   font-size: 20px;
   cursor: pointer;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* ===== FORM ===== */
@@ -76,28 +84,33 @@ pointer-events: auto;
 .label {
   font-size: 13px;
   font-weight: 600;
-  color: #c7ddff;
+  color: #b9c3d1;
 }
 
 .input,
 .select {
   padding: 14px 14px;
   border-radius: 12px;
-  background: #020617;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  color: #e5f0ff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
   font-size: 14px;
 }
 
+.select option {
+  background: #0f172a;
+  color: #fff;
+}
+
 .input::placeholder {
-  color: #6b7280;
+  color: #9aa4b2;
 }
 
 .input:focus,
 .select:focus {
   outline: none;
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+  border-color: rgba(56, 182, 255, 0.7);
+  box-shadow: 0 0 0 1px rgba(56, 182, 255, 0.55);
 }
 
 .inputError {
@@ -109,15 +122,16 @@ pointer-events: auto;
   display: flex;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background: #020617;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .countryCode {
   padding: 0 14px;
   display: flex;
   align-items: center;
-  background: rgba(37, 99, 235, 0.25);
+  background: rgba(56, 182, 255, 0.15);
+  color: #38b6ff;
   font-weight: 600;
 }
 
@@ -126,7 +140,7 @@ pointer-events: auto;
   flex: 1;
   padding: 14px;
   background: transparent;
-  color: #e5f0ff;
+  color: #fff;
 }
 
 /* ===== ERRORS ===== */
@@ -142,8 +156,8 @@ pointer-events: auto;
   padding: 16px;
   border-radius: 999px;
   border: none;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
-  color: #020617;
+  background: linear-gradient(135deg, #38b6ff, #2450ff);
+  color: #000;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
@@ -152,7 +166,7 @@ pointer-events: auto;
 
 .submitBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+  box-shadow: 0 18px 40px rgba(36, 80, 255, 0.45);
 }
 
 /* ===== SUCCESS ===== */
@@ -166,7 +180,7 @@ pointer-events: auto;
   height: 72px;
   margin: 0 auto 16px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  background: linear-gradient(135deg, #38b6ff, #2450ff);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,28 +194,69 @@ pointer-events: auto;
 
 .successSubtext {
   font-size: 14px;
-  color: #c7ddff;
+  color: #b9c3d1;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .popup {
-    padding: 28px 24px;
+    padding: 28px 28px 32px;
   }
 }
 
 @media (max-width: 720px) {
+  .overlay {
+    align-items: flex-start;
+    padding: 32px 16px 40px;
+  }
+
+  .popup {
+    border-radius: 18px;
+    padding: 24px 22px 28px;
+  }
+
+  .form {
+    gap: 18px;
+  }
+
   .formGrid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .closeBtn {
+    top: 12px;
+    right: 12px;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .popup {
-    padding: 22px 18px;
+    padding: 20px 18px 24px;
   }
 
   .title {
     font-size: 22px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .input,
+  .select,
+  .mobileInput {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .countryCode {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .submitBtn {
+    padding: 14px;
+    font-size: 14px;
   }
 }

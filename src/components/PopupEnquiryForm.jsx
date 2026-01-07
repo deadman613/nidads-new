@@ -113,7 +113,7 @@ useEffect(() => {
           <div className={styles.success}>
             <div className={styles.successIcon}>✓</div>
             <div className={styles.successText}>Thank you, {form.name}!</div>
-            <div className={styles.successSubtext}>We'll contact you soon at {form.email}</div>
+            <div className={styles.successSubtext}>We&apos;ll contact you soon at {form.email}</div>
           </div>
         ) : (
           <form className={styles.form} onSubmit={handleSubmit}>

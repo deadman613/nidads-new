@@ -37,16 +37,35 @@ export default function Footer() {
             <div>
               <h4>Institute</h4>
               <Link href="/about">About Us</Link>
-              <Link href="/placement">Placements</Link>
-              <Link href="/campus">Campus</Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/course">Courses</Link>
+              <Link href="/blog">Blog</Link>
+              <Link href="/contact-us">Contact</Link>
             </div>
 
             <div>
               <h4>Support</h4>
-              <Link href="/faq">FAQs</Link>
-              <Link href="/privacy">Privacy Policy</Link>
-              <Link href="/terms">Terms & Conditions</Link>
+              <Link href="/contact-us">Get Help</Link>
+              <button 
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new Event('openEnquiryPopup'));
+                  }
+                }}
+                style={{ 
+                  background: 'none', 
+                  border: 'none', 
+                  color: 'inherit', 
+                  cursor: 'pointer', 
+                  font: 'inherit', 
+                  padding: 0,
+                  textAlign: 'left',
+                  display: 'block',
+                  marginBottom: '12px'
+                }}
+              >
+                Enquire Now
+              </button>
+              <Link href="/about">About</Link>
             </div>
           </div>
         </div>
@@ -59,9 +78,9 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} NIDADS. All rights reserved.</span>
 
           <div className={styles.socials}>
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="YouTube">YouTube</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
           </div>
         </div>
 

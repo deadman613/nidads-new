@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
+import Link from "next/link";
 import styles from "./GallerySection.module.css";
 
 const CARDS = [
@@ -70,7 +71,7 @@ export default function GallerySection() {
         }
         return arr;
       });
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [isMobile]);
@@ -103,8 +104,12 @@ export default function GallerySection() {
           </div>
 
           <div className={styles.actions}>
-            <button className={styles.primary}>Book a Campus Tour</button>
-            <button className={styles.secondary}>See Our Spaces</button>
+            <Link href="/contact-us">
+              <button className={styles.primary}>Book a Campus Tour</button>
+            </Link>
+            <Link href="/about">
+              <button className={styles.secondary}>See Our Spaces</button>
+            </Link>
           </div>
         </div>
 
