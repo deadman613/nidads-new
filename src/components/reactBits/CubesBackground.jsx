@@ -12,7 +12,7 @@ export default function CubesBackground() {
   <Cubes
     gridSize={8}
     maxAngle={40}
-    radius={10}
+    radius={2}
     borderStyle="1px dashed #ffffffff"
     faceColor="black"
     autoAnimate={true}

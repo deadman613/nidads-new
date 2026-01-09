@@ -6,25 +6,25 @@ import HomeSection1 from "@/components/homeSections/homeSection1";
 import HomeSection2 from "@/components/homeSections/homeSection2";
 import NewSection from "@/components/homeSections/placement";
 import TechStackMarquee from "@/components/homeSections/TechStackMarquee";
-import TestimonialSectionStrict from "@/components/homeSections/TestimonialSectionStrict";
+
 import Videostest from "@/components/homeSections/videostest";
 import CourseCardsSection from "@/components/homeSections/CourseCardsSection";
+
+
 export default function Home() {
   return (
   <>
   <HomeSection1/>
   <TechStackMarquee/>
   <HomeSection2/>
-  
-  {/* <TestimonialSectionStrict/> */}
-  <NewSection/>
+    <NewSection/>
    <CourseCardsSection/>
     <CareerPrograms/>
   <GallerySection/>
   <Videostest/>
-  
+
   <Hero9/>
- 
+
  <Hero8/>
   </>
   );

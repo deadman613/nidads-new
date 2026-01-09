@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./homeSection2.module.css";
 import CubesBackground from "@/components/reactBits/CubesBackground";
 
@@ -11,7 +12,9 @@ export default function HomeSection2() {
 
       <div className={styles.rightContent}>
         <h1 className={styles.heading}>
-          <span style={{color:"white"}}>Empowering</span> Data Science Careers
+          <span style={{ color: "white" }}>Empowering</span>
+          <br />
+          Data Science Careers
         </h1>
 
         <h2 className={styles.subheading} style={{textAlign:"justify"
@@ -27,12 +30,16 @@ export default function HomeSection2() {
         </ul>
 
         <div className={styles.courseActions}>
-          <button className={styles.exploreBtn}>
-            Book My Free Counseling Call
-          </button>
-          <button className={styles.careerBtn}>
-            Help Me Choose the Right Course
-          </button>
+          <Link href="/contact-us">
+            <button className={styles.exploreBtn}>
+              Book My Free Counseling Call
+            </button>
+          </Link>
+          <Link href="/course">
+            <button className={styles.careerBtn}>
+              Help Me Choose the Right Course
+            </button>
+          </Link>
         </div>
       </div>
     </section>

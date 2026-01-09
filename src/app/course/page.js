@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function CoursePage() {
   return (
-    <main >
+    <main style={{ background: '#090d15' }}>
       <CourseSection1 />
       <CourseSection2 />
       {/* <CourseSection3 /> */}

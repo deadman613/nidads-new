@@ -2,9 +2,10 @@
 import BrainCanvas from "../BrainCanvas";
 import Style from "./homeSection.module.css";
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
-const Dither = dynamic(
-  () => import('../dither/dither'),
+const Silk = dynamic(
+  () => import('../Silk'),
   { ssr: false }
 );
 
@@ -12,21 +13,21 @@ export default function Banner() {
   return (
     <main className={Style.BannerContainer}>
 
-      {/* DITHER BACKGROUND */}
+      {/* SILK BACKGROUND */}
       <div className={Style.ditherBg}>
-        <Dither
-          waveColor={[0.20784313725490197, 0.6705882352941176, 0.9411764705882353]}
-          waveAmplitude={0.1}
-          waveFrequency={1}
-          waveSpeed={0.02}
-          colorNum={4}
+        <Silk
+          speed={1.8}
+          scale={0.9}
+          color="#38b6ff"
+          noiseIntensity={1.7}
+          rotation={0}
         />
       </div>
 
       {/* CONTENT WRAPPER */}
       <div className={Style.contentWrapper}>
         <div className={Style.rightContent}>
-          <h1 className={Style.heading}>Master <span style={{color:"#38b6ff"}}>Data Science</span>, <span style={{color:"#38b6ff"}}>AI</span>, <span style={{color:"#38b6ff"}}>Machine Learning</span> and <span style={{color:"#38b6ff"}}>Data Analytics</span></h1>
+          <h1 className={Style.heading}>Master <span style={{color:"hsla(202, 100%, 61%, 1.00)"}}>Data Science</span>, <span style={{color:"#38b6ff"}}>AI</span>, <span style={{color:"#38b6ff"}}>Machine Learning</span> and <span style={{color:"#38b6ff"}}>Data Analytics</span></h1>
           
           <p className={Style.description}>
             Launch your career with practical Data Analytics & AI training aligned
@@ -38,11 +39,14 @@ export default function Banner() {
             <span className={Style.mode}>Offline</span>
 </div>
           <div className={Style.courseActions}>
-            <button className={Style.exploreBtn}>Explore Our Courses</button>
-           <button className={Style.careerBtn}>
-            Talk to a Career Expert
-          </button>
-           
+            <Link href="/course">
+              <button className={Style.exploreBtn}>Explore Our Courses</button>
+            </Link>
+            <Link href="/contact-us">
+              <button className={Style.careerBtn}>
+                Talk to a Career Expert
+              </button>
+            </Link>
           </div>
 
           

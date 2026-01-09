@@ -9,7 +9,7 @@
   box-shadow: 0 2px 8px rgba(30,41,59,0.06);
 }
 .container {
-  max-width: 1400px;
+  max-width: apply(--max-content-width);
   margin: 0 auto;
   padding: 100px 20px 40px 20px;
   color: #e5f0ff;
