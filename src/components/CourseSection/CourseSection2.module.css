@@ -1,7 +1,7 @@
 /* ===== BASE ===== */
 .section {
   background: #090d15;
-  padding: 60px 24px 60PX 24PX;
+  padding: 60px 24px 60px 24px;
   color: #fff;
 }
 
@@ -33,7 +33,7 @@
 
 /* ===== LAYOUT ===== */
 .layout {
-  max-width: 1400px;
+  max-width: 1350px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -43,6 +43,7 @@
 /* ===== SIDEBAR (REFERENCE MATCH) ===== */
 .sidebar {
   width: 280px;
+  margin-top: 70px;
   padding: 24px;
   background: linear-gradient(
     180deg,
@@ -51,10 +52,14 @@
   );
   border-radius: 18px;
   border: 1px solid rgba(59, 130, 246, 0.25);
-  box-shadow:
-    0 0 0 1px rgba(59,130,246,0.15),
-    0 30px 80px rgba(0,0,0,0.6);
-    height: fit-content;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.15), 0 30px 80px rgba(0, 0, 0, 0.6);
+  height: fit-content;
+  position: sticky;
+  top: 30px;
+  align-self: flex-start;
+  max-height: calc(160vh - 40px);
+  overflow-y: auto;
+  
 }
 
 /* Block spacing exactly like image */
@@ -75,7 +80,7 @@
   padding: 12px 14px;
   border-radius: 10px;
   background: linear-gradient(180deg, #0b1e3a, #071225);
-  border: 1px solid rgba(59,130,246,0.35);
+  border: 1px solid rgba(59, 130, 246, 0.35);
   color: #fff;
   font-size: 14px;
   outline: none;
@@ -87,7 +92,7 @@
 
 .searchInput:focus {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 1px rgba(59,130,246,0.4);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
 }
 
 /* Toggle rows */
@@ -116,7 +121,7 @@
   border-radius: 999px;
   position: relative;
   transition: background 0.25s ease;
-  border: 1px solid rgba(59,130,246,0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .toggleSwitch::after {
@@ -129,13 +134,13 @@
   left: 3px;
   border-radius: 50%;
   transition: transform 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Checked state */
 .toggleRow input:checked + .toggleSwitch {
   background: linear-gradient(90deg, #2563eb, #3b82f6);
-  box-shadow: 0 0 12px rgba(59,130,246,0.6);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
 }
 
 .toggleRow input:checked + .toggleSwitch::after {
@@ -148,7 +153,7 @@
   padding: 12px 14px;
   border-radius: 10px;
   background: linear-gradient(180deg, #0b1e3a, #071225);
-  border: 1px solid rgba(59,130,246,0.35);
+  border: 1px solid rgba(59, 130, 246, 0.35);
   color: #e5f0ff;
   font-size: 14px;
   cursor: pointer;
@@ -166,7 +171,7 @@
   padding: 12px;
   border-radius: 10px;
   background: transparent;
-  border: 1px solid rgba(59,130,246,0.6);
+  border: 1px solid rgba(59, 130, 246, 0.6);
   color: #7cfffc;
   font-size: 14px;
   font-weight: 600;
@@ -175,8 +180,8 @@
 }
 
 .clearBtn:hover {
-  background: rgba(59,130,246,0.15);
-  box-shadow: 0 0 16px rgba(59,130,246,0.4);
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
 }
 
 /* ===== MAIN ===== */
@@ -184,7 +189,7 @@
   display: flex;
   gap: 24px;
   margin-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tabs button {
@@ -212,7 +217,7 @@
   background: linear-gradient(180deg, #0b1220, #060b14);
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   text-decoration: none;
   color: inherit;
   transition: transform 0.25s ease;
@@ -255,7 +260,7 @@
 }
 
 .techIcons span {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   padding: 4px 8px;
   border-radius: 999px;
   font-size: 11px;
@@ -333,7 +338,7 @@
   padding: 12px 28px;
   border-radius: 999px;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
 }
 

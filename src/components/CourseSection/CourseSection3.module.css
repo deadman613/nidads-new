@@ -6,9 +6,10 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1350px;
   margin: 0 auto;
   display: grid;
+  padding-top: 30px;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
   gap: 40px;
   align-items: stretch;
@@ -22,7 +23,7 @@
 }
 
 .heading {
-  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 800;
   line-height: 1.15;
   margin: 0 0 16px 0;
@@ -30,7 +31,7 @@
 }
 
 .subheading {
-  font-size: 0.98rem;
+  font-size: clamp(0.9rem, 2vw, 0.98rem);
   line-height: 1.7;
   color: #cdd7eb;
   max-width: 420px;
@@ -62,12 +63,17 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  padding-top: 140%; /* a bit taller, like screenshot */
+  padding-top: 140%;
   overflow: hidden;
   border-radius: 24px;
 }
 
 .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
@@ -85,7 +91,7 @@
   background: #ffffff;
   color: #0f172a;
   border-radius: 18px;
-  padding: 12px 14px 12px;
+  padding: 12px 14px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
   display: flex;
   flex-direction: column;
@@ -96,6 +102,8 @@
 .metaRow {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .metaBadge {
@@ -132,12 +140,14 @@
   font-weight: 600;
   margin: 0;
   color: #111827;
+  line-height: 1.3;
 }
 
 /* round arrow button on the right */
 .arrowButton {
   width: 30px;
   height: 30px;
+  flex-shrink: 0;
   border-radius: 999px;
   border: none;
   background: #111827;
@@ -160,11 +170,13 @@
   align-items: center;
   justify-content: center;
   gap: 18px;
+  padding: 10px 0;
 }
 
 .navCircle {
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
   border-radius: 999px;
   border: none;
   background: #ffffff;
@@ -205,46 +217,105 @@
   background: #a855f7;
 }
 
-/* responsive */
+/* Tablet landscape and smaller desktops */
+@media (max-width: 1200px) {
+  .container {
+    gap: 35px;
+  }
+  
+  .cardsRow {
+    gap: 16px;
+  }
+}
+
+/* Tablet portrait */
 @media (max-width: 1100px) {
   .container {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 40px;
   }
 
   .textColumn {
-    max-width: 520px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .subheading {
+    margin: 0 auto;
   }
 }
 
+/* Large mobile / small tablet */
 @media (max-width: 900px) {
+  .section {
+    padding: 60px 20px;
+  }
+
   .cardsRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .section {
-    padding: 60px 16px;
+    gap: 16px;
   }
 
-  .cardsRow {
-    grid-template-columns: minmax(0, 1fr);
+  .heading {
+    margin: 0 0 12px 0;
   }
 
   .imageWrapper {
-    padding-top: 150%;
+    padding-top: 145%;
   }
 
   .floatingCard {
     left: 12px;
     right: 12px;
     bottom: 14px;
-    padding: 10px 12px 10px;
+    padding: 10px 12px;
+  }
+
+  .metaBadge {
+    font-size: 0.68rem;
+    padding: 3px 8px;
   }
 
   .cardTitle {
-    font-size: 0.96rem;
+    font-size: 0.95rem;
+  }
+
+  /* RESPONSIVE CHANGE: Hide third card on tablets to show only 2 cards */
+  .cardHideMobile {
+    display: none;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 640px) {
+  .section {
+    padding: 50px 16px;
+  }
+
+  .container {
+    gap: 32px;
+  }
+
+  .cardsRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .imageWrapper {
+    padding-top: 135%;
+  }
+
+  .floatingCard {
+    left: 10px;
+    right: 10px;
+    bottom: 12px;
+    padding: 10px 12px;
+    gap: 7px;
+  }
+
+  .cardTitle {
+    font-size: 0.92rem;
   }
 
   .arrowButton {
@@ -259,5 +330,65 @@
   .navCircle {
     width: 36px;
     height: 36px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .activeDot {
+    width: 18px;
+  }
+
+  /* RESPONSIVE CHANGE: Hide second card on mobile to show only 1 card */
+  .cardHideSmallTablet {
+    display: none;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 400px) {
+  .section {
+    padding: 40px 12px;
+  }
+
+  .heading {
+    margin: 0 0 10px 0;
+  }
+
+  .sliderColumn {
+    gap: 20px;
+  }
+
+  .floatingCard {
+    left: 8px;
+    right: 8px;
+    bottom: 10px;
+    padding: 8px 10px;
+  }
+
+  .metaBadge {
+    font-size: 0.65rem;
+    padding: 3px 7px;
+    gap: 4px;
+  }
+
+  .cardTitle {
+    font-size: 0.88rem;
+  }
+
+  .arrowButton {
+    width: 26px;
+    height: 26px;
+  }
+
+  .navCircle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .controlsRow {
+    gap: 12px;
   }
 }

@@ -4,11 +4,11 @@
 .BannerContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 8;
+  min-height: 600px;
   height: auto;
   padding-top: 100px;
   padding-bottom: 40px;
-  overflow: hidden;
+  overflow: visible;
   background-color: #000;
 
   background-image:
@@ -19,8 +19,8 @@
 }
 @media(max-width:1048px){
   .BannerContainer {
-  min-height: clamp(520px, 62vw, 860px);
-}
+    min-height: clamp(600px, 70vw, 900px);
+  }
 }
 /* ===============================
    DITHER BACKGROUND LAYER
@@ -53,14 +53,17 @@
 .contentWrapper {
   position: relative;
   z-index: 2;
-  height: 100%;
   width: 100%;
+  max-height: 100%;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  padding: 0 40px;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 48px);
+  box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* ===============================
@@ -71,8 +74,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items:center;
-  width:100%;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .heading {
@@ -243,10 +248,12 @@ font-weight: 600;
     justify-content: center;
     text-align: center;
     gap: 2rem;
+    padding: clamp(32px, 6vw, 48px) clamp(20px, 5vw, 32px);
   }
 
   .rightContent {
     align-items: center;
+    max-width: 100%;
   }
 
   .description {
@@ -256,14 +263,13 @@ font-weight: 600;
 
 @media (max-width: 600px) {
   .BannerContainer {
-    aspect-ratio: 4 / 5;
-    min-height: clamp(520px, 140vw, 760px);
-    padding-top: 84px;
-    padding-bottom: 28px;
+    min-height: clamp(650px, 150vw, 900px);
+    padding-top: 80px;
+    padding-bottom: 40px;
   }
 
   .contentWrapper {
-    padding: 0 16px;
+    padding: clamp(40px, 12vw, 80px) clamp(20px, 5vw, 32px);
   }
 
   .description {
@@ -272,6 +278,7 @@ font-weight: 600;
 
   .courseActions {
     justify-content: center;
+    gap: 0.75rem;
   }
 
   .exploreBtn,
@@ -285,9 +292,16 @@ font-weight: 600;
   }
 }
 
-@media (max-width: 470px) {
-  .BannerContainer {
-    aspect-ratio: 3 / 4;
-    min-height: clamp(560px, 170vw, 860px);
+@media (max-width: 334px) {
+   .BannerContainer {
+    min-height: 100vh;         
+    height: auto;
+    padding-top: 90px;
+    padding-bottom: 50px;
+    overflow: visible;         
+  }
+
+  .contentWrapper {
+    padding: 40px 20px;
   }
 }

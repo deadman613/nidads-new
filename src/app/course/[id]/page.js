@@ -128,8 +128,9 @@ export default function CourseDetailPage({ params }) {
 
             {/* WHAT YOU'LL LEARN */}
             <section className={styles.section}>
-              <div className={styles.sectionBox}>
+              <div className={styles.sectionBox1}>
                 <h2 className={styles.sectionTitle}>What you'll learn</h2>
+
                 <div
                   style={{
                     display: "grid",
@@ -412,7 +413,8 @@ export default function CourseDetailPage({ params }) {
           <h3 className={styles.trainerSectionTitle}>Meet Your Trainers</h3>
           <div className={styles.trainerCard}>
             <div className={styles.trainerLeft}>
-              <div className={styles.trainerBadge}>About the trainer</div>
+              <div className={styles.trainerBadge}><button className={styles.trainerBadgeButton}>
+                About the trainer </button></div>
               <div className={styles.trainerNameRow}>
                 <span className={styles.trainerName}>
                   {course.instructor?.name || "Manjeet Singh"}

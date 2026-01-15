@@ -8,8 +8,9 @@
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(30,41,59,0.06);
 }
+
 .container {
-  max-width: apply(--max-content-width);
+  max-width: 1350px;
   margin: 0 auto;
   padding: 100px 20px 40px 20px;
   color: #e5f0ff;
@@ -45,9 +46,12 @@
   box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
 }
 
-/* Image block */
+/* Image wrapper – controls aspect ratio */
 .heroImageWrap {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   border-bottom: 1px solid rgba(30, 64, 175, 0.9);
 }
 
@@ -65,13 +69,14 @@
   z-index: 2;
 }
 
+/* Hero image – fills wrapper perfectly */
 .heroImage {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  display: block;
-  max-height: 540px;
-  min-height: 340px;
+  height: 100%;
   object-fit: cover;
-  padding: 24px;
+  object-position: center;
   border-radius: 30px;
 }
 
@@ -282,6 +287,13 @@
   margin-bottom: -7px;
 }
 
+.sectionBox1 {
+  padding: 32px;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 60%);
+  border-radius: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
 .sectionBox {
   padding: 32px;
   background: radial-gradient(circle at top, #0f172a 0, #020617 60%);
@@ -303,6 +315,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .moduleCount {
@@ -436,10 +450,9 @@
 
 .fullWidthSection {
   width: 100vw;
-    background-color: #090d15;
+  background-color: #090d15;
   margin-left: calc(50% - 50vw);
   padding: 32px 0 40px;
-  /* background: radial-gradient(circle at top, #020617 0, #020617 50%, #020617 100%); */
 }
 
 .fullWidthInner {
@@ -482,6 +495,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .trainerName {
@@ -536,20 +550,21 @@
   overflow: hidden;
   background: #020617;
   border: 2px solid rgba(56, 189, 248, 0.7);
+  flex-shrink: 0;
 }
 
 .trainerAvatarInner {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: url("/uploads/Shagun4-removebg-preview (1).png") top/cover
-    no-repeat;
+  background: url("/uploads/Shagun4-removebg-preview (1).png") top/cover no-repeat;
 }
 
 /* === Recommended courses === */
-.recoViewBtn{
+.recoViewBtn {
   margin-top: auto;
 }
+
 .recommendedSectionTitle {
   font-size: 18px;
   font-weight: 700;
@@ -594,7 +609,6 @@
 .recoImage {
   width: 100%;
   height: 100%;
-  aspect-ratio: 16/9;
   object-fit: cover;
 }
 
@@ -685,52 +699,195 @@
   transform: translateY(-2px);
 }
 
-/* responsive tweaks */
+/* ================= RESPONSIVE BREAKPOINTS ================= */
 
+/* Large tablets and small desktops */
 @media (max-width: 1200px) {
   .recommendedGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    width: 100%;
+    padding: 0 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .recommendedGrid > * {
+    flex: 0 0 calc(100% - 32px);
+    scroll-snap-align: center;
+  }
+  
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
+/* Tablets */
 @media (max-width: 1024px) {
+  .container {
+    padding:300px 20px 40px 20px;
+  }
+  
   .layout {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .courseCard {
     position: static;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .leftColumn {
+    gap: 32px;
   }
 
   .trainerCard {
     grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+  }
+  
+  .trainerLeft {
+    align-items: center;
+  }
+  
+  .trainerNameRow {
+    justify-content: center;
+  }
+  
+  .trainerAvatar {
+    margin: 0 auto;
+  }
+  
+  .recommendedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 
+/* Mobile landscape and small tablets */
 @media (max-width: 768px) {
   .container {
-    padding: 24px 16px;
+    padding: 70px 16px 32px 16px;
+  }
+
+  .layout {
+    gap: 24px;
+  }
+
+  .leftColumn {
+    gap: 24px;
+  }
+
+  .heroCard {
+    border-radius: 14px;
+  }
+
+  /* Only adjust visual rounding – ratio stays 16:9 */
+  .heroImage {
+    border-radius: 24px;
   }
 
   .heroBody {
-    padding: 16px 18px 16px;
+    padding: 16px 20px 16px;
   }
 
   .heroTitle {
     font-size: 20px;
+    margin-bottom: 6px;
   }
 
   .heroSubtitle {
     font-size: 13px;
+    margin-bottom: 12px;
   }
 
   .heroMetaRow {
     gap: 12px;
     font-size: 12px;
   }
+    .sectionBox1 {
+    padding: 24px 20px;
+    border-radius: 14px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  .sectionBox {
+    padding: 24px 20px;
+    border-radius: 14px;
+   
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .modulesHeader {
+    margin-bottom: 20px;
+  }
+
+  .moduleCount {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .moduleSummaryList {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .moduleSummaryChip {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .moduleHeader {
+    padding: 16px 18px;
+  }
+
+  .moduleTitle {
+    font-size: 15px;
+  }
+
+  .moduleSubtitle {
+    font-size: 12px;
+  }
+
+  .moduleContent {
+    padding: 0 18px 16px;
+  }
+
+  .lectureItem {
+    padding: 14px 0;
+  }
+
+  .lectureTitle {
+    font-size: 13px;
+  }
+
+  .courseCard {
+    border-radius: 14px;
+  }
 
   .cardContent {
     padding: 20px;
+  }
+
+  .cardMeta {
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .priceSection {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   .priceAmount {
@@ -741,30 +898,240 @@
     font-size: 18px;
   }
 
+  .installmentInfoBox {
+    padding: 16px 14px 12px 14px;
+    font-size: 14px;
+  }
+
+  .enrollButton {
+    padding: 13px 18px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .includesSection {
+    padding-top: 20px;
+  }
+
+  .includesTitle {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .includesList {
+    gap: 10px;
+  }
+
+  .includesItem {
+    font-size: 12px;
+  }
+
+  .fullWidthSection {
+    padding: 24px 0 32px;
+    
+  }
+
+  .fullWidthInner {
+    padding: 0 16px;
+  }
+
+  .trainerSectionTitle {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
+
+  .trainerCard {
+    padding: 18px 20px;
+    border-radius: 14px;
+  }
+
+  .trainerName {
+    font-size: 15px;
+  }
+
+  .trainerBio {
+    font-size: 12px;
+  }
+
+  .trainerTag {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .recommendedSectionTitle {
+    font-size: 17px;
+  }
+
+  .recommendedSubtitle {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
   .recommendedGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
   .container {
-    padding: 16px 12px;
+    padding: 60px 12px 24px 12px;
+    margin-top: 60px;
   }
 
+  .layout {
+    gap: 20px;
+  }
+
+  .leftColumn {
+    gap: 20px;
+  }
+
+  .heroCard {
+    border-radius: 12px;
+  }
+
+  .bestsellerBadge {
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    font-size: 11px;
+  }
+
+  /* Only adjust visual rounding – ratio stays 16:9 */
   .heroImage {
-    max-height: 320px;
+    border-radius: 20px;
   }
 
   .heroBody {
-    padding: 14px 14px 14px;
+    padding: 40px 16px 14px;
   }
 
   .heroTitle {
     font-size: 18px;
   }
 
+  .heroSubtitle {
+    font-size: 12px;
+  }
+
+  .heroMetaRow {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .heroMetaItem svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sectionBox {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .modulesHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .moduleCount {
+    align-self: flex-start;
+  }
+
+  .moduleSummaryList {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .moduleSummaryChip {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .modulesList {
+    gap: 10px;
+  }
+
+  .moduleItem {
+    border-radius: 10px;
+  }
+
+  .moduleHeader {
+    padding: 14px 16px;
+  }
+
+  .moduleTitle {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .moduleSubtitle {
+    font-size: 11px;
+  }
+
+  .moduleIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .moduleContent {
+    padding: 0 16px 14px;
+  }
+
+  .lectureItem {
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .lectureIcon {
+    font-size: 16px;
+  }
+
+  .lectureTitle {
+    font-size: 12px;
+  }
+
+  .lectureDuration {
+    font-size: 11px;
+  }
+
+  .courseCard {
+    border-radius: 12px;
+  }
+
+  .cardImage {
+    height: 180px;
+  }
+
   .cardContent {
     padding: 16px;
+  }
+
+  .cardMeta {
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+  }
+
+  .metaLabel {
+    font-size: 12px;
+  }
+
+  .metaValue {
+    font-size: 13px;
+  }
+
+  .priceSection {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
   }
 
   .priceAmount {
@@ -775,12 +1142,108 @@
     font-size: 16px;
   }
 
+  .installmentPeriod {
+    font-size: 13px;
+  }
+
+  .installmentInfoBox {
+    padding: 14px 12px 10px 12px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
   .enrollButton {
     padding: 12px 16px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    border-radius: 7px;
+  }
+
+  .includesSection {
+    padding-top: 16px;
+  }
+
+  .includesTitle {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .includesList {
+    gap: 9px;
+  }
+
+  .includesItem {
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .includesItem svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .fullWidthSection {
+    padding: 20px 0 24px;
+  }
+
+  .fullWidthInner {
+    padding: 0 12px;
+  }
+
+  .trainerSectionTitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .trainerCard {
+    padding: 16px;
+    border-radius: 12px;
+    gap: 16px;
+  }
+
+  .trainerLeft {
+    gap: 8px;
+  }
+
+  .trainerBadge {
+    font-size: 11px;
+  }
+  .trainerBadgeButton
+  {
+    font-size: 12px;
+    padding: 4px 10px;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    background: transparent;
+    color: #38bdf8;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .trainerNameRow {
+    gap: 10px;
+  }
+
+  .trainerName {
     font-size: 14px;
   }
 
-  .recommendedGrid {
-    grid-template-columns: 1fr;
+  .socialChip {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .trainerBio {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .trainerTags {
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .trainerTag {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 }

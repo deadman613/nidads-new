@@ -73,8 +73,15 @@ export default function CourseSection3() {
         {/* Right slider column */}
         <div className={styles.sliderColumn}>
           <div className={styles.cardsRow}>
-            {visibleSlides.map((item) => (
-              <article key={item.id} className={styles.card}>
+            {visibleSlides.map((item, index) => (
+              <article 
+                key={item.id} 
+                className={`${styles.card} ${
+                  index === 2 ? styles.cardHideMobile : '' // Hide 3rd card on tablets (≤900px)
+                } ${
+                  index === 1 ? styles.cardHideSmallTablet : '' // Hide 2nd card on mobile (≤640px)
+                }`}
+              >
                 <div className={styles.imageWrapper}>
                   <Image
                     src={item.image}
