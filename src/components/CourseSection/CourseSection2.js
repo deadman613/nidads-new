@@ -108,7 +108,7 @@ export default function CourseSection2() {
     ))}
   </div>
 
-  <div className={styles.filterBlock}>
+  {/* <div className={styles.filterBlock}>
     <h4 className={styles.filterTitle}>Price</h4>
     <select className={styles.priceSelect}>
       <option>All prices</option>
@@ -116,7 +116,7 @@ export default function CourseSection2() {
       <option>₹50,000 – ₹1,00,000</option>
       <option>Above ₹1,00,000</option>
     </select>
-  </div>
+  </div> */}
 
   <label className={`${styles.toggleRow} ${styles.sortToggle}`}>
     <span className={styles.toggleLabelText}>Newest first</span>
@@ -182,10 +182,10 @@ export default function CourseSection2() {
                     <span className={styles.duration}>{course.duration}</span>
                   </div>
 
-                  <div className={styles.priceRow}>
+                  {/* <div className={styles.priceRow}>
                     <span className={styles.oldPrice}>₹120,000</span>
                     <span className={styles.newPrice}>₹{course.monthlyPrice}/month</span>
-                  </div>
+                  </div> */}
                 </div>
               </Link>
             ))}
