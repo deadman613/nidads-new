@@ -45,18 +45,18 @@ export default function Footer() {
             <div>
               <h4>Support</h4>
               <Link href="/contact-us">Get Help</Link>
-              <button 
+              <button
                 onClick={() => {
                   if (typeof window !== 'undefined') {
                     window.dispatchEvent(new Event('openEnquiryPopup'));
                   }
                 }}
-                style={{ 
-                  background: 'none', 
-                  border: 'none', 
-                  color: 'inherit', 
-                  cursor: 'pointer', 
-                  font: 'inherit', 
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'inherit',
+                  cursor: 'pointer',
+                  font: 'inherit',
                   padding: 0,
                   textAlign: 'left',
                   display: 'block',
@@ -78,10 +78,46 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} NIDADS. All rights reserved.</span>
 
           <div className={styles.socials}>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <img
+                src="/logos/linkedin.png"
+                alt="LinkedIn"
+                className={styles.socialIcon}
+              />
+            </a>
+
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <img
+                src="/logos/instagram.png"
+                alt="Instagram"
+                className={styles.socialIcon}
+              />
+            </a>
+
+            <a
+              href="https://wa.me/XXXXXXXXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <img
+                src="/logos/whatsapp.png"
+                alt="WhatsApp"
+                className={styles.socialIcon}
+              />
+            </a>
           </div>
+
         </div>
 
       </div>

@@ -26,6 +26,24 @@
     pointer-events: none;
 }
 
+.about:hover{
+  font:bold;
+    font-size: 1.2em; /* Makes text 20% bigger */
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
+.Contact:hover{
+    
+    font-size: 1.2em; /* Makes text 20% bigger */
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
+.Courses:hover{
+    
+    font-size: 1.2em; /* Makes text 20% bigger */
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;

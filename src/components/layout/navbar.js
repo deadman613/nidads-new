@@ -40,10 +40,10 @@ export default function Navbar() {
                   ✕
                 </button>
                 <ul>
-                    <li><Link href="/course" onClick={handleNavClick}>Courses</Link></li>
-                    <li><Link href="/about" onClick={handleNavClick}>About</Link></li>
-                    <li><Link href="/contact-us" onClick={handleNavClick}>Contact</Link></li>
-                    <li className={Style.mobileOnly}>
+                    <li><Link href="/about" onClick={handleNavClick} className={Style.about}>About</Link></li>
+                    <li><Link href="/contact-us" onClick={handleNavClick}className={Style.Contact}>Contact</Link></li>
+                    <li><Link href="/course" onClick={handleNavClick}className={Style.Courses}>Courses</Link></li>
+                    {/* <li className={Style.mobileOnly}>
                         <button 
                             onClick={(e) => {
                                 e.preventDefault();
@@ -56,10 +56,10 @@ export default function Navbar() {
                         >
                             Councelling
                         </button>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
-            <button
+            {/* <button
                 onClick={(e) => {
                     e.preventDefault();
                     if (typeof window !== 'undefined') {
@@ -70,7 +70,7 @@ export default function Navbar() {
                 style={{ color: '#fff', marginLeft: '1rem', background: 'none', border: 'none', cursor: 'pointer', font: 'inherit' }}
             >
                 Councelling
-            </button>
+            </button> */}
         </nav>
     );
 }

@@ -122,3 +122,21 @@
     text-align: center;
   }
 }
+
+.socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.socialIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.socialIcon:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
