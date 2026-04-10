@@ -27,7 +27,7 @@ export default function Banner() {
       {/* CONTENT WRAPPER */}
       <div className={Style.contentWrapper}>
         <div className={Style.rightContent}>
-          <h1 className={Style.heading}>Master <span style={{color:"hsla(202, 100%, 61%, 1.00)"}}>Data Science</span>, <span style={{color:"#38b6ff"}}>AI</span>, <span style={{color:"#38b6ff"}}>Machine Learning</span> and <span style={{color:"#38b6ff"}}>Data Analytics</span></h1>
+          <h1 className={Style.heading}>Master <span style={{color:"hsla(202, 100%, 61%, 1.00)"}}>Data Science</span><span style={{color:"#ffffff"}}> &</span>  <span style={{color:"#38b6ff"}}>Data Analytics</span> <span style={{color:"#ffffff"}}>with</span> <span style={{color:"#38b6ff"}}>AI</span></h1>
           
           <p className={Style.description}>
             Launch your career with practical Data Analytics & AI training aligned
@@ -74,10 +74,49 @@ export default function Banner() {
               <span className={Style.statText}>4.9/5 (12,872 ratings)</span>
             </div>
           </div>
-          
-        </div>
-      </div>
 
+          {/* KEY STATISTICS SECTION */}
+<div className={Style.keyStatsSection}>
+  <div className={`${Style.statCard} ${Style.statCard1}`}>
+    <div className={Style.statIcon}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2"/>
+        <path d="M12 7V12L15.5 14.5" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    </div>
+    <div className={Style.statText}>
+      <span className={Style.statLabel}>Students Trained</span>
+      <span className={Style.statValue}>15,000+</span>
+    </div>
+  </div>
+
+  <div className={`${Style.statCard} ${Style.statCard2}`}>
+    <div className={Style.statIcon}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#fff"/>
+      </svg>
+    </div>
+    <div className={Style.statText}>
+      <span className={Style.statLabel}>Success Rate</span>
+      <span className={Style.statValue}>98%</span>
+    </div>
+  </div>
+
+  <div className={`${Style.statCard} ${Style.statCard3}`}>
+    <div className={Style.statIcon}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+          stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+    <div className={Style.statText}>
+      <span className={Style.statLabel}>Years Experience</span>
+      <span className={Style.statValue}>15+</span>
+    </div>
+  </div>
+</div>
+  </div>
+    </div>
     </main>
   );
 }

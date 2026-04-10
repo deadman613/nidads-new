@@ -1,6 +1,6 @@
 .hero {
-  min-height: 60vh;
-  padding: 48px 12px;
+  min-height: auto;
+  padding: 36px 12px;
   position: relative;
   overflow: hidden;
   background-color: #000;
@@ -17,13 +17,14 @@
 /* Header */
 .header {
   margin-bottom: 60px;
+  text-align: center;
 }
 
 .title {
   font-size: 56px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 20px 0;
+  margin: 0 auto 20px auto;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -32,19 +33,25 @@
   font-size: 16px;
   color: #b9c3d1;
   max-width: 720px;
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.7;
 }
 
 /* Accordion */
 .accordionContainer {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0 -12px;
 }
 
 .accordionItem {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.3s ease;
+  width: calc(50% - 12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 18px 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .accordionItem:first-child {
@@ -60,7 +67,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0;
+  padding: 22px 0;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -121,7 +128,7 @@
 }
 
 .answerWrapper {
-  padding-left: 56px;
+  padding-left: 40px;
 }
 
 .answer {
@@ -139,6 +146,17 @@
 
   .question {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 860px) {
+  .accordionContainer {
+    display: block;
+    margin: 0;
+  }
+
+  .accordionItem {
+    width: 100%;
   }
 }
 

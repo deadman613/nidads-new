@@ -148,7 +148,7 @@ const Hero9 = () => {
           <div className={styles.badge}>
             <span className={styles.badgeText}>Testimonials</span>
           </div>
-          <h2 className={styles.title}>What our users say</h2>
+          <h2 className={styles.title}>What Learners Say</h2>
           <p className={styles.description}>
             See what our customers have to say about us.
           </p>
