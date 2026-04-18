@@ -1,5 +1,5 @@
 .section {
-  padding: 120px 80px;
+  padding: 60px 40px;
   background:
     radial-gradient(circle 500px at 12% 32%, rgba(80, 180, 255, 0.22) 0, rgba(80, 180, 255, 0) 80%),
     radial-gradient(circle 300px at 78% 18%, rgba(36, 80, 255, 0.18) 0, rgba(36, 80, 255, 0) 80%),
@@ -13,7 +13,7 @@
   margin: auto;
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
-  gap: 80px;
+  gap: 40px;
   align-items: center;
 }
 

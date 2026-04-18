@@ -1,0 +1,268 @@
+.section {
+  width: 100%;
+  padding: 80px 24px;
+  background: radial-gradient(circle at top center, rgba(56, 182, 255, 0.08), transparent 40%),
+    linear-gradient(180deg, #020812 0%, #0a0f1f 100%);
+  color: #e7f1ff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(56, 182, 255, 0.35);
+  border-radius: 999px;
+  padding: 6px 18px;
+  margin-bottom: 20px;
+  background: rgba(56, 182, 255, 0.1);
+  color: #38b6ff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.header h2 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  font-size: 16px;
+  color: #b9c3d1;
+  margin: 0;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.certificateCard {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(13, 17, 23, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.certificateImage {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #1a1f2e, #0f1419);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.certificateImage img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.certificateInfo {
+  padding: 30px;
+  text-align: center;
+}
+
+.certificateInfo h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.certificateInfo p {
+  font-size: 16px;
+  color: #b9c3d1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Navigation Buttons */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(56, 182, 255, 0.2);
+  color: #38b6ff;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navButton:hover {
+  background: rgba(56, 182, 255, 0.4);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: -25px;
+}
+
+.nextButton {
+  right: -25px;
+}
+
+/* Indicators */
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 182, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator:hover {
+  border-color: rgba(56, 182, 255, 0.6);
+}
+
+.indicator.active {
+  background: #38b6ff;
+  border-color: #38b6ff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .carouselContainer {
+    max-width: 700px;
+  }
+
+  .certificateImage {
+    height: 250px;
+  }
+
+  .certificateInfo {
+    padding: 24px;
+  }
+
+  .certificateInfo h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+
+  .header h2 {
+    font-size: 36px;
+  }
+
+  .carouselContainer {
+    max-width: 100%;
+  }
+
+  .certificateImage {
+    height: 200px;
+  }
+
+  .certificateInfo {
+    padding: 20px;
+  }
+
+  .certificateInfo h3 {
+    font-size: 18px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .prevButton {
+    left: -20px;
+  }
+
+  .nextButton {
+    right: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 16px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .certificateImage {
+    height: 180px;
+  }
+
+  .certificateInfo {
+    padding: 16px;
+  }
+
+  .certificateInfo h3 {
+    font-size: 16px;
+  }
+
+  .navButton {
+    display: none; /* Hide navigation buttons on mobile */
+  }
+}

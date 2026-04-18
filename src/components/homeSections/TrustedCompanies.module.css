@@ -3,7 +3,7 @@
 ================================ */
 .section {
   width: 100%;
-  padding: 64px 24px 72px;
+  padding: 32px 24px 36px;
   background: radial-gradient(circle at top left, rgba(56, 182, 255, 0.14), transparent 34%),
     radial-gradient(circle at top right, rgba(0, 255, 255, 0.10), transparent 26%),
     linear-gradient(180deg, #02050c 0%, #070b14 100%);

@@ -10,12 +10,14 @@ const testimonials = [
     name: "Amit Sharma",
     role: "Data Analyst",
   },
+  
   {
     text: "Hands-on mentorship and real industry projects gave me the confidence to transition into machine learning engineering.",
     image: "https://randomuser.me/api/portraits/men/12.jpg",
     name: "Rahul Verma",
     role: "Machine Learning Engineer",
   },
+
   {
     text: "The supportive faculty and living labs made learning complex concepts enjoyable and practical.",
     image: "https://randomuser.me/api/portraits/women/13.jpg",

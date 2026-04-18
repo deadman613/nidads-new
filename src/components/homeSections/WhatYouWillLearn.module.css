@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  padding: 72px 24px 80px;
+  padding: 72px 24px 40px;
   background: radial-gradient(circle at top right, rgba(36, 80, 255, 0.10), transparent 40%),
     radial-gradient(circle at bottom left, rgba(0, 255, 255, 0.08), transparent 35%),
     linear-gradient(180deg, #020812 0%, #0a0f1f 100%);
@@ -22,7 +22,7 @@
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  gap: 56px;
+  gap: 28px;
 }
 
 .header {

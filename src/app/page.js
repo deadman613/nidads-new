@@ -13,8 +13,9 @@ import TechStackMarquee from "@/components/homeSections/TechStackMarquee";
 
 import Videostest from "@/components/homeSections/videostest";
 import CourseCardsSection from "@/components/homeSections/CourseCardsSection";
-import CourseComparison from "@/components/homeSections/CourseComparison";
+import ProjectComparison from "@/components/homeSections/ProjectComparison";
 import PostGraduationProgram from "@/components/homeSections/PostGraduationProgram";
+import CertificateSection from "@/components/homeSections/CertificateSection";
 
 
 export default function Home() {
@@ -31,7 +32,8 @@ export default function Home() {
     <NewSection/>
 
     <CareerPrograms/>
-<CourseComparison/>
+    <ProjectComparison/>
+    <CertificateSection/>
   <PostGraduationProgram/>
   <GallerySection/>
   <Videostest/>
