@@ -84,6 +84,7 @@
   color: #cbd5eb;
   line-height: 1.8;
   flex-grow: 0;
+  overflow-wrap: anywhere;
 }
 
 .features {
@@ -102,6 +103,7 @@
   line-height: 1.8;
   padding: 0;
   align-items: start;
+  overflow-wrap: anywhere;
 }
 
 .features li::before {
@@ -130,6 +132,15 @@
 @media (max-width: 480px) {
   .section {
     padding: 40px 14px;
+  }
+
+  .grid {
+    gap: 16px;
+  }
+
+  .card {
+    border-radius: 18px;
+    padding: 20px;
   }
 
   .header h2 {

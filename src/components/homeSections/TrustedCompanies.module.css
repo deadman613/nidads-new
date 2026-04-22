@@ -3,12 +3,14 @@
 ================================ */
 .section {
   width: 100%;
-  padding: 32px 24px 36px;
+  padding: clamp(28px, 5vw, 56px) clamp(12px, 4vw, 24px) clamp(32px, 6vw, 64px);
   background: radial-gradient(circle at top left, rgba(56, 182, 255, 0.14), transparent 34%),
     radial-gradient(circle at top right, rgba(0, 255, 255, 0.10), transparent 26%),
     linear-gradient(180deg, #02050c 0%, #070b14 100%);
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden removed — it clips the carousel scroll container on mobile */
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .section::before {
@@ -26,6 +28,7 @@
   position: relative;
   z-index: 1;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   gap: 34px;
@@ -96,17 +99,18 @@
 .carousel {
   display: grid;
   grid-template-rows: repeat(2, 80px);
-  grid-auto-columns: 110px;
+  grid-auto-columns: clamp(72px, 22vw, 110px);
   grid-auto-flow: column;
   gap: 14px 28px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 12px 0;
+  padding: 12px 2px;
   scroll-padding: 0 20px;
   width: 100%;
   max-width: 800px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
 }
 
 .carousel::-webkit-scrollbar {
@@ -118,9 +122,9 @@
 ================================ */
 .card {
   min-height: 80px;
-  min-width: 110px;
+  min-width: clamp(72px, 22vw, 110px);
   height: 80px;
-  width: 110px;
+  width: clamp(72px, 22vw, 110px);
   padding: 12px;
   display: flex;
   align-items: center;
@@ -131,6 +135,7 @@
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.18);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .card:hover {
@@ -155,6 +160,25 @@
   height: auto;
   object-fit: contain;
   filter: brightness(0.95) contrast(1.05);
+}
+
+/* ===============================
+   MOBILE GRID (shown only on ≤768px)
+================================ */
+.mobileGrid {
+  display: none;
+}
+
+.mobileCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56, 182, 255, 0.14);
+  min-height: 64px;
+  overflow: hidden;
 }
 
 /* ===============================
@@ -186,38 +210,37 @@
 ================================ */
 @media (max-width: 768px) {
   .section {
-    padding: 56px 18px 64px;
+    padding: 40px 16px 52px;
   }
 
   .panel {
     max-width: 100%;
-    padding: 0 12px;
     gap: 24px;
   }
 
   .header {
     max-width: 100%;
-    padding: 0 12px;
     gap: 12px;
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .description {
     font-size: 1rem;
   }
 
-  .carousel {
-    max-width: 100%;
-    grid-auto-columns: 100px;
-    gap: 12px 20px;
+  /* Hide desktop carousel, show mobile grid */
+  .carouselWrapper {
+    display: none;
   }
 
-  .card {
-    min-width: 100px;
-    width: 100px;
+  .mobileGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
   }
 
   .grid {
@@ -231,56 +254,36 @@
 ================================ */
 @media (max-width: 560px) {
   .section {
-    padding: 48px 16px 56px;
-  }
-
-  .panel {
-    padding: 0 8px;
-    gap: 20px;
+    padding: 32px 12px 40px;
   }
 
   .header {
-    padding: 0 8px;
     gap: 10px;
   }
 
   .title {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
 
   .description {
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     line-height: 1.7;
   }
 
-  .carousel {
-    max-width: 100%;
-    grid-template-rows: repeat(2, 70px);
-    grid-auto-columns: 84px;
-    gap: 10px 16px;
-    padding: 10px 0;
+  .mobileGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
-  .card {
-    min-width: 84px;
-    width: 84px;
-    min-height: 70px;
-    height: 70px;
+  .mobileCard {
+    min-height: 58px;
     padding: 8px;
     border-radius: 10px;
-  }
-
-  .card span {
-    font-size: 0.9rem;
   }
 
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 12px;
-  }
-
-  .carouselWrapper {
-    gap: 10px;
   }
 }
 
@@ -289,26 +292,20 @@
 ================================ */
 @media (max-width: 420px) {
   .section {
-    padding: 44px 14px 52px;
-  }
-
-  .panel {
-    padding: 0 4px;
-    gap: 18px;
+    padding: 28px 10px 34px;
   }
 
   .header {
-    padding: 0 4px;
     gap: 8px;
   }
 
   .title {
-    font-size: 1.65rem;
-    line-height: 1.1;
+    font-size: 1.5rem;
+    line-height: 1.15;
   }
 
   .description {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.65;
   }
 
@@ -317,33 +314,20 @@
     letter-spacing: 0.15em;
   }
 
-  .carousel {
-    grid-template-rows: repeat(2, 60px);
-    grid-auto-columns: 72px;
-    gap: 8px 14px;
-    padding: 8px 0;
+  .mobileGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
-  .card {
-    min-width: 72px;
-    width: 72px;
-    min-height: 60px;
-    height: 60px;
+  .mobileCard {
+    min-height: 52px;
     padding: 6px;
     border-radius: 8px;
-  }
-
-  .card span {
-    font-size: 0.82rem;
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-  }
-
-  .carouselWrapper {
-    gap: 8px;
   }
 }
 
@@ -352,33 +336,25 @@
 ================================ */
 @media (max-width: 360px) {
   .section {
-    padding: 36px 10px 44px;
+    padding: 24px 8px 30px;
   }
 
   .title {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
   }
 
   .description {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
   }
 
-  .carousel {
-    grid-template-rows: repeat(2, 54px);
-    grid-auto-columns: 64px;
-    gap: 7px 12px;
+  .mobileGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
   }
 
-  .card {
-    min-width: 64px;
-    width: 64px;
-    min-height: 54px;
-    height: 54px;
+  .mobileCard {
+    min-height: 48px;
     padding: 5px;
     border-radius: 7px;
-  }
-
-  .card span {
-    font-size: 0.76rem;
   }
 }

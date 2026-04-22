@@ -117,6 +117,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   background: #000 !important;
 }

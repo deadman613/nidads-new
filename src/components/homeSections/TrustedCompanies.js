@@ -20,24 +20,37 @@ const companies = [
 
 export default function TrustedCompanies() {
   const carouselRef = useRef(null);
-  const [isAutoScroll, setIsAutoScroll] = useState(true);
+  const [isAutoScroll, setIsAutoScroll] = useState(false);
 
   useEffect(() => {
-    if (!isAutoScroll) return;
+    const mediaQuery = window.matchMedia("(min-width: 769px)");
+
+    const syncAutoScroll = () => {
+      setIsAutoScroll(mediaQuery.matches);
+    };
+
+    syncAutoScroll();
+    mediaQuery.addEventListener("change", syncAutoScroll);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncAutoScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isAutoScroll || !carouselRef.current) return;
 
     const interval = setInterval(() => {
-      if (carouselRef.current) {
-        const container = carouselRef.current;
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        
-        if (container.scrollLeft >= maxScroll) {
-          container.scrollLeft = 0;
-        } else {
-          container.scrollBy({
-            left: 124,
-            behavior: "smooth",
-          });
-        }
+      const container = carouselRef.current;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+
+      if (container.scrollLeft >= maxScroll) {
+        container.scrollLeft = 0;
+      } else {
+        container.scrollBy({
+          left: 124,
+          behavior: "smooth",
+        });
       }
     }, 1500);
 
@@ -56,18 +69,32 @@ export default function TrustedCompanies() {
           </p>
         </div>
 
+        {/* Desktop: scrolling carousel */}
         <div className={styles.carouselWrapper}>
           <div className={styles.carousel} ref={carouselRef}>
             {[...companies, ...companies].map((company, idx) => (
               <div key={`${company.name}-${idx}`} className={styles.card}>
-                <img 
-                  src={company.logo} 
-                  alt={company.name} 
+                <img
+                  src={company.logo}
+                  alt={company.name}
                   className={styles.logo}
                 />
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile: static wrapped grid — all logos visible */}
+        <div className={styles.mobileGrid}>
+          {companies.map((company) => (
+            <div key={company.name} className={styles.mobileCard}>
+              <img
+                src={company.logo}
+                alt={company.name}
+                className={styles.logo}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

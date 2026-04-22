@@ -3,26 +3,26 @@ import styles from "./ExpertMentors.module.css";
 const mentors = [
   {
     name: "Puneet Narang",
-    role: "Head Trainer · NSE & Derivatives",
-    headline: "Specializes in Option strategies, intraday, index trading, and building rule-based systems for retail traders.",
+    role: "Lead Data Science Trainer · ML & AI",
+    headline: "8+ years of industry experience in Machine Learning, Deep Learning, and AI. Specializes in building end-to-end ML pipelines and deploying models at scale.",
     stats: "4.9 ★ 320+ reviews",
-    chips: ["Live Market Sessions", "1:1 Doubt Support"],
+    chips: ["ML & Deep Learning", "1:1 Doubt Support"],
     img: "/center/IMG_4066.webp",
   },
   {
     name: "Krishna Sachdeva",
-    role: "Senior Analyst · Technical Research",
-    headline: "2.5 years of experience in indices cryptos and 1 year in commodities. Expert in chart patterns and momentum trading.",
+    role: "Senior Data Analyst · BI & Visualisation",
+    headline: "5+ years of experience in Data Analytics, Power BI, Tableau, and SQL. Expert in turning raw datasets into actionable business insights.",
     stats: "4.8 ★ 280+ reviews",
-    chips: ["Chart Mastery", "Strategy Builder"],
+    chips: ["Power BI & Tableau", "SQL & Python"],
     img: "/center/IMG_4067.webp",
   },
   {
     name: "Vishal Pandey",
-    role: "Risk Manager · Portfolio Expert",
-    headline: "6+ years experience in NSE and BSE indices and stocks, plus 2+ years in commodities.",
+    role: "AI Engineer · NLP & Computer Vision",
+    headline: "6+ years hands-on experience in NLP, Computer Vision, and Generative AI. Worked with Fortune 500 companies on real-world AI product development.",
     stats: "4.9 ★ 295+ reviews",
-    chips: ["Risk Control", "Portfolio Diversification"],
+    chips: ["NLP & Gen AI", "Computer Vision"],
     img: "/center/IMG_4068.webp",
   },
 ];
@@ -37,7 +37,7 @@ export default function ExpertMentors() {
             Our <span>Expert Market Mentors</span>
           </h2>
           <p className={styles.subtitle}>
-            At NIDADS, you learn from real-time market professionals who read price, orderflow, and sentiment every single day.
+            At NIDADS, you learn from active industry professionals who build, deploy, and scale real-world Data Science and AI solutions every day.
           </p>
         </div>
 
