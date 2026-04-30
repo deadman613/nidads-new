@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  verification: {
+    google: "-uzJ_6qeakGANZNZjU1sWENiMJaNwWiis8PqEsMxcpw",
+  },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   ),
