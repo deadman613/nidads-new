@@ -16,7 +16,7 @@
 .top {
   display: grid;
   grid-template-columns: 1.2fr 2fr;
-  gap: 80px;
+  gap: 48px;
 }
 
 .brand {
@@ -47,8 +47,8 @@
 /* LINKS */
 .links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .links h4 {

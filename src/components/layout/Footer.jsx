@@ -72,6 +72,20 @@ export default function Footer() {
               <Link href="/sitemap.xml">Sitemap XML</Link>
               <Link href="/sitemap.html">Sitemap HTML</Link>
             </div>
+
+            <div>
+              <h4>Find Us</h4>
+              <iframe
+                src="https://maps.google.com/maps?q=28.5415141,77.240201&z=16&output=embed"
+                width="100%"
+                height="180"
+                style={{ border: 0, borderRadius: '8px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="NIDADS Location"
+              />
+            </div>
           </div>
         </div>
 
