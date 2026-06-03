@@ -49,6 +49,7 @@ export default function Navbar() {
                     <li><Link href="/course" onClick={handleNavClick}>Courses</Link></li>
                     <li><Link href="/about" onClick={handleNavClick}>About</Link></li>
                     <li><Link href="/contact-us" onClick={handleNavClick}>Contact</Link></li>
+                    <li><Link href="/blog" onClick={handleNavClick}>Blog</Link></li>
                     <li className={Style.mobileOnly}>
                         <button 
                             onClick={(e) => {

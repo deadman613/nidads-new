@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./SimpleNamePopup.module.css";
 import { courses } from "@/data/courses";
 
-const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzJb_a1dim388vjBUcPsuk5cbUq50oFxXimA5XOiEzm9o8cvUMt-cuWgGRabkEfbtAi8A/exec";
-
 const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
   const [form, setForm] = useState({
     name: "",
@@ -16,6 +13,7 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     if (open) {
@@ -70,6 +68,7 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError("");
 
     const errs = validate();
     if (Object.keys(errs).length > 0) {
@@ -80,17 +79,23 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
     setLoading(true);
 
     try {
-      await fetch(SCRIPT_URL, {
+      const response = await fetch("/api/enquiry", {
         method: "POST",
-        mode: "no-cors", // Required for Apps Script
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           ...form,
-          course: selectedCourseLabel || form.course
+          course: selectedCourseLabel || form.course,
+          source: "Popup Enquiry"
         })
       });
+
+      const payload = await response.json().catch(() => null);
+
+      if (!response.ok || !payload?.success) {
+        throw new Error(payload?.error || "Unable to submit enquiry");
+      }
 
       setSubmitted(true);
 
@@ -99,7 +104,7 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
       }, 3000);
     } catch (error) {
       console.error("Submission failed:", error);
-      alert("Something went wrong. Please try again.");
+      setSubmitError(error.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -115,6 +120,7 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
     setErrors({});
     setSubmitted(false);
     setLoading(false);
+    setSubmitError("");
     onClose();
   };
 
@@ -159,6 +165,12 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
         ) : (
           <form className={styles.form} onSubmit={handleSubmit}>
             <h2 className={styles.title}>Enquire Now</h2>
+
+            {submitError && (
+              <div className={styles.errorMsg} style={{ marginBottom: "12px" }}>
+                {submitError}
+              </div>
+            )}
 
             <div className={styles.formGrid}>
               {/* Name */}

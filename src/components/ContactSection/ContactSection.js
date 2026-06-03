@@ -3,9 +3,6 @@
 import { useState } from "react";
 import styles from "@/components/ContactSection/contactSection.module.css";
 
-const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzJb_a1dim388vjBUcPsuk5cbUq50oFxXimA5XOiEzm9o8cvUMt-cuWgGRabkEfbtAi8A/exec";
-
 export default function ContactSection() {
   const [form, setForm] = useState({
     firstName: "",
@@ -18,6 +15,7 @@ export default function ContactSection() {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +36,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError("");
 
     if (!form.firstName || !form.email) {
       alert("Please fill required fields.");
@@ -47,9 +46,8 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      await fetch(SCRIPT_URL, {
+      const response = await fetch("/api/enquiry", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },
@@ -64,6 +62,12 @@ export default function ContactSection() {
         })
       });
 
+      const payload = await response.json().catch(() => null);
+
+      if (!response.ok || !payload?.success) {
+        throw new Error(payload?.error || "Unable to submit form");
+      }
+
       setSubmitted(true);
       setForm({
         firstName: "",
@@ -75,7 +79,7 @@ export default function ContactSection() {
       });
     } catch (err) {
       console.error("Submission failed:", err);
-      alert("Something went wrong.");
+      setSubmitError(err.message || "Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -99,6 +103,12 @@ export default function ContactSection() {
                 Message sent successfully!
               </p>
             )}
+
+              {submitError && (
+                <p style={{ color: "#c1121f", marginBottom: "10px" }}>
+                  {submitError}
+                </p>
+              )}
 
             <div className={styles.nameRow}>
               <div className={styles.inputGroup}>

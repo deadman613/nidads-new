@@ -16,6 +16,7 @@ import CourseCardsSection from "@/components/homeSections/CourseCardsSection";
 import ProjectComparison from "@/components/homeSections/ProjectComparison";
 import PostGraduationProgram from "@/components/homeSections/PostGraduationProgram";
 import CertificateSection from "@/components/homeSections/CertificateSection";
+import FormEnd from "@/components/homeSections/formend.jsx";
 
 
 const localBusinessSchema = {
@@ -80,7 +81,7 @@ export default function Home() {
   <Videostest/>
 
   <Hero9/>
-
+<FormEnd/>
  <Hero8/>
   </>
   );

@@ -145,7 +145,7 @@ export default function CourseSection2() {
 
           {/* Cards */}
           <div className={styles.grid}>
-            {(showAll ? filteredCourses : filteredCourses.slice(0, 4)).map(course => (
+            {(showAll ? filteredCourses : filteredCourses.slice(0, 3)).map(course => (
               <Link
                 key={course.id}
                 href={`/course/${course.slug}`}
