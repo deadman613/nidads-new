@@ -60,7 +60,7 @@ export default function ExpertMentors() {
                   <span key={chip} className={styles.chip}>{chip}</span>
                 ))}
               </div>
-              <div className={styles.review}>{mentor.stats}</div>
+              {/* <div className={styles.review}>{mentor.stats}</div> */}
             </article>
           ))}
         </div>

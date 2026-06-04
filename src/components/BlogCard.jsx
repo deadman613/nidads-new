@@ -45,7 +45,7 @@ const BlogCard = ({ blog }) => {
         <h3>
           <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
         </h3>
-        <p>{toExcerpt(blog.content)}</p>
+        {/* <p>{toExcerpt(blog.content)}</p> */}
         <Link href={`/blog/${blog.slug}`} className="blog-card__cta">
           Continue reading →
         </Link>

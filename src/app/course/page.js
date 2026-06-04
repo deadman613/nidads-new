@@ -9,6 +9,10 @@ import WHATYOU from "../../components/homeSections/WhatYouWillLearn";
 import ExpertMentors from "../../components/homeSections/ExpertMentors";
 import Hero from "../../components/homeSections/Hero9"
 import  Formend from "../../components/homeSections/formend";
+import Hero8 from "../../components/homeSections/Hero8";
+import WhyLearnWithNidads from "../../components/homeSections/WhyLearnWithNidads";
+import ProjectShowcase from "../../components/homeSections/ProjectShowcase";
+import ProjectComparison from "../../components/homeSections/ProjectComparison";
 export const metadata = {
   title: "Course",
 };
@@ -21,8 +25,12 @@ export default function CoursePage() {
       <RecommendedCoursesSection />
       <WHATYOU />
       <ExpertMentors />
+      <WhyLearnWithNidads />
+      <ProjectComparison />
+      <ProjectShowcase />
       <Hero />
       <Formend />
+      <Hero8 />
       {/* <CourseSection3 /> */}
       {/* <Hero9 /> */}
     </main>

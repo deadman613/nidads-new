@@ -152,7 +152,7 @@ export default function FormEnd() {
   };
 
   return (
-    <section className={styles.section}>
+    <section id="demosection" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
           <p className={styles.overline}>Book a Free Session</p>

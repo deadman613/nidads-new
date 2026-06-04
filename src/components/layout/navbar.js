@@ -46,6 +46,7 @@ export default function Navbar() {
                   ✕
                 </button>
                 <ul>
+                    <li><Link href="/" onClick={handleNavClick}>Home</Link></li>
                     <li><Link href="/course" onClick={handleNavClick}>Courses</Link></li>
                     <li><Link href="/about" onClick={handleNavClick}>About</Link></li>
                     <li><Link href="/contact-us" onClick={handleNavClick}>Contact</Link></li>

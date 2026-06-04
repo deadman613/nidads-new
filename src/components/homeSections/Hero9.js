@@ -178,7 +178,7 @@ const Hero9 = () => {
 
         <div className={styles.ctaWrapper}>
           <button className={styles.ctaButton} onClick={handleKickstart}>
-            <span className={styles.ctaText}>Kickstart Your Career</span>
+            <a href="#demosection" className={styles.ctaText}>Kickstart Your Career</a>
           </button>
         </div>
       </div>
