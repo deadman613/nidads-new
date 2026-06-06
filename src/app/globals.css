@@ -122,7 +122,7 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
@@ -191,3 +191,101 @@ code, pre {
     @apply bg-background text-foreground;
   }
 }
+
+/* =====================================================
+   GLOBAL MOTION & ANIMATION SYSTEM
+   ===================================================== */
+
+/* scroll-driven fade-up: add .reveal to any element */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 182, 255, 0); }
+  50%       { box-shadow: 0 0 28px 6px rgba(56, 182, 255, 0.28); }
+}
+
+@keyframes borderRotate {
+  from { --angle: 0deg; }
+  to   { --angle: 360deg; }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* section entrance animations — applied via IntersectionObserver classes */
+.reveal {
+  opacity: 0;
+  animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.reveal-left  { opacity: 0; animation: fadeInLeft  0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal-right { opacity: 0; animation: fadeInRight 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reveal-scale { opacity: 0; animation: scaleIn     0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* stagger helpers */
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+.delay-5 { animation-delay: 0.40s; }
+.delay-6 { animation-delay: 0.48s; }
+
+/* universal card hover lift — added to any card wrapper */
+.card-hover {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.018);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.55);
+}
+
+/* shimmer text */
+.shimmer-text {
+  background: linear-gradient(90deg, #38b6ff 0%, #ffffff 40%, #38b6ff 80%, #5478ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* floating element */
+.float-anim {
+  animation: floatY 4s ease-in-out infinite;
+}
+

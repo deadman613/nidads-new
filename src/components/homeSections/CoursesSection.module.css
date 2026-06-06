@@ -50,20 +50,34 @@
 
 /* CARD */
 .card {
+  position: relative;
   background: #0b0f14;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.06);
   display: flex;
   flex-direction: column;
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: transform 0.32s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.32s ease, border-color 0.28s ease;
 }
 
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, #38b6ff, #5478ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+  transform: translateY(-10px) scale(1.015);
+  box-shadow: 0 28px 64px rgba(0,0,0,.65), 0 0 32px rgba(56,182,255,0.1);
+  border-color: rgba(56,182,255,0.22);
 }
+
+.card:hover::before { opacity: 1; }
 
 /* IMAGE */
 
@@ -75,7 +89,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
+
+.imageWrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,15,20,0.85) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .imageWrap::after { opacity: 1; }
+
+.imageWrap img {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .imageWrap img { transform: scale(1.07); }
 
 .imageWrap img {
   width: 100%;

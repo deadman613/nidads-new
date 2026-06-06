@@ -6,7 +6,14 @@ const PopupEnquiryForm = dynamic(() => import("@/components/PopupEnquiryForm.jsx
 import Link from "next/link";
 import { getCourseBySlug, courses } from "@/data/courses";
 import styles from "./courseDetail.module.css";
-
+import ExpertMentors from "../../../components/homeSections/ExpertMentors";
+import WhyLearnWithNidads from "../../../components/homeSections/WhyLearnWithNidads";
+import ProjectComparison from "../../../components/homeSections/ProjectComparison";  
+import ProjectShowcase from "../../../components/homeSections/ProjectShowcase";
+import Hero from "../../../components/homeSections/Hero9";
+import Formend from "../../../components/homeSections/formend";
+import Hero8 from "../../../components/homeSections/Hero8";
+import Gallery from "../../../components/homeSections/gallerySection";
 export default function CourseDetailPage({ params }) {
   const { slug } = use(params);
   const course = getCourseBySlug(slug);
@@ -295,7 +302,7 @@ export default function CourseDetailPage({ params }) {
                 />
               )}
 
-              <div className={styles.includesSection}>
+              {/* <div className={styles.includesSection}>
                 <h4 className={styles.includesTitle}>
                   This course includes:
                 </h4>
@@ -389,7 +396,7 @@ export default function CourseDetailPage({ params }) {
                     </>
                   )}
                 </div>
-              </div>
+              </div> */}
             </div>
           </aside>
         </div>
@@ -482,6 +489,14 @@ export default function CourseDetailPage({ params }) {
             ))}
           </div>
         </div>
+        <ExpertMentors />
+        <WhyLearnWithNidads />
+        <ProjectComparison />
+        <ProjectShowcase />
+        <Gallery />
+        <Hero />
+        <Formend />
+        <Hero8 />
       </section>
     </>
   );

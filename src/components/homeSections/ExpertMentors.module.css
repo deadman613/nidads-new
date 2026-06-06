@@ -75,15 +75,46 @@
   justify-content: space-between;
   min-height: 360px;
   backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: transform 0.34s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.34s ease, border-color 0.28s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.018);
+  border-color: rgba(56, 182, 255, 0.45);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55), 0 0 40px rgba(56, 182, 255, 0.14);
 }
 
 .card::before {
   content: "";
   position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  border-radius: 26px 26px 0 0;
+  background: linear-gradient(90deg, #38b6ff, #5478ff, #18c69b);
+  background-size: 200% auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation: expertShimmer 2.4s linear infinite;
+}
+
+@keyframes expertShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.card::after {
+  content: "";
+  position: absolute;
   inset: 0;
   border-radius: 26px;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 80%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 70%);
 }
 
 .cardHeader {
@@ -102,6 +133,12 @@
   overflow: hidden;
   border: 2px solid rgba(56, 182, 255, 0.55);
   flex-shrink: 0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover .avatarWrapper {
+  border-color: rgba(56, 182, 255, 0.9);
+  box-shadow: 0 0 0 4px rgba(56, 182, 255, 0.18), 0 0 20px rgba(56, 182, 255, 0.25);
 }
 
 .avatar {
@@ -156,8 +193,16 @@
   padding: 10px 14px;
   border-radius: 999px;
   background: rgba(56, 182, 255, 0.14);
+  border: 1px solid rgba(56, 182, 255, 0.18);
   color: #d7ffe8;
   font-size: 0.85rem;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.18s ease;
+}
+
+.chip:hover {
+  background: rgba(56, 182, 255, 0.28);
+  border-color: rgba(56, 182, 255, 0.45);
+  transform: scale(1.06);
 }
 
 .review {

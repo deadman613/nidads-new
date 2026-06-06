@@ -13,6 +13,7 @@ import Hero8 from "../../components/homeSections/Hero8";
 import WhyLearnWithNidads from "../../components/homeSections/WhyLearnWithNidads";
 import ProjectShowcase from "../../components/homeSections/ProjectShowcase";
 import ProjectComparison from "../../components/homeSections/ProjectComparison";
+import Gallery from "../../components/homeSections/gallerySection";
 export const metadata = {
   title: "Course",
 };
@@ -28,6 +29,7 @@ export default function CoursePage() {
       <WhyLearnWithNidads />
       <ProjectComparison />
       <ProjectShowcase />
+      <Gallery />
       <Hero />
       <Formend />
       <Hero8 />

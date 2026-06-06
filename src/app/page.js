@@ -14,7 +14,7 @@ import TechStackMarquee from "@/components/homeSections/TechStackMarquee";
 import Videostest from "@/components/homeSections/videostest";
 import CourseCardsSection from "@/components/homeSections/CourseCardsSection";
 import ProjectComparison from "@/components/homeSections/ProjectComparison";
-import ProjectShowcase from "@/components/homeSections/ProjectShowcase";
+import ProjectsShowcase from "@/components/homeSections/ProjectShowcase";
 import PostGraduationProgram from "@/components/homeSections/PostGraduationProgram";
 import CertificateSection from "@/components/homeSections/CertificateSection";
 import FormEnd from "@/components/homeSections/formend.jsx";
@@ -76,7 +76,7 @@ export default function Home() {
 
     <CareerPrograms/>
     <ProjectComparison/>
-    <ProjectShowcase/>
+    <ProjectsShowcase/>
     <CertificateSection/>
   <PostGraduationProgram/>
   <GallerySection/>
