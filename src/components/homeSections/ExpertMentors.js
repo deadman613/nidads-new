@@ -15,7 +15,7 @@ const mentors = [
     headline: "5+ years of experience in Data Analytics, Power BI, Tableau, and SQL. Expert in turning raw datasets into actionable business insights.",
     stats: "4.8 ★ 280+ reviews",
     chips: ["Power BI & Tableau", "SQL & Python"],
-    img: "/center/IMG_4067.webp",
+    img: "/deepanshu.jpeg",
   },
   {
     name: "Vishal Pandey",
