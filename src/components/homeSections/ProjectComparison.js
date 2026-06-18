@@ -8,7 +8,7 @@ const KEYWORDS = ["Data Science", "Data Analytics", "AI"];
 
 /* accent palette per card position */
 const ACCENTS = [
-  { color: "#22d3ee", bg: "rgba(34,211,238,0.09)", border: "rgba(34,211,238,0.30)", glow: "rgba(34,211,238,0.18)", tag: "DIPLOMA" },
+  { color: "#92ee22ff", bg: "rgba(158, 238, 34, 0.09)", border: "rgba(34, 172, 45, 0.3)", glow: "rgba(34, 238, 37, 0.18)", tag: "DIPLOMA" },
   { color: "#38b6ff", bg: "rgba(56,182,255,0.10)", border: "rgba(56,182,255,0.32)", glow: "rgba(56,182,255,0.20)", tag: "DIPLOMA" },
   { color: "#818cf8", bg: "rgba(129,140,248,0.10)", border: "rgba(129,140,248,0.32)", glow: "rgba(129,140,248,0.20)", tag: "ADVANCED" },
   { color: "#f59e0b", bg: "rgba(245,158,11,0.09)", border: "rgba(245,158,11,0.32)", glow: "rgba(245,158,11,0.18)", tag: "ADVANCED" },
