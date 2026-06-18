@@ -24,7 +24,7 @@ export default function GallerySection() {
           <span className={styles.eyebrow}>OUR CAMPUS</span>
 
           <h2 className={styles.heading}>
-            Built for making and <br /> mentoring
+            Built for <span style={{color:"#38b6ff"}}>making</span> and <br /> <span style={{color:"#38b6ff"}}>mentoring</span>
           </h2>
 
           <p className={styles.desc}>

@@ -1,19 +1,29 @@
+/* =====================================================
+   NIDADS — GLOBAL STYLES + ANIMATION SYSTEM
+   ===================================================== */
+
 :root {
-  --color-bg: #f8f9fb;
-  --color-surface: #ffffff;
-  --color-border: #e3e6ed;
-  --color-text: #1f2430;
-  --color-muted: #5c6274;
-  --color-accent: #4f46e5;
-  --color-accent-strong: #3730a3;
+  --color-bg: #000000;
+  --color-surface: #0a101e;
+  --color-border: rgba(56, 182, 255, 0.18);
+  --color-text: #e7f1ff;
+  --color-muted: #7a96b4;
+  --color-accent: #38b6ff;
+  --color-accent-strong: #2450ff;
   --color-danger: #dc2626;
+  --color-blue-glow: rgba(56, 182, 255, 0.22);
   --radius-md: 0.75rem;
   --radius-lg: 1.5rem;
-  --shadow-card: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 10px 32px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 32px rgba(56, 182, 255, 0.22);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -26,33 +36,35 @@ body {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-geist-sans, "Inter"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #090d15;
+  font-family: var(--font-geist-sans, "Inter"), system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000000;
   color: var(--color-text);
 }
 
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  z-index: 1000;
-  transition: top 0.2s ease;
+/* ── GLOBAL AMBIENT BACKGROUND GLOW ──
+   Subtle fixed radial halos that sit behind all content */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 55% at 5%  10%, rgba(56, 182, 255, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 95% 15%, rgba(84, 120, 255, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 80%, rgba(34, 211, 238, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 20% 60%, rgba(56, 182, 255, 0.05) 0%, transparent 50%);
 }
 
-.skip-link:focus {
-  top: 1.5rem;
-}
-
+/* ensure page content stays above the fixed glow */
 .app-shell {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #090d15;
+  background: transparent;
 }
 
 img {
@@ -70,6 +82,160 @@ a:hover {
   color: var(--color-accent);
 }
 
+/* =====================================================
+   KEYFRAME ANIMATIONS
+   ===================================================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px  0px rgba(56, 182, 255, 0); }
+  50%       { box-shadow: 0 0 36px 8px rgba(56, 182, 255, 0.30); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(56, 182, 255, 0.20); }
+  50%       { border-color: rgba(56, 182, 255, 0.55); }
+}
+
+/* =====================================================
+   SCROLL REVEAL
+   Elements start hidden. ScrollAnimator adds `.in-view`
+   when they enter the viewport.
+   ===================================================== */
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.reveal-down {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 0.70s;
+  transition-property: opacity, transform;
+}
+
+.reveal       { transform: translateY(38px); }
+.reveal-left  { transform: translateX(-42px); }
+.reveal-right { transform: translateX(42px); }
+.reveal-scale { transform: scale(0.86); }
+.reveal-down  { transform: translateY(-30px); }
+
+/* Triggered state */
+.reveal.in-view,
+.reveal-left.in-view,
+.reveal-right.in-view,
+.reveal-scale.in-view,
+.reveal-down.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.08s !important; }
+.delay-2 { transition-delay: 0.16s !important; }
+.delay-3 { transition-delay: 0.24s !important; }
+.delay-4 { transition-delay: 0.32s !important; }
+.delay-5 { transition-delay: 0.42s !important; }
+.delay-6 { transition-delay: 0.52s !important; }
+.delay-7 { transition-delay: 0.62s !important; }
+.delay-8 { transition-delay: 0.72s !important; }
+
+/* =====================================================
+   UNIVERSAL HOVER UTILITIES
+   ===================================================== */
+
+.card-hover {
+  transition: transform 0.30s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.30s ease,
+              border-color 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 28px 72px rgba(0,0,0,0.55),
+              0 0 36px rgba(56, 182, 255, 0.20);
+}
+
+.glow-hover {
+  transition: box-shadow 0.30s ease, border-color 0.25s ease;
+}
+.glow-hover:hover {
+  box-shadow: 0 0 32px rgba(56, 182, 255, 0.30),
+              0 16px 48px rgba(0,0,0,0.45);
+  border-color: rgba(56, 182, 255, 0.50) !important;
+}
+
+.scale-hover {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.scale-hover:hover { transform: scale(1.06); }
+
+/* =====================================================
+   ANIMATED TEXT UTILITIES
+   ===================================================== */
+
+.shimmer-text {
+  background: linear-gradient(90deg,
+    #38b6ff 0%, #ffffff 40%, #38b6ff 70%, #5478ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+.float-anim {
+  animation: floatY 4.5s ease-in-out infinite;
+}
+
+.glow-pulse {
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+/* =====================================================
+   GLOBAL BUTTON STYLES
+   ===================================================== */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -79,38 +245,41 @@ a:hover {
   padding: 0 1.5rem;
   border-radius: 999px;
   border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  background: rgba(56, 182, 255, 0.08);
   color: var(--color-text);
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.22s ease, border-color 0.22s ease,
+              color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .btn:hover {
-  border-color: var(--color-text);
-  transform: translateY(-1px);
+  border-color: var(--color-accent);
+  background: rgba(56, 182, 255, 0.16);
+  box-shadow: 0 0 18px rgba(56, 182, 255, 0.22);
+  transform: translateY(-2px);
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: linear-gradient(135deg, #38b6ff, #2450ff);
   color: #fff;
-  border-color: var(--color-accent);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(56, 182, 255, 0.28);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-strong);
-  border-color: var(--color-accent-strong);
+  background: linear-gradient(135deg, #5cceff, #3860ff);
+  box-shadow: 0 12px 36px rgba(56, 182, 255, 0.42);
+  transform: translateY(-3px);
 }
 
-.btn--ghost {
-  background: transparent;
-}
+.btn--ghost  { background: transparent; }
 
 .btn--danger {
   background: var(--color-danger);
@@ -118,61 +287,45 @@ a:hover {
   color: #fff;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  color: var(--color-muted);
-  margin: 0 0 0.5rem;
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: #000; }
+::-webkit-scrollbar-thumb  {
+  background: rgba(56, 182, 255, 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 182, 255, 0.60);
 }
 
-.empty {
-  border: 1px dashed var(--color-border);
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: var(--radius-md);
-  color: var(--color-muted);
+/* =====================================================
+   SELECTION COLOUR
+   ===================================================== */
+::selection {
+  background: rgba(56, 182, 255, 0.30);
+  color: #ffffff;
 }
 
-.hero {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 1.5rem;
+/* =====================================================
+   SECTION DIVIDER
+   ===================================================== */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 182, 255, 0.30),
+    transparent
+  );
 }
 
-.hero__inner {
-  background: var(--color-surface);
-  width: min(900px, 100%);
-  padding: 3.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-
-.hero__inner h1 {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  margin-bottom: 1rem;
-}
-
-.hero__inner p {
-  color: var(--color-muted);
-  font-size: 1.125rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 @media (max-width: 768px) {
-  .hero__inner {
-    padding: 2rem;
-  }
-
   .btn {
     width: 100%;
     justify-content: center;

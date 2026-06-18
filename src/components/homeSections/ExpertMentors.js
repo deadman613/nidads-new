@@ -34,7 +34,7 @@ export default function ExpertMentors() {
         <div className={styles.header}>
           <p className={styles.overline}>Learn Directly from</p>
           <h2 className={styles.title}>
-            Our <span>Expert Market Mentors</span>
+            Our <span style={{color:"#38b6ff"}}>Expert Market</span> Mentors
           </h2>
           <p className={styles.subtitle}>
             At NIDADS, you learn from active industry professionals who build, deploy, and scale real-world Data Science and AI solutions every day.

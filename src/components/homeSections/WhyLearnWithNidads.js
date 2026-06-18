@@ -46,7 +46,7 @@ export default function WhyLearnWithNidads() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Why Learn with NIDADS</h2>
+          <h2 className={styles.title}>Why Learn with <span style={{color:"#38b6ff"}}>NIDADS</span></h2>
           <p className={styles.subtitle}>
             Cutting-Edge AI and Data Science Education
           </p>

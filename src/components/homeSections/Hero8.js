@@ -117,7 +117,7 @@ const Hero8 = () => {
       <div className={styles.container}>
         {/* Header Section */}
         <div className={styles.header}>
-          <h2 className={styles.title}>Frequently Asked Questions</h2>
+          <h2 className={styles.title}><span style={{color:"#38b6ff"}}>Frequently Asked</span> Questions</h2>
           <p className={styles.description}>
             Find answers to the most common questions about our data science, AI, and analytics course, including curriculum, projects, certification, and placement support.
           </p>

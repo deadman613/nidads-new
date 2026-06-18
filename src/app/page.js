@@ -12,13 +12,13 @@ import NewSection from "@/components/homeSections/placement";
 import TechStackMarquee from "@/components/homeSections/TechStackMarquee";
 
 import Videostest from "@/components/homeSections/videostest";
-import CourseCardsSection from "@/components/homeSections/CourseCardsSection";
+// import CourseCardsSection from "@/components/homeSections/CourseCardsSection";
 import ProjectComparison from "@/components/homeSections/ProjectComparison";
 import ProjectsShowcase from "@/components/homeSections/ProjectShowcase";
 import PostGraduationProgram from "@/components/homeSections/PostGraduationProgram";
 import CertificateSection from "@/components/homeSections/CertificateSection";
 import FormEnd from "@/components/homeSections/formend.jsx";
-
+import CourseSection2 from "../components/CourseSection/CourseSection2"
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -59,32 +59,32 @@ const localBusinessSchema = {
 
 export default function Home() {
   return (
-  <>
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-  />
-  <HomeSection1/>
-  <HomeSection2/>
-  <TrustedCompanies/>
-  <WhyLearnWithNidads/>
-  <ExpertMentors />
-  <WhatYouWillLearn/>
-  <TechStackMarquee/>
-  <CourseCardsSection/>
-    <NewSection/>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <HomeSection1 />
+      <HomeSection2 />
+      <TrustedCompanies />
+      <WhyLearnWithNidads />
+      <ExpertMentors />
+      <WhatYouWillLearn />
+      <TechStackMarquee />
+      <CourseSection2 />
+      {/* <CourseCardsSection/> */}
+      <NewSection />
+      <CareerPrograms />
+      <ProjectComparison />
+      <ProjectsShowcase />
+      <CertificateSection />
+      <PostGraduationProgram />
+      <GallerySection />
+      <Videostest />
 
-    <CareerPrograms/>
-    <ProjectComparison/>
-    <ProjectsShowcase/>
-    <CertificateSection/>
-  <PostGraduationProgram/>
-  <GallerySection/>
-  <Videostest/>
-
-  <Hero9/>
-<FormEnd/>
- <Hero8/>
-  </>
+      <Hero9 />
+      <FormEnd />
+      <Hero8 />
+    </>
   );
 }

@@ -2,7 +2,10 @@
   min-height: 100vh;
   padding: 80px 20px;
   position: relative;
-  background-color: #000;
+  background:
+    radial-gradient(ellipse 70% 55% at 20% 20%, rgba(56, 182, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 75%, rgba(36, 80, 255, 0.16) 0%, transparent 55%),
+    linear-gradient(150deg, #000000 0%, #04101e 60%, #000000 100%);
 }
 
 .container {
@@ -46,6 +49,7 @@
   margin: 0 0 18px 0;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 50px rgba(56, 182, 255, 0.40), 0 2px 18px rgba(0, 0, 0, 0.85);
 }
 
 .description {

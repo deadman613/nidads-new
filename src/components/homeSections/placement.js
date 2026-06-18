@@ -10,7 +10,7 @@ export default function NewSection() {
 
           <h2 className={styles.heading}>
             See How Students Turned{" "}
-            <span>Skills Into Real Offers</span>
+            <span style={{color:"#38b6ff"}}>Skills Into Real Offers</span>
           </h2>
 
           <p className={styles.subtext}>

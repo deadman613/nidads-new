@@ -2,12 +2,11 @@
   position: relative;
   padding: 45px 24px;
   overflow: hidden;
-  background-color: #000;
-  background-image:
-    radial-gradient(circle 420px at 15% 20%, rgba(56, 182, 255, 0.22), transparent 42%),
-    radial-gradient(circle 280px at 82% 18%, rgba(24, 198, 155, 0.18), transparent 38%),
-    radial-gradient(circle 520px at 60% 78%, rgba(56, 182, 115, 0.14), transparent 35%);
-  background-blend-mode: lighten;
+  background:
+    radial-gradient(ellipse 65% 55% at 12% 18%, rgba(56, 182, 255, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 15%, rgba(24, 198, 155, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 45% at 55% 80%, rgba(36, 80, 255, 0.14) 0%, transparent 50%),
+    linear-gradient(155deg, #000000 0%, #03100a 40%, #000000 100%);
   color: #f5f7fb;
 }
 
@@ -44,6 +43,7 @@
   font-size: clamp(2rem, 2.6vw, 3.4rem);
   line-height: 1.05;
   margin: 0;
+  text-shadow: 0 0 48px rgba(56, 182, 255, 0.4), 0 2px 16px rgba(0, 0, 0, 0.9);
 }
 
 .title span {

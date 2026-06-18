@@ -1,8 +1,12 @@
-﻿/* ===== PROJECT SHOWCASE — two-column layout ===== */
+/* ===== PROJECT SHOWCASE — two-column layout ===== */
 .section {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(160deg, #02060f 0%, #070c1a 55%, #050a16 100%);
+  background:
+    radial-gradient(ellipse 65% 55% at 15% 20%, rgba(56, 182, 255, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 85% 75%, rgba(84, 120, 255, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 50% 50%, rgba(0, 255, 255, 0.06) 0%, transparent 60%),
+    linear-gradient(160deg, #000000 0%, #04101e 50%, #000000 100%);
   color: #e7f1ff;
   display: flex;
   align-items: stretch;
@@ -97,6 +101,7 @@
   color: #ffffff;
   line-height: 1.2;
   animation: slideUp 0.38s ease both;
+  text-shadow: 0 0 48px rgba(56, 182, 255, 0.35), 0 2px 16px rgba(0, 0, 0, 0.85);
 }
 
 .projectBlurb {

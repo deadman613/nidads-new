@@ -3,7 +3,10 @@
   padding: 36px 12px;
   position: relative;
   overflow: hidden;
-  background-color: #000;
+  background:
+    radial-gradient(ellipse 65% 50% at 15% 20%, rgba(56, 182, 255, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 80%, rgba(36, 80, 255, 0.14) 0%, transparent 55%),
+    linear-gradient(150deg, #000000 0%, #050e1c 55%, #000000 100%);
 }
 
 .container {
@@ -27,6 +30,7 @@
   margin: 0 auto 20px auto;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 50px rgba(56, 182, 255, 0.38), 0 2px 18px rgba(0, 0, 0, 0.85);
 }
 
 .description {

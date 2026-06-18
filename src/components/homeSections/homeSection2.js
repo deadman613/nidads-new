@@ -20,7 +20,7 @@ export default function HomeSection2() {
         <h1 className={styles.heading}>
           <span style={{ color: "white" }}>Empowering</span>
           <br />
-          Data Science Careers
+          <span style={{color:"#38b6ff"}}>Data Science</span> Careers
         </h1>
 
         <h2 className={styles.subheading} style={{textAlign:"justify"

@@ -78,8 +78,8 @@ export default function CareerPrograms() {
         {/* RIGHT – CONTENT */}
         <div className={styles.content}>
           <h2>
-            Career-Focused Programs <br />
-            <span>& Pathways</span>
+            <span style={{color:"#38b6ff"}}>Career-Focused</span> Programs <br />
+            <span style={{color:"#38b6ff"}}>&amp; Pathways</span>
           </h2>
 
           <p className={styles.subtext}>

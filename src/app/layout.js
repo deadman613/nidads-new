@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/Footer";
 import GlobalEnquiryPopup from "@/components/GlobalEnquiryPopup";
 import FloatingContactButtons from "@/components/FloatingContactButtons";
+import ScrollAnimator from "@/components/ScrollAnimator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         <Navbar/>
+        <ScrollAnimator />
         {children}
         <Footer/>
         <FloatingContactButtons phoneE164={"+919205436796"} />

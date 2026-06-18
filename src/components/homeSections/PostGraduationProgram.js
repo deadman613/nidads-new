@@ -21,7 +21,7 @@ export default function DegreePrograms() {
           <div className={styles.badge}>DEGREE PROGRAMS</div>
           <div className={styles.mainCard}>
             <h3 className={styles.programTitle}>
-              Degree Programs in Artificial Intelligence
+              Degree Programs in <span style={{color:"#38b6ff"}}>Artificial Intelligence</span>
             </h3>
             <p className={styles.subtitle}>
               Earn a UGC-Approved University Degree Backed by Expert AI Training

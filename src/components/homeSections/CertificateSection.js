@@ -81,7 +81,7 @@ export default function CertificateSection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.badge}>Certifications</span>
-          <h2>Industry-Recognized Certificates</h2>
+          <h2><span style={{color:"#38b6ff"}}>Industry-Recognized</span> Certificates</h2>
           <p>
             Earn certificates that validate your skills and open doors to new career opportunities
           </p>

@@ -78,7 +78,7 @@ export default function WhatYouWillLearn() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>What will You Learn</h2>
+          <h2 className={styles.title}>What will You <span style={{color:"#38b6ff"}}>Learn</span></h2>
           <p className={styles.subtitle}>
             Master the in-demand skills to become a Data Science & Analytics with AI professional.
           </p>

@@ -21,7 +21,7 @@ export default function HomePGSection() {
           <div className={styles.badge}>POST GRADUATION PROGRAMS</div>
           <div className={styles.mainCard}>
             <h3 className={styles.programTitle}>
-              Post Graduation Programs in Artificial Intelligence
+              Post Graduation Programs in <span style={{color:"#38b6ff"}}>Artificial Intelligence</span>
             </h3>
             <p className={styles.subtitle}>
               Advance to Expert Level — Master&apos;s Degree Backed by Advanced AI Training

@@ -4,11 +4,12 @@
 .section {
   width: 100%;
   padding: clamp(28px, 5vw, 56px) clamp(12px, 4vw, 24px) clamp(32px, 6vw, 64px);
-  background: radial-gradient(circle at top left, rgba(56, 182, 255, 0.14), transparent 34%),
-    radial-gradient(circle at top right, rgba(0, 255, 255, 0.10), transparent 26%),
-    linear-gradient(180deg, #02050c 0%, #070b14 100%);
+  background:
+    radial-gradient(ellipse 65% 55% at 8% 12%, rgba(56, 182, 255, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 88% 12%, rgba(0, 255, 255, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 45% 40% at 50% 80%, rgba(36, 80, 255, 0.10) 0%, transparent 55%),
+    linear-gradient(160deg, #000000 0%, #030b18 55%, #000000 100%);
   position: relative;
-  /* overflow: hidden removed — it clips the carousel scroll container on mobile */
   overflow: visible;
   box-sizing: border-box;
 }
@@ -62,6 +63,7 @@
   font-size: 2.55rem;
   line-height: 1.05;
   margin: 0;
+  text-shadow: 0 0 45px rgba(56, 182, 255, 0.40), 0 2px 16px rgba(0, 0, 0, 0.85);
 }
 
 .description {

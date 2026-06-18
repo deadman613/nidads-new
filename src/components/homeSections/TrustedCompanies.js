@@ -62,7 +62,7 @@ export default function TrustedCompanies() {
       <div className={styles.panel}>
         <div className={styles.header}>
           <span className={styles.label}>Trusted by leading brands</span>
-          <h2 className={styles.title}>Trusted by 500+ enterprises</h2>
+          <h2 className={styles.title}>Trusted by <span style={{color:"#38b6ff"}}>500+</span> Enterprises</h2>
           <p className={styles.description}>
             Over 500+ enterprises trust us for building their next-generation AI teams.
             Partner with us to drive your growth and innovation.

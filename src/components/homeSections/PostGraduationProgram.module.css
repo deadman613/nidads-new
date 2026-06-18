@@ -1,7 +1,10 @@
 .section {
   padding: 40px 24px;
   color: #cfd6df;
-  background: linear-gradient(135deg, rgba(3, 8, 20, 0.5), rgba(12, 20, 40, 0.3));
+  background:
+    radial-gradient(ellipse 65% 55% at 20% 30%, rgba(56, 182, 255, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 80% 70%, rgba(36, 80, 255, 0.14) 0%, transparent 50%),
+    linear-gradient(145deg, #000000 0%, #050d1c 55%, #000000 100%);
   position: relative;
   overflow: hidden;
 }
@@ -95,6 +98,7 @@
   line-height: 1.2;
   position: relative;
   z-index: 1;
+  text-shadow: 0 0 40px rgba(56, 182, 255, 0.35), 0 2px 14px rgba(0, 0, 0, 0.85);
 }
 
 .subtitle {
