@@ -146,9 +146,8 @@ export default function CourseSection2() {
           {/* Cards */}
           <div className={styles.grid}>
             {(showAll ? filteredCourses : filteredCourses.slice(0, 6)).map(course => (
-              <Link
+              <div
                 key={course.id}
-                href={`/course/${course.slug}`}
                 className={styles.courseCard}
               >
                 {/* Image */}
@@ -161,7 +160,7 @@ export default function CourseSection2() {
 
                   <div className={styles.techIcons}>
                     <span>AI</span>
-                    <span>Node</span>
+                    <span>Data</span>
                   </div>
                 </div>
 
@@ -178,11 +177,30 @@ export default function CourseSection2() {
                     <span className={styles.duration}>{course.duration}</span>
                   </div>
 
-                  <div className={styles.priceRow}>
-                    <span className={styles.newPrice}>Enroll Now</span>
+                  {/* ── Dual action buttons ── */}
+                  <div className={styles.btnRow}>
+                    {/* Read More → course detail page */}
+                    <Link
+                      href={`/course/${course.slug}`}
+                      className={styles.readMoreBtn}
+                    >
+                      Read More
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </Link>
+
+                    {/* Enroll Now → opens enquiry popup */}
+                    <button
+                      className={styles.enrollBtn}
+                      type="button"
+                      onClick={() => window.dispatchEvent(new Event("openEnquiryPopup"))}
+                    >
+                      Enroll Now
+                    </button>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
 
