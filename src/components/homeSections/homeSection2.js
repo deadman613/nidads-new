@@ -8,7 +8,7 @@ export default function HomeSection2() {
     <section className={styles.container}>
       <div className={styles.leftImagePlaceholder}>
         <img
-          src="/Python (4).png"
+          src="/teem photos.png"
           alt="Python programming"
           className={styles.leftImage}
           width={480}
