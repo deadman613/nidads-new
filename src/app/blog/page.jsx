@@ -3,6 +3,8 @@ import BlogCard from "@/components/BlogCard";
 import { getBaseUrl } from "@/lib/base-url";
 import "@/styles/blog.css";
 
+export const dynamic = "force-dynamic";
+
 const fetchBlogs = async (searchParams) => {
   const baseUrl = await getBaseUrl();
   const queryString = new URLSearchParams(searchParams).toString();
@@ -20,7 +22,7 @@ const fetchBlogs = async (searchParams) => {
 
 export const metadata = {
   title: "Blog",
-  description: "Latest posts across every site using this shared template.",
+  description: "Read the latest articles, guides, and updates from NIDADS.",
 };
 
 export default async function BlogPage({ searchParams }) {
@@ -41,7 +43,7 @@ export default async function BlogPage({ searchParams }) {
             <p className="blog-index__eyebrow">Stories & Updates</p>
             <h1>Blog</h1>
             <p>
-              Search by title, keywords, or tags. Everything is backed by Prisma and PostgreSQL.
+              Explore our latest articles, tips, and industry insights.
             </p>
           </div>
         </header>
@@ -72,7 +74,7 @@ export default async function BlogPage({ searchParams }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <p>No posts yet. Head to the admin area to create one.</p>
+            <p>No posts found. Please check back soon.</p>
           </div>
         )}
 

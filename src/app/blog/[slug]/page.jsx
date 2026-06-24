@@ -88,7 +88,7 @@ export async function generateMetadata(props) {
       ] : undefined,
       type: "article",
       url: canonical,
-      siteName: "Blogcode",
+      siteName: "NIDADS",
     },
     twitter: {
       card: "summary_large_image",
@@ -147,7 +147,7 @@ export default async function BlogDetails(props) {
     },
     publisher: {
       "@type": "Organization",
-      name: "Blogcode",
+      name: "NIDADS",
     },
     image: hasCover
       ? isExternalCover

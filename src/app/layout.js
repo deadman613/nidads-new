@@ -25,19 +25,19 @@ export const metadata = {
     process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   ),
   title: {
-    default: "Multi-site Blog System",
-    template: "%s | Multi-site Blog System",
+    default: "NIDADS",
+    template: "%s | NIDADS",
   },
-  description: "Reusable Next.js 14 blog template with Prisma, TipTap, and an admin console.",
+  description: "NIDADS - Empowering careers through expert training and placement support.",
   openGraph: {
-    title: "Multi-site Blog System",
-    description: "Reusable Next.js 14 blog template with Prisma, TipTap, and an admin console.",
+    title: "NIDADS",
+    description: "NIDADS - Empowering careers through expert training and placement support.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Multi-site Blog System",
-    description: "Reusable Next.js 14 blog template with Prisma, TipTap, and an admin console.",
+    title: "NIDADS",
+    description: "NIDADS - Empowering careers through expert training and placement support.",
   },
 };
 
