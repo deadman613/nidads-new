@@ -91,6 +91,7 @@ export async function GET(request) {
     const limit = Math.min(Math.max(limitParam, 1), MAX_LIMIT);
     const search = searchParams.get("search")?.trim();
     const tag = searchParams.get("tag")?.trim();
+    const category = searchParams.get("category")?.trim();
     const relatedTo = searchParams.get("relatedTo")?.trim();
     const excludeId = searchParams.get("excludeId")?.trim();
 
@@ -110,6 +111,10 @@ export async function GET(request) {
 
     if (tag) {
       filters.push({ tags: { has: tag.toLowerCase() } });
+    }
+
+    if (category) {
+      filters.push({ category: { equals: category, mode: "insensitive" } });
     }
 
     if (excludeId) {

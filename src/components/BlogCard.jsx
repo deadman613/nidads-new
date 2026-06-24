@@ -1,15 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 
 const formatDate = (value) =>
   new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(new Date(value));
-
-const toExcerpt = (html) => {
-  if (!html) return "";
-  const text = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-  if (!text) return "";
-  return text.length > 160 ? `${text.slice(0, 160)}...` : text;
-};
 
 const BlogCard = ({ blog }) => {
   if (!blog) return null;
@@ -17,11 +9,26 @@ const BlogCard = ({ blog }) => {
   const isExternalCover = Boolean(rawCover && /^(https?:)?\/\//i.test(rawCover));
   const hasCover = Boolean(rawCover);
   const cover = hasCover ? rawCover : "/placeholder.svg";
+  const href = `/blog/${blog.slug}`;
 
+  /*
+   * Using plain <a href> instead of Next.js <Link> intentionally.
+   *
+   * Why: Next.js <Link> uses client-side navigation (React reconciliation).
+   * When a browser extension like "Detailed SEO Extension" modifies the DOM
+   * on the blog post page, React's fiber references become stale. On back
+   * navigation, React's insertBefore call fails because the reference node
+   * has been moved by the extension — "not a child of this node" crash.
+   *
+   * Plain <a href> forces a full page load for blog post navigation.
+   * This means the browser's back button also does a full page load (it
+   * mirrors the navigation type used to arrive at the page). A fresh DOM
+   * load completely sidesteps the extension interference issue.
+   */
   return (
     <article className="blog-card">
-      <Link
-        href={`/blog/${blog.slug}`}
+      <a
+        href={href}
         className={`blog-card__image${hasCover ? "" : " blog-card__image--placeholder"}`}
         aria-label={`Read ${blog.title}`}
       >
@@ -34,8 +41,8 @@ const BlogCard = ({ blog }) => {
           style={{ objectFit: "cover" }}
           unoptimized={isExternalCover}
         />
-        {!hasCover ? <span>Upload a custom cover to replace the default graphic.</span> : null}
-      </Link>
+        {!hasCover ? <span>No cover image set.</span> : null}
+      </a>
       <div className="blog-card__body">
         <div className="blog-card__meta">
           <span>{formatDate(blog.createdAt)}</span>
@@ -43,12 +50,11 @@ const BlogCard = ({ blog }) => {
           <span>{blog.tags?.slice(0, 2).join(" • ") || "General"}</span>
         </div>
         <h3>
-          <Link href={`/blog/${blog.slug}`}>{blog.title}</Link>
+          <a href={href}>{blog.title}</a>
         </h3>
-        {/* <p>{toExcerpt(blog.content)}</p> */}
-        <Link href={`/blog/${blog.slug}`} className="blog-card__cta">
+        <a href={href} className="blog-card__cta">
           Continue reading →
-        </Link>
+        </a>
       </div>
     </article>
   );

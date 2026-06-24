@@ -12,6 +12,7 @@ const baseState = {
   ogImage: "",
   metaTitle: "",
   metaDescription: "",
+  category: "",
   tags: "",
   keywords: "",
   schemas: [],
@@ -38,6 +39,7 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
   const [formValues, setFormValues] = useState(() => ({
     ...baseState,
     ...initialData,
+    category: initialData?.category || "",
     tags: initialData?.tags?.join(", ") || initialData?.tags || "",
     keywords: initialData?.keywords?.join(", ") || initialData?.keywords || "",
     schemas:
@@ -142,6 +144,7 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
         ogImage: formValues.ogImage?.trim() || "",
         metaTitle: formValues.metaTitle?.trim() || "",
         metaDescription: formValues.metaDescription?.trim() || "",
+        category: formValues.category?.trim() || "",
         tags: formValues.tags,
         keywords: formValues.keywords,
         schemas: formValues.schemas,
@@ -238,6 +241,29 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
             onChange={(event) => setField("metaDescription", event.target.value)}
           />
           <small>Brief summary for search results and social media (150-160 chars).</small>
+        </label>
+
+        <label>
+          Category
+          <input
+            type="text"
+            name="category"
+            placeholder="e.g. Tutorial, Career, Course, Guide, News"
+            value={formValues.category}
+            onChange={(event) => setField("category", event.target.value)}
+            list="category-suggestions"
+          />
+          <datalist id="category-suggestions">
+            <option value="Tutorial" />
+            <option value="Career" />
+            <option value="Course" />
+            <option value="Guide" />
+            <option value="News" />
+            <option value="Data Analytics" />
+            <option value="Digital Marketing" />
+            <option value="Placement" />
+          </datalist>
+          <small>Used to group related posts. Shown as a badge on the blog post.</small>
         </label>
 
         <label>
