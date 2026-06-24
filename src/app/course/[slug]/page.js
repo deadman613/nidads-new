@@ -285,12 +285,12 @@ export default function CourseDetailPage({ params }) {
                     {course.rating} ({course.students.toLocaleString()})
                   </span>
                 </div>
-                <div className={styles.cardMetaItem}>
+                 {/* <div className={styles.cardMetaItem}>
                   <span className={styles.metaLabel}>Instructor</span>
                   <span className={styles.metaValue}>
                     {course.instructor?.name || "Shagun"}
-                  </span>
-                </div>
+                  </span> 
+                </div>  */}
               </div>
               <button className={styles.enrollButton} onClick={() => setShowEnquiry(true)}>Enroll Now</button>
               {showEnquiry && (
@@ -402,12 +402,12 @@ export default function CourseDetailPage({ params }) {
         </div>
       </main>
       {/* FULL-WIDTH: MEET YOUR TRAINERS */}
-      <section className={styles.fullWidthSection}>
+      {/* <section className={styles.fullWidthSection}>
         <div className={styles.fullWidthInner}>
           <h3 className={styles.trainerSectionTitle}>Meet Your Trainers</h3>
           <div className={styles.trainerCard}>
             <div className={styles.trainerLeft}>
-              <div className={styles.trainerBadge}>About the trainer</div>
+              <div className={styles.trainerBadge}></div>
               <div className={styles.trainerNameRow}>
                 <span className={styles.trainerName}>
                   {course.instructor?.name || "Manjeet Singh"}
@@ -435,7 +435,7 @@ export default function CourseDetailPage({ params }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FULL-WIDTH: RECOMMENDED COURSES */}
       <section className={styles.fullWidthSection}>

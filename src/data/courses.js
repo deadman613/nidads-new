@@ -15,7 +15,7 @@ export const courses = [
     description:
       "For beginners and working pros alike. Master Python, R, Machine Learning, Deep Learning, SQL, Statistics and BI tools through real projects.",
     fullDescription:
-      "This comprehensive 12-month diploma program is designed for beginners and working professionals who want to build a strong foundation in Data Science and AI. Master Python, R, Machine Learning, Deep Learning, SQL, Statistics and BI tools through hands-on real-world projects. Career outcomes include Data Scientist, ML Engineer, and AI Specialist roles.",
+      "This comprehensive 12-month diploma program is designed for beginners and working professionals who want to build a strong foundation in Data Science and AI. Master Python, SQL, Statistics, Machine Learning, Deep Learning, Big Data, Cloud Computing and MLOps through hands-on real-world projects, from foundational tools like Excel and GitHub all the way to production-grade model deployment. Career outcomes include Data Scientist, ML Engineer, and AI Specialist roles.",
     instructor: {
       name: "Miss. Shagun",
       title: "Lead Instructor, Data Science",
@@ -25,59 +25,134 @@ export const courses = [
     },
     topics: [
       "Python",
-      "R Programming",
+      "GitHub",
+      "Excel",
+      "NumPy & Pandas",
+      "Data Visualization",
+      "Statistics",
+      "SQL & NoSQL",
       "Machine Learning",
       "Deep Learning",
-      "SQL",
-      "Statistics",
-      "BI Tools"
+      "Big Data & Cloud",
+      "Model Deployment",
+      "MLOps"
     ],
     whatYouWillLearn: [
-      "Master Python and R programming for data science",
-      "Build and deploy machine learning models",
-      "Understand deep neural networks and AI concepts",
-      "Work with real-world datasets and projects",
-      "SQL database management and optimization",
-      "Statistical analysis and hypothesis testing",
-      "Business Intelligence tools and dashboards",
-      "End-to-end ML pipeline development",
-      "Data preprocessing and feature engineering",
-      "Model evaluation and performance optimization"
+      "Set up and navigate the full Data Science toolchain: Anaconda, Jupyter, VS Code, Colab, and GitHub",
+      "Master Python, NumPy and Pandas for data manipulation and analysis",
+      "Build effective data visualizations with Matplotlib, Seaborn and Plotly",
+      "Apply descriptive and inferential statistics, hypothesis testing and A/B testing",
+      "Write advanced SQL queries and work with NoSQL databases like MongoDB",
+      "Build and evaluate supervised and unsupervised machine learning models",
+      "Design and train deep neural networks including CNNs and RNNs with TensorFlow/Keras",
+      "Process large-scale data using Apache Spark and PySpark",
+      "Deploy ML models to the cloud using Docker, Kubernetes and MLOps best practices",
+      "Build production-ready REST APIs for ML models with Flask and FastAPI",
+      "Monitor, maintain and retrain production models, including CI/CD pipelines",
+      "Build a placement-ready GitHub portfolio and prepare for technical interviews"
     ],
     curriculum: [
       {
-        section: "Programming Foundations",
+        section: "Month 1: Foundations & Setup",
         lectures: [
-          { title: "Python for Data Science", duration: "20 hours", type: "video" },
-          { title: "R Programming Fundamentals", duration: "18 hours", type: "video" },
-          { title: "SQL Mastery", duration: "15 hours", type: "video" },
-          { title: "Project: Data Analysis Pipeline", duration: "10 hours", type: "project" }
+          { title: "Week 1: Welcome to Data Science World — definition, scope, roadmap, career paths (Data Scientist, Data Analyst, ML Engineer, Business Analyst), CRISP-DM workflow, and real-world DS applications (Netflix, Google, Uber, Amazon)", duration: "1 Week", type: "video" },
+          { title: "Week 2: Essential Tools & Environment Setup — Python vs SQL, IDE ecosystem (Anaconda, Jupyter, VS Code, Colab), GPU/TPU usage and Colab collaboration features", duration: "1 Week", type: "video" },
+          { title: "Week 3: GitHub Foundation — version control, Git vs GitHub, repository management, README writing, issue tracking, forking/pull requests, and GitHub Pages portfolio creation", duration: "1 Week", type: "video" },
+          { title: "Week 4: Excel Foundation — interface, formulas, pivot tables/charts, data validation, basic macros, and data import/export", duration: "1 Week", type: "video" },
+          { title: "Project 1: Business Data Dashboard — data cleaning, SUM/AVERAGE/VLOOKUP/IF formulas, dynamic charts, interactive pivot tables, and professional reporting", duration: "8 hours", type: "project" }
         ]
       },
       {
-        section: "Statistics & Machine Learning",
+        section: "Month 2: Python for Data Science",
         lectures: [
-          { title: "Statistical Analysis", duration: "16 hours", type: "video" },
-          { title: "Supervised Machine Learning", duration: "18 hours", type: "video" },
-          { title: "Unsupervised Learning", duration: "14 hours", type: "video" },
-          { title: "Project: ML Model Development", duration: "12 hours", type: "project" }
+          { title: "Week 5-6: Data Structures & NumPy — lists, tuples, dictionaries, sets, array operations, broadcasting, and linear algebra functions", duration: "2 Weeks", type: "video" },
+          { title: "Project 2: Student Grade Analysis System — data structure implementation, statistical calculations with NumPy, grade distribution and performance metrics", duration: "1 Week", type: "project" },
+          { title: "Week 7-8: Pandas Foundation — DataFrames and Series, loading data from multiple sources, data cleaning/preprocessing, grouping, merging and reshaping", duration: "2 Weeks", type: "video" }
         ]
       },
       {
-        section: "Deep Learning & AI",
+        section: "Month 3: Data Visualization & Exploratory Data Analysis",
         lectures: [
-          { title: "Neural Networks Fundamentals", duration: "20 hours", type: "video" },
-          { title: "Deep Learning Architectures", duration: "18 hours", type: "video" },
-          { title: "AI Applications", duration: "16 hours", type: "video" },
-          { title: "Project: Deep Learning Application", duration: "12 hours", type: "project" }
+          { title: "Week 9-10: Visualization Foundations — principles of effective visualization, Matplotlib fundamentals, Seaborn statistical plots, and chart-type selection", duration: "2 Weeks", type: "video" },
+          { title: "Project 4: Sales Performance Visualization Suite — multi-dimensional visualization, interactive dashboards, executive summary reports", duration: "1 Week", type: "project" },
+          { title: "Week 11-12: Advanced Visualization & EDA — Plotly interactive visualizations, geographical data visualization, and EDA techniques", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 5: E-commerce Customer Behavior Analysis — full EDA workflow, customer segmentation visualization, business insights, presentation-ready dashboards", duration: "10 hours", type: "project" }
         ]
       },
       {
-        section: "BI Tools & Capstone",
+        section: "Month 4: Statistics & Probability",
         lectures: [
-          { title: "Business Intelligence Tools", duration: "14 hours", type: "video" },
-          { title: "Dashboard Development", duration: "12 hours", type: "video" },
-          { title: "Capstone Project", duration: "40 hours", type: "project" }
+          { title: "Week 13-14: Descriptive Statistics — central tendency, dispersion, probability distributions, correlation/covariance, hypothesis testing fundamentals", duration: "2 Weeks", type: "video" },
+          { title: "Week 15-16: Inferential Statistics — confidence intervals, t-tests, ANOVA, Chi-square tests, Bayesian statistics intro, and A/B testing methodology", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 6: Marketing Campaign Effectiveness Analysis — statistical significance testing, campaign performance metrics, ROI analysis and recommendations", duration: "10 hours", type: "project" }
+        ]
+      },
+      {
+        section: "Month 5: SQL & NoSQL",
+        lectures: [
+          { title: "Week 17-18: SQL Fundamentals — database design principles, SQL syntax/operations, joins, subqueries, window functions, database optimization", duration: "2 Weeks", type: "video" },
+          { title: "Week 19-20: Advanced SQL & NoSQL — advanced SQL functions, stored procedures and triggers, introduction to NoSQL with MongoDB", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 7: Retail Inventory Management System — database design, complex query optimization, real-time data processing, performance analytics dashboard", duration: "10 hours", type: "project" }
+        ]
+      },
+      {
+        section: "Month 6: Machine Learning Fundamentals",
+        lectures: [
+          { title: "Week 21-22: ML Foundations — introduction to ML, supervised/unsupervised/reinforcement learning, train-test split, cross-validation, model evaluation metrics", duration: "2 Weeks", type: "video" },
+          { title: "Week 23-24: Supervised Learning — linear and logistic regression, decision trees, random forest, support vector machines, k-nearest neighbors", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 8: Prediction Model — feature engineering, model selection and tuning, performance optimization, deployment pipeline", duration: "10 hours", type: "project" }
+        ]
+      },
+      {
+        section: "Month 7: Advanced Machine Learning",
+        lectures: [
+          { title: "Week 25-26: Unsupervised Learning — K-Means and hierarchical clustering, Principal Component Analysis (PCA), association rule mining, anomaly detection", duration: "2 Weeks", type: "video" },
+          { title: "Week 27-28: Ensemble Methods & Model Optimization — bagging and boosting, XGBoost and LightGBM, hyperparameter tuning, feature selection techniques", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 9: Customer Segmentation & Recommendation System — clustering implementation, recommendation algorithms, business strategy development", duration: "10 hours", type: "project" }
+        ]
+      },
+      {
+        section: "Month 8: Deep Learning & Neural Networks",
+        lectures: [
+          { title: "Week 29-30: Neural Network Fundamentals — perceptrons, multi-layer networks, backpropagation, activation functions/optimizers, TensorFlow & Keras introduction", duration: "2 Weeks", type: "video" },
+          { title: "Week 31-32: Deep Learning Applications — Convolutional Neural Networks (CNN), Recurrent Neural Networks (RNN/LSTM), transfer learning, model deployment strategies", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 10: Image Classification & Sentiment Analysis — CNN for image recognition, RNN for text analysis, model comparison and optimization", duration: "10 hours", type: "project" }
+        ]
+      },
+      {
+        section: "Month 9: Big Data & Cloud Computing",
+        lectures: [
+          { title: "Week 33-34: Big Data Fundamentals & Apache Spark — the 4 Vs of Big Data, distributed computing, Spark architecture, PySpark (RDDs/DataFrames/Datasets), Spark SQL, data partitioning and optimization", duration: "2 Weeks", type: "video" },
+          { title: "Hands-on: Spark environment setup (local & cluster), RDD operations, DataFrame API, performance tuning and memory management", duration: "1 Week", type: "project" },
+          { title: "Week 35-36: Cloud Platforms & MLOps Introduction — AWS/GCP/Azure fundamentals, IaaS vs PaaS, Docker, Kubernetes for ML workloads, MLOps principles, model versioning and experiment tracking", duration: "2 Weeks", type: "video" },
+          { title: "Major Project 12: Scalable ML Pipeline on Cloud — end-to-end ML pipeline, automated training/evaluation, cloud-based deployment, monitoring/alerting, cost optimization", duration: "10 hours", type: "project" }
+        ]
+      },
+      {
+        section: "Month 10: Model Deployment & Production Systems",
+        lectures: [
+          { title: "Week 37-38: Model Deployment Strategies — deployment lifecycle, RESTful APIs with Flask and FastAPI, model serialization (Pickle, Joblib, ONNX), containerization, load balancing and scaling, API documentation", duration: "2 Weeks", type: "video" },
+          { title: "Hands-on: API Development Workshop — building RESTful ML APIs, request/response handling, input validation, Swagger/OpenAPI documentation", duration: "1 Week", type: "project" },
+          { title: "Week 39-40: Production Monitoring & Maintenance — model performance monitoring, data drift/model decay detection, A/B testing, CI/CD, retraining strategies, production troubleshooting", duration: "2 Weeks", type: "video" },
+          { title: "DevOps Integration: Git workflows for ML projects, automated testing, GitHub Actions for CI/CD, model registry/version control, rollback and disaster recovery", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 11: Advanced Specializations & Capstone Project",
+        lectures: [
+          { title: "Week 41-42: Advanced Machine Learning & AI — advanced ensemble techniques, AutoML and Neural Architecture Search, Federated Learning, Explainable AI (XAI), Reinforcement Learning fundamentals", duration: "2 Weeks", type: "video" },
+          { title: "Specialized Projects: AutoML pipeline development, Explainable AI dashboard, Reinforcement learning game agent", duration: "1 Week", type: "project" },
+          { title: "Major Project 13: Production-Ready ML System — complete MLOps pipeline, automated deployment, real-time monitoring dashboard, A/B testing framework, performance optimization, documentation", duration: "10 hours", type: "project" },
+          { title: "Week 43-44: Capstone Project Development — choose E-commerce Recommendation Engine, Financial Risk Management Platform, or Supply Chain Optimization System; planning, implementation, testing and documentation", duration: "2 Weeks", type: "project" }
+        ]
+      },
+      {
+        section: "Month 12: Career Preparation & Placement",
+        lectures: [
+          { title: "Week 45: Portfolio & Resume Building — GitHub portfolio optimization, ATS-friendly resume development, LinkedIn profile enhancement", duration: "1 Week", type: "video" },
+          { title: "Week 46: Technical Interview Preparation — coding challenges (DSA, Python, SQL), ML algorithm explanations, statistics & probability, system design basics, mock technical interviews", duration: "1 Week", type: "video" },
+          { title: "Week 47: Aptitude, Logical Reasoning & Behavioral Prep — quantitative aptitude, data interpretation, STAR method training, salary negotiation, full mock interview simulations", duration: "1 Week", type: "video" },
+          { title: "Week 48: Placement Preparation & Career Launch — industry networking, job portal registration, referral/alumni network building, personality development, final project presentation and certification", duration: "1 Week", type: "video" }
         ]
       }
     ],
@@ -95,12 +170,14 @@ export const courses = [
     ],
     includes: [
       "150+ hours of video content",
-      "50+ hands-on projects",
-      "Industry-standard tools and libraries",
+      "13+ major hands-on projects plus weekly mini-projects",
+      "Industry-standard tools: Python, SQL, GitHub, Docker, Kubernetes, Spark",
+      "Cloud and MLOps training (AWS/GCP/Azure)",
       "Lifetime access to course materials",
       "Recognized diploma certificate",
       "Job assistance and placement support",
-      "1-on-1 mentoring sessions"
+      "1-on-1 mentoring sessions",
+      "GitHub portfolio and mock interview preparation"
     ],
     reviews: [
       {
@@ -163,38 +240,150 @@ export const courses = [
     ],
     curriculum: [
       {
-        section: "Data Foundations",
+        section: "Month 1: Data Fundamentals",
         lectures: [
-          { title: "Excel Advanced Analytics", duration: "18 hours", type: "video" },
-          { title: "SQL Mastery", duration: "18 hours", type: "video" },
-          { title: "Python for Analytics", duration: "16 hours", type: "video" },
-          { title: "Project: Business Data Analysis", duration: "10 hours", type: "project" }
+          { title: "Week 1: Introduction to Data & Excel Fundamentals (data types, career paths, Excel interface, rows/columns/worksheets)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Personal Budget Tracker", duration: "1 Week", type: "project" },
+          { title: "Week 2: Excel Formulas & Basic Functions (SUM, AVERAGE, COUNT, IF, AND/OR, CONCATENATE, TODAY/DATEDIF, error handling)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Grade Calculator & Employee Timesheet + Assignment: Personal Expense Tracker", duration: "1 Week", type: "project" },
+          { title: "Week 3: Data Organization & Basic Analysis (validation, sorting/filtering, conditional formatting, charts, data cleaning)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Sales Data Organization Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 4: Advanced Excel Functions & Pivot Tables (VLOOKUP/HLOOKUP, COUNTIF/SUMIF/AVERAGEIF, Pivot Tables & Charts)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Retail Store Performance Analysis + Month 1 Assessment", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Statistics & Machine Learning",
+        section: "Month 2: Advanced Excel & Introduction to Business Intelligence",
         lectures: [
-          { title: "Statistical Analysis", duration: "16 hours", type: "video" },
-          { title: "Machine Learning Fundamentals", duration: "18 hours", type: "video" },
-          { title: "Predictive Analytics", duration: "14 hours", type: "video" },
-          { title: "Project: ML for Business", duration: "12 hours", type: "project" }
+          { title: "Week 5: Excel Power Features (advanced Pivot Tables, Power Query, What-If Analysis, Goal Seek/Solver, dashboards)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Monthly Sales Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 6: Introduction to Power BI (BI overview, Power BI Desktop setup, data sources, basic visualizations)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Personal Finance Dashboard in Power BI", duration: "1 Week", type: "project" },
+          { title: "Week 7: Power BI Data Modeling Basics (data models, relationships, calculated columns, measures, KPIs)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: School Management Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 8: Power BI Visualization & Sharing (advanced visuals, formatting, filters/slicers, publishing & sharing)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Company Performance Dashboard + Month 2 Assessment", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Power BI & Visualization",
+        section: "Month 3: Database Fundamentals & SQL",
         lectures: [
-          { title: "Power BI Fundamentals", duration: "16 hours", type: "video" },
-          { title: "Dashboard Design", duration: "14 hours", type: "video" },
-          { title: "Advanced BI Techniques", duration: "12 hours", type: "video" },
-          { title: "Project: BI Dashboard", duration: "10 hours", type: "project" }
+          { title: "Week 9: Introduction to Databases (databases vs spreadsheets, SQL intro, DBMS overview, setup)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Personal Library Database", duration: "1 Week", type: "project" },
+          { title: "Week 10: Basic SQL Queries (SELECT, WHERE, ORDER BY, COUNT/SUM/AVG, DISTINCT, NULL handling)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Customer Database Queries", duration: "1 Week", type: "project" },
+          { title: "Week 11: Intermediate SQL Operations (GROUP BY/HAVING, JOINs, subqueries, INSERT/UPDATE/DELETE)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: E-commerce Order Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 12: SQL for Data Analysis (CASE statements, string/date functions, window functions, views)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Customer Behavior Analysis with SQL + Month 3 Assessment", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Business Analytics & Capstone",
+        section: "Month 4: Introduction to Programming & Python",
         lectures: [
-          { title: "Business Analytics Applications", duration: "14 hours", type: "video" },
-          { title: "Reporting and Insights", duration: "12 hours", type: "video" },
-          { title: "Capstone Analytics Project", duration: "35 hours", type: "project" }
+          { title: "Week 13: Programming Fundamentals (Python install/Anaconda, syntax, variables, Jupyter Notebooks)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Simple Calculator in Python", duration: "1 Week", type: "project" },
+          { title: "Week 14: Python Data Structures & Control Flow (lists, tuples, dictionaries, sets, loops, functions, file I/O)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Student Management System", duration: "1 Week", type: "project" },
+          { title: "Week 15: Introduction to Pandas (Series/DataFrame, loading CSV/Excel, inspection, filtering)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Movie Dataset Exploration", duration: "1 Week", type: "project" },
+          { title: "Week 16: Basic Data Analysis with Python (describe, grouping, missing data, Matplotlib basics)", duration: "1 Week", type: "video" },
+          { title: "Major Project: City Weather Data Analysis + Month 4 Assessment", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 5: Data Visualization & Storytelling",
+        lectures: [
+          { title: "Week 17: Advanced Excel Visualization (chart types, dashboard layouts, interactive charts, sparklines)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Regional Sales Performance Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 18: Data Visualization Principles (effective viz, color theory, chart selection, storytelling)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Before and After Visualization Makeover", duration: "1 Week", type: "project" },
+          { title: "Week 19: Python Visualization Libraries (Matplotlib, Seaborn, Plotly, styling & export)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Data Visualization Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 20: Advanced Power BI Techniques (DAX basics, time intelligence, bookmarks, performance optimization)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Executive Business Intelligence Dashboard + Month 5 Assessment", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 6: Statistics & Data Analysis",
+        lectures: [
+          { title: "Week 21: Statistics Fundamentals (central tendency, variability, distributions, percentiles)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Employee Salary Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 22: Exploratory Data Analysis (EDA methodology, patterns, correlation, outlier detection)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Customer Demographics Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 23: Introduction to Inferential Statistics (sampling, confidence intervals, hypothesis testing, t-tests, p-values)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: A/B Testing Analysis for Marketing", duration: "1 Week", type: "project" },
+          { title: "Week 24: Business Statistics Applications (quality control, segmentation, forecasting, risk analysis)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Business Performance Statistical Analysis + Month 6 Assessment", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 7: Advanced Data Analysis Techniques",
+        lectures: [
+          { title: "Week 25: Advanced Pandas Operations (multi-indexing, advanced grouping, time series, merging)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Multi-source Data Integration", duration: "1 Week", type: "project" },
+          { title: "Week 26: Data Cleaning & Preprocessing (data quality framework, missing data, duplicates, validation rules)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Messy Dataset Cleanup Challenge", duration: "1 Week", type: "project" },
+          { title: "Week 27: Introduction to Machine Learning Concepts (ML types, supervised vs unsupervised, scikit-learn)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: ML Concept Exploration", duration: "1 Week", type: "project" },
+          { title: "Week 28: Basic Predictive Modeling (linear & logistic regression, model training/testing, evaluation metrics)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Sales Prediction Model + Month 7 Assessment", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 8: Automation & Efficiency",
+        lectures: [
+          { title: "Week 29: Excel Automation with Macros (VBA, recording macros, interfaces, automated reports)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Automated Monthly Report Generator", duration: "1 Week", type: "project" },
+          { title: "Week 30: Power Query & Data Transformation (advanced Power Query, M language, scheduled refresh)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Multi-source Data Integration Pipeline", duration: "1 Week", type: "project" },
+          { title: "Week 31: Python Automation for Data Tasks (file operations, openpyxl, email automation, task scheduling)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Automated Data Processing Pipeline", duration: "1 Week", type: "project" },
+          { title: "Week 32: Dashboard Automation & Performance (Power BI service automation, parameterized reports, mobile optimization)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Enterprise-Level Automated Dashboard + Month 8 Assessment", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 9: Industry Applications & Case Studies",
+        lectures: [
+          { title: "Week 33: Retail & E-commerce Analytics (customer segmentation, sales analysis, market basket analysis, CLV)", duration: "1 Week", type: "video" },
+          { title: "Week 34: Financial Data Analysis (financial KPIs, budget vs actual, trend analysis, risk assessment)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Company Financial Health Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 35: Marketing Analytics (campaign performance, attribution modeling, CAC, ROI/ROAS)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Marketing Campaign Effectiveness Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 36: HR & People Analytics (performance metrics, attrition analysis, recruitment analytics, D&I metrics)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Comprehensive HR Analytics Dashboard", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 10: Advanced Machine Learning Applications",
+        lectures: [
+          { title: "Week 37: Classification Problems (decision trees, random forests, feature importance, imbalanced datasets)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Customer Segmentation with ML", duration: "1 Week", type: "project" },
+          { title: "Week 38: Regression & Forecasting (multiple/polynomial regression, time series forecasting, seasonal decomposition)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Demand Forecasting System", duration: "1 Week", type: "project" },
+          { title: "Week 39: Clustering & Unsupervised Learning (K-means, hierarchical clustering, PCA, recommendation systems)", duration: "1 Week", type: "video" },
+          { title: "Practice Project: Customer Behavior Clustering Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 40: Model Deployment Basics (saving/loading models, web interfaces, Excel/Power BI integration, monitoring)", duration: "1 Week", type: "video" },
+          { title: "Major Project: End-to-End ML Solution for Business", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 11: Specialization & Advanced Projects",
+        lectures: [
+          { title: "Week 41: Choose Your Specialization Track", duration: "1 Week", type: "video" },
+          { title: "Track A: Business Intelligence Specialist (advanced Power BI, enterprise dashboards, data governance, BI strategy)", duration: "1 Week", type: "video" },
+          { title: "Track B: Data Analysis & Reporting Expert (advanced Excel/automation, statistical mastery, stakeholder communication)", duration: "1 Week", type: "video" },
+          { title: "Track C: Beginner Data Scientist (advanced Python, more ML algorithms, feature engineering, model selection)", duration: "1 Week", type: "video" },
+          { title: "Week 42: Specialization Project Development (deep dive, mentor guidance, advanced project, portfolio enhancement)", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 12: Capstone Project & Career Preparation",
+        lectures: [
+          { title: "Week 43: Capstone Project Planning (scope definition, data acquisition, technical architecture, timeline)", duration: "1 Week", type: "video" },
+          { title: "Week 44: Project Finalization & Presentation (testing & optimization, presentation prep, peer review, portfolio integration)", duration: "1 Week", type: "project" },
+          { title: "Week 45: Career Launch & Placement Preparation (resume/LinkedIn optimization, mock interviews, salary negotiation, alumni network)", duration: "1 Week", type: "video" }
         ]
       }
     ],
@@ -265,6 +454,15 @@ export const courses = [
     ],
     curriculum: [
       {
+        section: "Foundations & Setup",
+        lectures: [
+          { title: "Week 1: Welcome to Data Science World — roadmap, career paths, CRISP-DM workflow, real-world DS success stories", duration: "1 Week", type: "video" },
+          { title: "Week 2: Essential Tools & Environment Setup — Anaconda, Jupyter, VS Code, Google Colab", duration: "1 Week", type: "video" },
+          { title: "Week 3: GitHub Foundation — version control, repository management, GitHub Pages portfolio", duration: "1 Week", type: "video" },
+          { title: "Week 4: Excel Foundation — formulas, pivot tables, data validation, macros", duration: "1 Week", type: "video" }
+        ]
+      },
+      {
         section: "Advanced Machine Learning",
         lectures: [
           { title: "Advanced ML Algorithms", duration: "18 hours", type: "video" },
@@ -294,9 +492,9 @@ export const courses = [
       {
         section: "AI Deployment & MLOps",
         lectures: [
-          { title: "Model Deployment Strategies", duration: "12 hours", type: "video" },
-          { title: "MLOps and Production Systems", duration: "12 hours", type: "video" },
-          { title: "Model Monitoring and Maintenance", duration: "10 hours", type: "video" },
+          { title: "Model Deployment Strategies — Flask/FastAPI, model serialization, containerization", duration: "12 hours", type: "video" },
+          { title: "MLOps and Production Systems — Docker, Kubernetes, CI/CD", duration: "12 hours", type: "video" },
+          { title: "Model Monitoring and Maintenance — data drift detection, A/B testing, retraining", duration: "10 hours", type: "video" },
           { title: "Capstone: Production AI System", duration: "25 hours", type: "project" }
         ]
       }
@@ -368,39 +566,75 @@ export const courses = [
     ],
     curriculum: [
       {
-        section: "Advanced Data Modeling",
+        section: "Month 1: Foundation of Data Analytics",
         lectures: [
-          { title: "Advanced Data Modeling Techniques", duration: "14 hours", type: "video" },
-          { title: "Data Architecture Design", duration: "12 hours", type: "video" },
-          { title: "Data Warehouse Optimization", duration: "10 hours", type: "video" },
-          { title: "Project: Data Model Implementation", duration: "10 hours", type: "project" }
+          { title: "Week 1: Data Analytics Fundamentals (types/applications, Analyst vs Scientist vs BA, analytics life cycle, structured vs unstructured data, intro to BI)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Excel Interface, Cell References, SUM/AVERAGE/COUNT/MIN/MAX, Sales Data Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 2: Excel Formulas & Functions (IF/AND/OR/NOT, CONCATENATE/LEFT/RIGHT/MID, Date & Time, IFERROR/ISERROR)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Nested IFs, COUNTIF/SUMIF/AVERAGEIF, Data Validation, Employee Performance Analysis", duration: "1 Week", type: "project" },
+          { title: "Week 3: Data Management in Excel (sorting/filtering, conditional formatting, data tables, pivot table fundamentals)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Monthly Sales Performance Dashboard", duration: "1 Week", type: "project" },
+          { title: "Week 4: Advanced Excel & Power Query (VLOOKUP/HLOOKUP/XLOOKUP, INDEX-MATCH, array formulas, Power Query intro)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Retail Chain Performance Analysis", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "ML for Analytics",
+        section: "Month 2: Power BI & Data Visualization",
         lectures: [
-          { title: "ML Applications in Analytics", duration: "14 hours", type: "video" },
-          { title: "Predictive Analytics", duration: "12 hours", type: "video" },
-          { title: "Forecasting Techniques", duration: "10 hours", type: "video" },
-          { title: "Project: ML Analytics Solution", duration: "10 hours", type: "project" }
+          { title: "Week 5: Power BI Fundamentals (ecosystem overview, desktop architecture, data sources, data model concepts)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Power BI navigation, multi-source import, Power Query, basic visualizations", duration: "1 Week", type: "project" },
+          { title: "Week 6: Data Modeling & Relationships (star vs snowflake schema, relationships, intro to DAX)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Calculated columns vs measures, basic DAX functions, interactive dashboards", duration: "1 Week", type: "project" },
+          { title: "Week 7: Advanced Power BI & DAX (SUM/AVERAGE/COUNT, YTD/MTD/QTD, filter & row context, DAX best practices)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: HR Analytics Dashboard (complex DAX, time-based analysis, treemap/waterfall/funnel visuals)", duration: "1 Week", type: "project" },
+          { title: "Week 8: Data Storytelling & Advanced Visualizations (storytelling principles, color theory, dashboard best practices)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Executive Sales Performance Dashboard (custom visuals, slicers/bookmarks/drill-through, mobile design)", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Advanced BI & Dashboards",
+        section: "Month 3: SQL for Data Analysis",
         lectures: [
-          { title: "Advanced Power BI Techniques", duration: "12 hours", type: "video" },
-          { title: "Tableau Advanced Features", duration: "12 hours", type: "video" },
-          { title: "Interactive Dashboard Design", duration: "10 hours", type: "video" },
-          { title: "Project: Advanced BI Dashboard", duration: "10 hours", type: "project" }
+          { title: "Week 9: SQL Fundamentals (RDBMS, SQL syntax, database design, data types/constraints)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: MySQL/PostgreSQL setup, SELECT/WHERE/ORDER BY, E-commerce Database Queries", duration: "1 Week", type: "project" },
+          { title: "Week 10: Intermediate SQL Operations (COUNT/SUM/AVG/MIN/MAX, GROUP BY/HAVING, JOINs, UNION/UNION ALL)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Customer Order Analysis (complex aggregations, multi-table joins, data cleaning with SQL)", duration: "1 Week", type: "project" },
+          { title: "Week 11: Advanced SQL Techniques (subqueries, CTEs, window functions, CASE statements)", duration: "1 Week", type: "video" },
+          { title: "Major Project: Banking Transaction Analysis (complex subqueries, window functions, string/date manipulation)", duration: "1 Week", type: "project" },
+          { title: "Week 12: SQL Optimization & Real-world Applications (query optimization, indexing, performance tuning, SQL in BI)", duration: "1 Week", type: "video" },
+          { title: "Capstone SQL Project: Multi-dimensional Business Analysis (views, stored procedures, Power BI integration)", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Business Intelligence Strategy",
+        section: "Month 4: Python for Data Analysis",
         lectures: [
-          { title: "BI Strategy and Implementation", duration: "10 hours", type: "video" },
-          { title: "Advanced Reporting Systems", duration: "10 hours", type: "video" },
-          { title: "Analytics Consulting Skills", duration: "8 hours", type: "video" },
-          { title: "Capstone: BI Consulting Project", duration: "20 hours", type: "project" }
+          { title: "Week 13: Python Programming Fundamentals (installation, syntax, variables/operators, functions/modules)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Jupyter setup, lists/dictionaries/tuples/sets, file I/O, data processing scripts", duration: "1 Week", type: "project" },
+          { title: "Week 14: NumPy & Pandas Foundations (NumPy arrays, broadcasting, DataFrame structure, data loading/saving)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Student Grade Analysis (array manipulations, DataFrame indexing, data filtering, cleaning)", duration: "1 Week", type: "project" },
+          { title: "Week 15: Advanced Pandas Operations (GroupBy, pivot tables, merging/joining, aggregation techniques)", duration: "1 Week", type: "video" },
+          { title: "Major Project: E-commerce Customer Segmentation (complex manipulations, multi-level indexing, transformation)", duration: "1 Week", type: "project" },
+          { title: "Week 16: Data Visualization with Python (Matplotlib, Seaborn, Plotly, visualization best practices)", duration: "1 Week", type: "video" },
+          { title: "Portfolio Project: COVID-19 Data Analysis Dashboard", duration: "1 Week", type: "project" }
+        ]
+      },
+      {
+        section: "Month 5: Statistics & Advanced Analytics",
+        lectures: [
+          { title: "Week 17: Exploratory Data Analysis (EDA workflow, descriptive statistics, distributions, correlation vs causation)", duration: "1 Week", type: "video" },
+          { title: "Mini Project: Housing Market Analysis (comprehensive EDA, outlier detection, missing value analysis)", duration: "1 Week", type: "project" },
+          { title: "Week 18: Statistical Analysis & Hypothesis Testing (inferential stats, hypothesis testing, t-tests, chi-square, p-values)", duration: "1 Week", type: "video" },
+          { title: "Week 19: Data Preprocessing & Feature Engineering (data quality, missing data, outlier treatment, feature scaling)", duration: "1 Week", type: "video" },
+          { title: "Capstone Prep: Comprehensive Data Preprocessing (advanced cleaning, feature creation/selection, transformation pipeline)", duration: "1 Week", type: "project" },
+          { title: "Week 20: Machine Learning Basics & Predictive Analytics (intro to ML, supervised vs unsupervised, regression/classification, evaluation metrics)", duration: "1 Week", type: "video" }
+        ]
+      },
+      {
+        section: "Month 6: Capstone Projects & Career Preparation",
+        lectures: [
+          { title: "Week 21: Industry Case Studies & Domain Expertise (healthcare, finance, retail, HR analytics — choose 1 domain project)", duration: "1 Week", type: "video" },
+          { title: "Week 22: End-to-End Capstone Project - Week 1 (data collection, cleaning in Python, SQL database design, Power BI dashboard)", duration: "1 Week", type: "project" },
+          { title: "Week 23: End-to-End Capstone Project - Week 2 (advanced analytics implementation, dashboard optimization, documentation, performance testing)", duration: "1 Week", type: "project" },
+          { title: "Week 24: Portfolio Finalization & Placement Preparation (GitHub portfolio, LinkedIn, resume, mock interviews, capstone presentation, final assessments)", duration: "1 Week", type: "video" }
         ]
       }
     ],
@@ -471,30 +705,42 @@ export const courses = [
     ],
     curriculum: [
       {
-        section: "Excel & SQL Fundamentals",
+        section: "Month 1: Data & Excel Foundations",
         lectures: [
-          { title: "Excel for Data Analysis", duration: "10 hours", type: "video" },
-          { title: "SQL Basics and Querying", duration: "10 hours", type: "video" },
-          { title: "Data Manipulation with Excel", duration: "8 hours", type: "video" },
-          { title: "Project: Excel & SQL Analysis", duration: "8 hours", type: "project" }
+          { title: "Week 1: Data Analytics Fundamentals (landscape, Data Analyst role, structured vs unstructured data, analytics lifecycle, Excel mastery)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Excel navigation & advanced formatting, data validation, dynamic reports with named ranges", duration: "1 Week", type: "project" },
+          { title: "Week 2: Advanced Excel Functions & Logic (IF/IFS/AND/OR, COUNTIF/SUMIFS/AVERAGEIFS, IFERROR/ISERROR, text functions)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Nested IF statements, multi-criteria analysis, data cleaning with text functions", duration: "1 Week", type: "project" },
+          { title: "Week 3: Lookup Functions & Data Relationships (VLOOKUP vs XLOOKUP, INDEX-MATCH, error handling, dynamic lookups)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Employee database with lookups, product inventory system, cross-referencing data sources", duration: "1 Week", type: "project" },
+          { title: "Week 4: Pivot Tables & Power Query Introduction (pivot architecture, grouping/filtering, Power Query ETL, transformation concepts)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Multi-dimensional pivot analysis, dynamic pivot charts/slicers, data cleaning workflows", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Python & Statistical Analysis",
+        section: "Month 2: Business Intelligence & Analytics",
         lectures: [
-          { title: "Python Basics for Analytics", duration: "10 hours", type: "video" },
-          { title: "Statistical Analysis Fundamentals", duration: "10 hours", type: "video" },
-          { title: "Data Cleaning Techniques", duration: "8 hours", type: "video" },
-          { title: "Project: Python Data Analysis", duration: "8 hours", type: "project" }
+          { title: "Week 5: Power BI Fundamentals & Data Modeling (BI concepts, Power BI ecosystem, data modeling, star vs snowflake schema)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Power BI Desktop setup, multi-source connections, basic visualizations & reports", duration: "1 Week", type: "project" },
+          { title: "Week 6: Advanced Power BI & DAX (DAX fundamentals, calculated columns vs measures, time intelligence, advanced DAX patterns)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Complex calculated measures, time-based analysis, advanced visualizations (custom charts, maps)", duration: "1 Week", type: "project" },
+          { title: "Week 7: SQL & Database Fundamentals (relational databases, SQL syntax, normalization, keys & constraints)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: MySQL setup, schema & table creation, SELECT/filtering, sorting and limiting results", duration: "1 Week", type: "project" },
+          { title: "Week 8: Advanced SQL & Data Manipulation (JOIN operations, subqueries, window functions)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Complex multi-table joins, GROUP BY aggregations, window functions for ranking", duration: "1 Week", type: "project" }
         ]
       },
       {
-        section: "Data Visualization & Reporting",
+        section: "Month 3: Python Analytics & Career Preparation",
         lectures: [
-          { title: "Data Visualization Principles", duration: "8 hours", type: "video" },
-          { title: "Creating Effective Charts", duration: "8 hours", type: "video" },
-          { title: "Dashboard Fundamentals", duration: "6 hours", type: "video" },
-          { title: "Final Project: Analytics Report", duration: "10 hours", type: "project" }
+          { title: "Week 9: Python Fundamentals & Pandas (syntax, data structures, NumPy arrays, Pandas architecture)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Anaconda/Jupyter setup, data loading & exploration, cleaning techniques, Netflix dataset analysis", duration: "1 Week", type: "project" },
+          { title: "Week 10: Advanced Python & Statistical Analysis (EDA methodology, correlation & hypothesis testing, statistical significance)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Advanced Pandas (groupby/pivot/merge), SciPy statistical analysis, Matplotlib & Seaborn visualization", duration: "1 Week", type: "project" },
+          { title: "Week 11: Data Visualization & Storytelling (storytelling principles, chart selection, interactive visualization)", duration: "1 Week", type: "video" },
+          { title: "Hands-on: Advanced Matplotlib/Seaborn, interactive Plotly visualizations, compelling data narratives", duration: "1 Week", type: "project" },
+          { title: "Week 12: Capstone Project & Career Preparation — choose: E-commerce Analytics Suite, Healthcare Data Analytics, or Financial Risk Assessment", duration: "1 Week", type: "project" },
+          { title: "Career Preparation: ATS-friendly resume building, LinkedIn optimization, technical & behavioral interview practice", duration: "1 Week", type: "video" }
         ]
       }
     ],

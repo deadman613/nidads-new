@@ -109,7 +109,7 @@
   padding: 12px 2px;
   scroll-padding: 0 20px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1080px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-snap-type: x proximity;
@@ -118,6 +118,7 @@
 .carousel::-webkit-scrollbar {
   display: none;
 }
+
 
 /* ===============================
    CARD
