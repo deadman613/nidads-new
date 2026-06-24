@@ -29,13 +29,16 @@ const fetchBlog = async (slug) => {
   }
 };
 
-const fetchRelated = async (slug) => {
+const fetchRelated = async (slug, blogId) => {
   const baseUrl = await getBaseUrl();
-  const res = await fetch(`${baseUrl}/api/blog?relatedTo=${slug}&limit=4`, {
+  const params = new URLSearchParams({ relatedTo: slug, limit: "4" });
+  if (blogId) params.set("excludeId", blogId);
+  const res = await fetch(`${baseUrl}/api/blog?${params.toString()}`, {
     next: { revalidate: 60 },
   });
-  if (!res.ok) return { data: [] };
-  return res.json();
+  if (!res.ok) return { data: [], isFallback: true };
+  const json = await res.json();
+  return json;
 };
 
 export async function generateMetadata(props) {
@@ -115,7 +118,7 @@ export default async function BlogDetails(props) {
     notFound();
   }
 
-  const related = await fetchRelated(slug);
+  const related = await fetchRelated(slug, blog.id);
   const cover = blog.coverImg?.trim();
   const isExternalCover = Boolean(cover && /^(https?:)?\/\//i.test(cover));
   const hasCover = Boolean(cover);
@@ -207,10 +210,12 @@ export default async function BlogDetails(props) {
             </div>
           ) : null}
 
-          {/* Recommended posts */}
+          {/* Recommended / Latest posts */}
           {related?.data?.length ? (
             <div className="sidebar-card sidebar-recommended">
-              <p className="sidebar-card__label">Recommended Posts</p>
+              <p className="sidebar-card__label">
+                {related.isFallback ? "Latest Posts" : "Recommended Posts"}
+              </p>
               <ul className="sidebar-recommended__list">
                 {related.data.map((item) => {
                   const rawCover = item.coverImg?.trim();

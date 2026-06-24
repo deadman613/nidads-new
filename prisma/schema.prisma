@@ -22,6 +22,7 @@ model Blog {
   ogImage         String?
   metaTitle       String?
   metaDescription String?
+  category        String?
   tags            String[]
   keywords        String[]
   // Backward compatible single-schema fields

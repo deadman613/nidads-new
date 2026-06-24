@@ -248,22 +248,29 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
           <input
             type="text"
             name="category"
-            placeholder="e.g. Tutorial, Career, Course, Guide, News"
+            placeholder="e.g. Data Science, Data Analytics, Digital Marketing"
             value={formValues.category}
             onChange={(event) => setField("category", event.target.value)}
             list="category-suggestions"
           />
           <datalist id="category-suggestions">
-            <option value="Tutorial" />
-            <option value="Career" />
-            <option value="Course" />
-            <option value="Guide" />
-            <option value="News" />
+            <option value="Data Science" />
             <option value="Data Analytics" />
             <option value="Digital Marketing" />
+            <option value="Business Analytics" />
+            <option value="Machine Learning" />
+            <option value="Python" />
+            <option value="SQL" />
+            <option value="Tableau" />
+            <option value="Power BI" />
+            <option value="Career Tips" />
             <option value="Placement" />
+            <option value="Course Guide" />
+            <option value="Interview Prep" />
+            <option value="Industry News" />
+            <option value="Tutorial" />
           </datalist>
-          <small>Used to group related posts. Shown as a badge on the blog post.</small>
+          <small>Groups related posts. Shown as a chip on the blog post and used for recommendations.</small>
         </label>
 
         <label>

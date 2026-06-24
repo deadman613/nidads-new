@@ -119,7 +119,7 @@ export async function PUT(request, context) {
     }
 
     const payload = await request.json();
-    const { title, content, coverImg, ogImage, metaTitle, metaDescription, tags, keywords, slug, schemas } = payload;
+    const { title, content, coverImg, ogImage, metaTitle, metaDescription, category, tags, keywords, slug, schemas } = payload;
 
     if (!title?.trim() || !content?.trim()) {
       return NextResponse.json({ error: "Title and content are required" }, { status: 400 });
@@ -158,6 +158,7 @@ export async function PUT(request, context) {
       ogImage: ogImage?.trim() || null,
       metaTitle: metaTitle?.trim() || null,
       metaDescription: metaDescription?.trim() || null,
+      category: category?.trim() || null,
       tags: preparedTags,
       slug: resolvedSlug,
     };

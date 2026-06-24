@@ -124,15 +124,28 @@ export async function GET(request) {
     if (relatedTo) {
       const reference = await prisma.blog.findUnique({
         where: { slug: relatedTo },
-        select: { id: true, tags: true },
+        select: { id: true, tags: true, category: true },
       });
 
       if (reference) {
-        const relatedTags = reference.tags?.length ? reference.tags : undefined;
         excludedIds.push(reference.id);
-        if (relatedTags) {
-          filters.push({ tags: { hasSome: relatedTags } });
+
+        const orConditions = [];
+        // Match by category (most relevant)
+        if (reference.category) {
+          orConditions.push({
+            category: { equals: reference.category, mode: "insensitive" },
+          });
         }
+        // Also match by shared tags
+        if (reference.tags?.length) {
+          orConditions.push({ tags: { hasSome: reference.tags } });
+        }
+
+        if (orConditions.length) {
+          filters.push({ OR: orConditions });
+        }
+        // If no conditions (no category, no tags), just return latest (fallback below)
       }
     }
 
@@ -144,7 +157,7 @@ export async function GET(request) {
 
     const skip = (page - 1) * limit;
 
-    const [items, count] = await Promise.all([
+    let [items, count] = await Promise.all([
       prisma.blog.findMany({
         where,
         orderBy: { createdAt: "desc" },
@@ -154,8 +167,26 @@ export async function GET(request) {
       prisma.blog.count({ where }),
     ]);
 
+    // Fallback: if relatedTo was requested but no related posts found,
+    // return the latest blogs (excluding the current one) so the sidebar
+    // is never empty.
+    let isFallback = false;
+    if (relatedTo && items.length === 0) {
+      const fallbackWhere = excludedIds.length
+        ? { id: { notIn: excludedIds } }
+        : undefined;
+      items = await prisma.blog.findMany({
+        where: fallbackWhere,
+        orderBy: { createdAt: "desc" },
+        take: limit,
+      });
+      count = items.length;
+      isFallback = true;
+    }
+
     return NextResponse.json({
       data: items,
+      isFallback,
       pagination: {
         page,
         limit,
@@ -184,6 +215,7 @@ export async function POST(request) {
       ogImage,
       metaTitle,
       metaDescription,
+      category,
       tags,
       keywords,
       slug,
@@ -224,6 +256,7 @@ export async function POST(request) {
         ogImage: ogImage?.trim() || null,
         metaTitle: metaTitle?.trim() || null,
         metaDescription: metaDescription?.trim() || null,
+        category: category?.trim() || null,
         tags: preparedTags,
         keywords: preparedKeywords,
         schema: preparedSchema,
