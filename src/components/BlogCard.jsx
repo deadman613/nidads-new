@@ -36,9 +36,9 @@ const BlogCard = ({ blog }) => {
           src={cover}
           alt={blog.title}
           fill
-          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 320px, 360px"
+          sizes="(max-width: 600px) 100vw, (max-width: 1024px) 320px, 380px"
           priority={false}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
           unoptimized={isExternalCover}
         />
         {!hasCover ? <span>No cover image set.</span> : null}
