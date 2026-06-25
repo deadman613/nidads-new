@@ -99,6 +99,62 @@ export default function NewSection() {
                 difference. This felt like real industry training.”
               </p>
             </div>
+            <div className={styles.card}>
+              <div className={styles.profile}>
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <div>
+                  <h4>Satyam Misra</h4>
+                  <span>ML Engineer · Gurgaon</span>
+                  <small>FinAI Solutions</small>
+                </div>
+              </div>
+              <p>
+                “The structured roadmap and placement guidance made all the
+                difference. This felt like real industry training.”
+              </p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.profile}>
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <div>
+                  <h4>Rahul Mehta</h4>
+                  <span>ML Engineer · Gurgaon</span>
+                  <small>FinAI Solutions</small>
+                </div>
+              </div>
+              <p>
+                “The structured roadmap and placement guidance made all the
+                difference. This felt like real industry training.”
+              </p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.profile}>
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <div>
+                  <h4>Rahul Mehta</h4>
+                  <span>ML Engineer · Gurgaon</span>
+                  <small>FinAI Solutions</small>
+                </div>
+              </div>
+              <p>
+                “The structured roadmap and placement guidance made all the
+                difference. This felt like real industry training.”
+              </p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.profile}>
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <div>
+                  <h4>Rahul Mehta</h4>
+                  <span>ML Engineer · Gurgaon</span>
+                  <small>FinAI Solutions</small>
+                </div>
+              </div>
+              <p>
+                “The structured roadmap and placement guidance made all the
+                difference. This felt like real industry training.”
+              </p>
+            </div>
           </div>
         </div>
       </div>

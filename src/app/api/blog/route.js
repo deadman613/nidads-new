@@ -114,7 +114,20 @@ export async function GET(request) {
     }
 
     if (category) {
-      filters.push({ category: { equals: category, mode: "insensitive" } });
+      // Match by category field first, then fall back to tags/title/content
+      const words = category.toLowerCase().split(/\s+/).filter(Boolean);
+      filters.push({
+        OR: [
+          // Primary: exact category column match (case-insensitive)
+          { category: { equals: category, mode: "insensitive" } },
+          // tags: hasSome matches if any word from the category is in the tags array
+          { tags: { hasSome: words } },
+          // title contains the full category phrase (case-insensitive)
+          { title: { contains: category, mode: "insensitive" } },
+          // content search
+          { content: { contains: category, mode: "insensitive" } },
+        ],
+      });
     }
 
     if (excludeId) {

@@ -11,7 +11,7 @@ const LEVELS = [
     course: "Data Analytics For Beginners",
     duration: "3 Months",
     tag: "STARTER",
-    accentColor: "#22d3ee",
+    accentColor: "#ee2222ff",
     accentBg: "rgba(34,211,238,0.08)",
     accentBorder: "rgba(34,211,238,0.30)",
     accentGlow: "rgba(34,211,238,0.18)",
@@ -195,19 +195,19 @@ export default function CourseComparison() {
                 <span className={styles.perfectText}>{lvl.perfectFor}</span>
               </div>
 
-              {/* Read More button */}
-              <div className={styles.enrollWrapper}>
+              {/* enroll button */}
+              {/* <div className={styles.enrollWrapper}>
                 <button
                   className={styles.enrollBtn}
                   onClick={openPopup}
                   type="button"
                 >
-                  Read More
+                  Enroll Now
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ marginLeft: 6 }}>
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-              </div>
+              </div> */}
             </div>
           );
         })}

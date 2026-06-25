@@ -25,16 +25,16 @@ const fetchBlogs = async (searchParams) => {
 
 /* ─── hardcoded category list shown as filter pills ─────── */
 const CATEGORIES = [
-  { label: "Data Science",    value: "Data Science" },
-  { label: "Data Analytics",  value: "Data Analytics" },
+  { label: "Data Science", value: "Data Science" },
+  { label: "Data Analytics", value: "Data Analytics" },
 ];
 
 /* ─────────────────────────────────────────── page ── */
 
 export default async function BlogPage({ searchParams }) {
-  const params     = (await searchParams) || {};
-  const page       = Number(params.page) || 1;
-  const searchQuery    = params.search   || "";
+  const params = (await searchParams) || {};
+  const page = Number(params.page) || 1;
+  const searchQuery = params.search || "";
   const activeCategory = params.category || "";
 
   const data = await fetchBlogs({ ...params, page });
@@ -129,9 +129,9 @@ export default async function BlogPage({ searchParams }) {
         {data?.pagination?.totalPages > 1 && (
           <nav className="pagination" aria-label="Pagination">
             {Array.from({ length: data.pagination.totalPages }).map((_, index) => {
-              const pageNumber   = index + 1;
-              const isActive     = pageNumber === data.pagination.page;
-              const paramsClone  = new URLSearchParams(params);
+              const pageNumber = index + 1;
+              const isActive = pageNumber === data.pagination.page;
+              const paramsClone = new URLSearchParams(params);
               paramsClone.set("page", pageNumber.toString());
               return (
                 <a
