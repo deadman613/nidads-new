@@ -380,19 +380,16 @@ small {
   border-radius: 6px;
 }
 
-.blog-editor-quill .ql-editor .ql-table-embed {
-  margin: 1.25rem 0;
-  overflow-x: auto;
-}
-
-.blog-editor-quill .ql-editor .ql-table-embed table {
+.blog-editor-quill .ql-editor table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #e5e7eb;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  display: block;
 }
 
-.blog-editor-quill .ql-editor .ql-table-embed th,
-.blog-editor-quill .ql-editor .ql-table-embed td {
+.blog-editor-quill .ql-editor th,
+.blog-editor-quill .ql-editor td {
   border: 1px solid #e5e7eb;
   padding: 0.6rem 0.75rem;
   vertical-align: top;
