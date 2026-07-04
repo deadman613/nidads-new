@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
+import "quill/modules/table";
 
 // Dynamic import to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
@@ -23,6 +24,7 @@ const modules = {
   clipboard: {
     matchVisual: false,
   },
+  table: true,
 };
 
 const formats = [
@@ -41,6 +43,7 @@ const formats = [
   "code-block",
   "link",
   "image",
+  "table",
 ];
 
 // ── CUSTOM TOOLBAR JSX ──
@@ -127,30 +130,6 @@ function BlogToolbar() {
 const BlogEditor = ({ value, onChange }) => {
   const quillRef = useRef(null);
 
-  const handlePaste = (event) => {
-    const clipboardData = event.clipboardData;
-    const html = clipboardData?.getData("text/html");
-
-    if (!html || !html.toLowerCase().includes("<table")) {
-      return;
-    }
-
-    const tableMatch = html.match(/<table[\s\S]*?<\/table>/i);
-    if (!tableMatch) {
-      return;
-    }
-
-    const editor = quillRef.current?.getEditor?.();
-    if (!editor) {
-      return;
-    }
-
-    event.preventDefault();
-    const selection = editor.getSelection(true);
-    const index = selection ? selection.index : editor.getLength();
-    editor.clipboard.dangerouslyPasteHTML(index, tableMatch[0]);
-  };
-
   return (
     <div className="editor">
       {/* Toolbar rendered OUTSIDE ReactQuill — avoids blur-on-click issue */}
@@ -161,7 +140,6 @@ const BlogEditor = ({ value, onChange }) => {
         theme="snow"
         value={value || ""}
         onChange={onChange}
-        onPaste={handlePaste}
         modules={modules}
         formats={formats}
         placeholder="Write your blog content..."
