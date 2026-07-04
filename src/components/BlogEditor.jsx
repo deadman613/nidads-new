@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
 
@@ -41,7 +41,45 @@ const formats = [
   "code-block",
   "link",
   "image",
+  "table",
 ];
+
+const TABLE_BLOT_REGISTERED_KEY = "__BLOG_TABLE_BLOT_REGISTERED__";
+
+async function registerTableBlot() {
+  if (typeof window === "undefined" || window[TABLE_BLOT_REGISTERED_KEY]) {
+    return;
+  }
+
+  const module = await import("quill");
+  const Quill = module.default || module.Quill;
+
+  if (!Quill || typeof Quill.import !== "function") {
+    return;
+  }
+
+  const BlockEmbed = Quill.import("blots/block/embed");
+
+  class TableEmbedBlot extends BlockEmbed {
+    static blotName = "table";
+    static tagName = "div";
+    static className = "ql-table-embed";
+
+    static create(value) {
+      const node = super.create();
+      node.innerHTML = value || "";
+      node.className = "ql-table-embed";
+      return node;
+    }
+
+    static value(domNode) {
+      return domNode.innerHTML;
+    }
+  }
+
+  Quill.register(TableEmbedBlot, true);
+  window[TABLE_BLOT_REGISTERED_KEY] = true;
+}
 
 // ── CUSTOM TOOLBAR JSX ──
 // Rendered as a plain div — Quill picks it up by ID and wires the buttons.
@@ -125,15 +163,45 @@ function BlogToolbar() {
 }
 
 const BlogEditor = ({ value, onChange }) => {
+  const quillRef = useRef(null);
+
+  useLayoutEffect(() => {
+    void registerTableBlot();
+  }, []);
+
+  const handlePaste = (event) => {
+    const clipboardData = event.clipboardData;
+    const html = clipboardData?.getData("text/html");
+
+    if (!html || !html.toLowerCase().includes("<table")) {
+      return;
+    }
+
+    const tableMatch = html.match(/<table[\s\S]*?<\/table>/i);
+    if (!tableMatch) {
+      return;
+    }
+
+    const editor = quillRef.current?.getEditor?.();
+    if (!editor) {
+      return;
+    }
+
+    event.preventDefault();
+    editor.clipboard.dangerouslyPasteHTML(editor.getLength(), tableMatch[0]);
+  };
+
   return (
     <div className="editor">
       {/* Toolbar rendered OUTSIDE ReactQuill — avoids blur-on-click issue */}
       <BlogToolbar />
 
       <ReactQuill
+        ref={quillRef}
         theme="snow"
         value={value || ""}
         onChange={onChange}
+        onPaste={handlePaste}
         modules={modules}
         formats={formats}
         placeholder="Write your blog content..."
