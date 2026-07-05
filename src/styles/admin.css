@@ -384,8 +384,8 @@ small {
   width: 100%;
   border-collapse: collapse;
   margin: 1.25rem 0;
-  overflow-x: auto;
-  display: block;
+  table-layout: auto;
+  display: table;
 }
 
 .blog-editor-quill .ql-editor th,

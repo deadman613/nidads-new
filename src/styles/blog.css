@@ -630,6 +630,7 @@
   line-height: 1.9;
   color: rgba(214, 226, 255, 0.85);
   word-wrap: break-word;
+  overflow-x: auto;
 }
 
 .blog-detail .content h1,
@@ -637,24 +638,24 @@
 .blog-detail .content h3,
 .blog-detail .content h4 {
   color: #f8fbff;
-  margin: 1.5rem 0 0.75rem;
-  line-height: 1.25;
+  margin: 1.25rem 0 0.65rem;
+  line-height: 1.3;
 }
 
 .blog-detail .content h1 {
-  font-size: clamp(2rem, 4vw, 2.4rem);
+  font-size: clamp(1.9rem, 4vw, 2.2rem);
 }
 
 .blog-detail .content h2 {
-  font-size: clamp(1.6rem, 2.8vw, 2rem);
+  font-size: clamp(1.45rem, 2.7vw, 1.75rem);
 }
 
 .blog-detail .content h3 {
-  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
 }
 
 .blog-detail .content h4 {
-  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
 }
 
 .blog-detail .content p {
@@ -705,11 +706,10 @@
 
 .blog-detail .content table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  overflow-x: auto;
-  display: table;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 .blog-detail .content table th,
@@ -717,6 +717,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.75rem;
   word-wrap: break-word;
+  white-space: normal;
 }
 
 .blog-detail .content table th {

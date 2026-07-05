@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
-import "quill/modules/table";
 
 // Dynamic import to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
@@ -128,7 +127,59 @@ function BlogToolbar() {
 }
 
 const BlogEditor = ({ value, onChange }) => {
+  const [editorReady, setEditorReady] = useState(false);
   const quillRef = useRef(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function registerTableModule() {
+      const QuillModule = await import("quill");
+      const TableModule = await import("quill/modules/table");
+      const Quill = QuillModule.default || QuillModule;
+      const Table = TableModule.default || TableModule;
+      if (Quill && Table && typeof Quill.register === "function") {
+        Quill.register("modules/table", Table, true);
+      }
+      if (isMounted) {
+        setEditorReady(true);
+      }
+    }
+    void registerTableModule();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handlePaste = (event) => {
+    const clipboardData = event.clipboardData;
+    const html = clipboardData?.getData("text/html");
+    if (!html) {
+      return;
+    }
+
+    const editor = quillRef.current?.getEditor?.();
+    if (!editor) {
+      return;
+    }
+
+    const shouldPreserve = /<h[1-6]|<table|<tr|<td|<th|<tbody|<thead|<ul|<ol|<li>/i.test(html);
+    if (!shouldPreserve) {
+      return;
+    }
+
+    event.preventDefault();
+    const selection = editor.getSelection(true);
+    const index = selection ? selection.index : editor.getLength();
+    editor.clipboard.dangerouslyPasteHTML(index, html);
+  };
+
+  if (!editorReady) {
+    return (
+      <div className="editor">
+        <BlogToolbar />
+      </div>
+    );
+  }
 
   return (
     <div className="editor">
@@ -140,6 +191,7 @@ const BlogEditor = ({ value, onChange }) => {
         theme="snow"
         value={value || ""}
         onChange={onChange}
+        onPaste={handlePaste}
         modules={modules}
         formats={formats}
         placeholder="Write your blog content..."
