@@ -43,12 +43,25 @@ export default async function BlogPage({ searchParams }) {
     <div className="blog-page">
       <main id="main-content" className="blog-index" role="main">
 
+
         {/* ── Hero ── */}
         <header className="blog-index__hero">
-          <div>
-            <p className="blog-index__eyebrow">Stories &amp; Updates</p>
-            <h1>Blog</h1>
-            <p>Explore our latest articles, tips, and industry insights.</p>
+          <div className="blog-index__hero-glow" aria-hidden="true" />
+          <div className="blog-index__hero-content">
+            <p className="blog-index__eyebrow">
+              <span className="blog-index__eyebrow-dot" />
+              Stories &amp; Updates
+            </p>
+            <h1>
+              Insights that move <span className="blog-index__hero-accent">data forward</span>
+            </h1>
+            <p>Explore our latest articles, tips, and industry insights on data science and analytics.</p>
+
+            <div className="blog-index__hero-tags">
+              <span className="blog-index__hero-tag">📊 Data Science</span>
+              <span className="blog-index__hero-tag">📈 Analytics</span>
+              <span className="blog-index__hero-tag">💡 Guides</span>
+            </div>
           </div>
         </header>
 

@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./WhatYouWillLearn.module.css";
-import { useRef, useEffect, useState } from "react";
 
 const courses = [
   {
@@ -49,62 +48,44 @@ const courses = [
 ];
 
 export default function WhatYouWillLearn() {
-  const carouselRef = useRef(null);
-  const [isAutoScroll, setIsAutoScroll] = useState(true);
-
-  useEffect(() => {
-    if (!isAutoScroll) return;
-
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
-        const container = carouselRef.current;
-        const maxScroll = container.scrollWidth - container.clientWidth;
-        
-        if (container.scrollLeft >= maxScroll) {
-          container.scrollLeft = 0;
-        } else {
-          container.scrollBy({
-            left: 310,
-            behavior: "smooth",
-          });
-        }
-      }
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [isAutoScroll]);
-
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>What will You <span style={{color:"#38b6ff"}}>Learn</span></h2>
+          <h2 className={styles.title}>
+            What will You <span style={{ color: "#38b6ff" }}>Learn</span>
+          </h2>
           <p className={styles.subtitle}>
-            Master the in-demand skills to become a Data Science & Analytics with AI professional.
+            Master the in-demand skills to become a Data Science &amp; Analytics with AI professional.
           </p>
         </div>
 
-        <div className={styles.carousel} ref={carouselRef}>
-          {[...courses, ...courses].map((course, idx) => (
-            <div key={`${course.number}-${idx}`} className={styles.card}>
-              <div className={styles.cardHeader}>
-                <span className={styles.number}>{course.number}</span>
-                <span className={styles.badge}>What you learn</span>
-              </div>
-              
-              <h3 className={styles.cardTitle}>{course.title}</h3>
-              <p className={styles.cardDescription}>{course.description}</p>
-              
-              <div className={styles.toolsSection}>
-                <span className={styles.toolsLabel}>Tools & Concepts</span>
-                <div className={styles.toolsList}>
-                  {course.tools.map((tool, idx) => (
-                    <span key={idx} className={styles.toolTag}>{tool}</span>
-                  ))}
+        <div className={styles.carousel}>
+          <div className={styles.track}>
+            {[...courses, ...courses].map((course, idx) => (
+              <div
+                key={`${course.number}-${idx}`}
+                className={styles.card}
+              >
+                <div className={styles.cardHeader}>
+                  <span className={styles.number}>{course.number}</span>
+                  <span className={styles.badge}>What you learn</span>
+                </div>
+
+                <h3 className={styles.cardTitle}>{course.title}</h3>
+                <p className={styles.cardDescription}>{course.description}</p>
+
+                <div className={styles.toolsSection}>
+                  <span className={styles.toolsLabel}>Tools &amp; Concepts</span>
+                  <div className={styles.toolsList}>
+                    {course.tools.map((tool, i) => (
+                      <span key={i} className={styles.toolTag}>{tool}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

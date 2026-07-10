@@ -64,21 +64,30 @@
 }
 
 .carousel {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-  padding: 12px 0 10px;
-  scroll-padding: 0 20px;
+  overflow: hidden;
   width: 100%;
-
-  scrollbar-width: none;
+  padding: 12px 0 10px;
+  cursor: pointer;
 }
 
-.carousel::-webkit-scrollbar {
-  display: none;
+.track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: scrollTrack 28s linear infinite;
+}
+
+.carousel:hover .track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTrack {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .card {
@@ -224,7 +233,7 @@
     font-size: 2.2rem;
   }
 
-  .carousel {
+  .track {
     gap: 20px;
   }
 
@@ -250,7 +259,7 @@
     font-size: 0.98rem;
   }
 
-  .carousel {
+  .track {
     gap: 16px;
   }
 
