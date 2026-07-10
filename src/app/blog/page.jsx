@@ -1,5 +1,6 @@
 import { getBaseUrl } from "@/lib/base-url";
 import BlogCard from "@/components/BlogCard";
+import BlogEnquiryForm from "@/components/BlogEnquiryForm";
 import "@/styles/blog.css";
 
 export const dynamic = "force-dynamic";
@@ -38,11 +39,11 @@ export default async function BlogPage({ searchParams }) {
   const activeCategory = params.category || "";
 
   const data = await fetchBlogs({ ...params, page });
+  const recentPosts = data?.data?.slice(0, 4) || [];
 
   return (
     <div className="blog-page">
       <main id="main-content" className="blog-index" role="main">
-
 
         {/* ── Hero ── */}
         <header className="blog-index__hero">
@@ -83,43 +84,79 @@ export default async function BlogPage({ searchParams }) {
           <button type="submit">Search</button>
         </form>
 
-        {/* ── Category filter pills ── */}
-        <div className="blog-cat-bar" role="navigation" aria-label="Filter by category">
-          <a
-            href="/blog"
-            className={`blog-cat-pill${!activeCategory ? " blog-cat-pill--active" : ""}`}
-          >
-            All
-          </a>
-          {CATEGORIES.map(({ label, value }) => (
-            <a
-              key={value}
-              href={`/blog?category=${encodeURIComponent(value)}`}
-              className={`blog-cat-pill${activeCategory === value ? " blog-cat-pill--active" : ""}`}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-
-        {/* Active filter label */}
-        {activeCategory && (
-          <div className="blog-filter-bar">
-            <span className="blog-filter-chip">
-              Category: <strong>{activeCategory}</strong>
-              <a href="/blog" className="blog-filter-chip__clear" aria-label="Clear filter">×</a>
-            </span>
+        <section className="blog-index__overview">
+          <div className="blog-index__overview-header">
+            <p>Latest updates</p>
+            <h2>Top 4 recent blog posts</h2>
           </div>
-        )}
-
-        {/* ── Blog grid ── */}
-        {data?.data?.length ? (
-          <div className="blog-grid">
-            {data.data.map((blog) => (
+          <div className="blog-index__recent-grid">
+            {recentPosts.map((blog) => (
               <BlogCard key={blog.id} blog={blog} />
             ))}
           </div>
-        ) : (
+        </section>
+
+        <section className="blog-enroll-card">
+          <div className="blog-enroll-card__inner">
+            <BlogEnquiryForm />
+          </div>
+        </section>
+
+        <div className="blog-index__footer">
+          <div className="blog-cat-bar" role="navigation" aria-label="Filter by category">
+            <a
+              href="/blog"
+              className={`blog-cat-pill${!activeCategory ? " blog-cat-pill--active" : ""}`}
+            >
+              All
+            </a>
+            {CATEGORIES.map(({ label, value }) => (
+              <a
+                key={value}
+                href={`/blog?category=${encodeURIComponent(value)}`}
+                className={`blog-cat-pill${activeCategory === value ? " blog-cat-pill--active" : ""}`}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+
+          {activeCategory && (
+            <div className="blog-filter-bar blog-filter-bar--footer">
+              <span className="blog-filter-chip">
+                Category: <strong>{activeCategory}</strong>
+                <a href="/blog" className="blog-filter-chip__clear" aria-label="Clear filter">×</a>
+              </span>
+            </div>
+          )}
+
+          {data?.pagination?.totalPages > 1 && (
+            <nav className="pagination" aria-label="Pagination">
+              {Array.from({ length: data.pagination.totalPages }).map((_, index) => {
+                const pageNumber = index + 1;
+                const isActive = pageNumber === data.pagination.page;
+                const paramsClone = new URLSearchParams(params);
+                paramsClone.set("page", pageNumber.toString());
+                return (
+                  <a
+                    key={pageNumber}
+                    href={`/blog?${paramsClone.toString()}`}
+                    aria-current={isActive ? "page" : undefined}
+                    className={
+                      isActive
+                        ? "pagination__link pagination__link--active"
+                        : "pagination__link"
+                    }
+                  >
+                    {pageNumber}
+                  </a>
+                );
+              })}
+            </nav>
+          )}
+        </div>
+
+        {data?.data?.length ? null : (
           <div className="blog-empty">
             <div className="blog-empty__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
