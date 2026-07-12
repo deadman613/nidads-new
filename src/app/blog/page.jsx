@@ -84,6 +84,7 @@ export default async function BlogPage({ searchParams }) {
           <button type="submit">Search</button>
         </form>
 
+        {/* ── Recent posts overview ── */}
         <section className="blog-index__overview">
           <div className="blog-index__overview-header">
             <p>Latest updates</p>
@@ -96,110 +97,103 @@ export default async function BlogPage({ searchParams }) {
           </div>
         </section>
 
-        <section className="blog-enroll-card">
-          <div className="blog-enroll-card__inner">
-            <BlogEnquiryForm />
-          </div>
-        </section>
+        {/* ── 2-column body: posts + sidebar ── */}
+        <div className="blog-listing-body">
 
-        <div className="blog-index__footer">
-          <div className="blog-cat-bar" role="navigation" aria-label="Filter by category">
-            <a
-              href="/blog"
-              className={`blog-cat-pill${!activeCategory ? " blog-cat-pill--active" : ""}`}
-            >
-              All
-            </a>
-            {CATEGORIES.map(({ label, value }) => (
-              <a
-                key={value}
-                href={`/blog?category=${encodeURIComponent(value)}`}
-                className={`blog-cat-pill${activeCategory === value ? " blog-cat-pill--active" : ""}`}
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-
-          {activeCategory && (
-            <div className="blog-filter-bar blog-filter-bar--footer">
-              <span className="blog-filter-chip">
-                Category: <strong>{activeCategory}</strong>
-                <a href="/blog" className="blog-filter-chip__clear" aria-label="Clear filter">×</a>
-              </span>
-            </div>
-          )}
-
-          {data?.pagination?.totalPages > 1 && (
-            <nav className="pagination" aria-label="Pagination">
-              {Array.from({ length: data.pagination.totalPages }).map((_, index) => {
-                const pageNumber = index + 1;
-                const isActive = pageNumber === data.pagination.page;
-                const paramsClone = new URLSearchParams(params);
-                paramsClone.set("page", pageNumber.toString());
-                return (
-                  <a
-                    key={pageNumber}
-                    href={`/blog?${paramsClone.toString()}`}
-                    aria-current={isActive ? "page" : undefined}
-                    className={
-                      isActive
-                        ? "pagination__link pagination__link--active"
-                        : "pagination__link"
-                    }
-                  >
-                    {pageNumber}
-                  </a>
-                );
-              })}
-            </nav>
-          )}
-        </div>
-
-        {data?.data?.length ? null : (
-          <div className="blog-empty">
-            <div className="blog-empty__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.8}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-            </div>
-            <p>No posts found.</p>
+          {/* ── All posts grid ── */}
+          <section className="blog-listing-body__posts">
             {activeCategory && (
-              <a href="/blog" className="blog-empty__reset">View all posts</a>
+              <div className="blog-filter-bar blog-filter-bar--footer">
+                <span className="blog-filter-chip">
+                  Category: <strong>{activeCategory}</strong>
+                  <a href="/blog" className="blog-filter-chip__clear" aria-label="Clear filter">×</a>
+                </span>
+              </div>
             )}
-          </div>
-        )}
 
-        {/* ── Pagination ── */}
-        {data?.pagination?.totalPages > 1 && (
-          <nav className="pagination" aria-label="Pagination">
-            {Array.from({ length: data.pagination.totalPages }).map((_, index) => {
-              const pageNumber = index + 1;
-              const isActive = pageNumber === data.pagination.page;
-              const paramsClone = new URLSearchParams(params);
-              paramsClone.set("page", pageNumber.toString());
-              return (
+            {data?.data?.length ? (
+              <div className="blog-grid">
+                {data.data.map((blog) => (
+                  <BlogCard key={blog.id} blog={blog} />
+                ))}
+              </div>
+            ) : (
+              <div className="blog-empty">
+                <div className="blog-empty__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.8}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                </div>
+                <p>No posts found.</p>
+                {activeCategory && (
+                  <a href="/blog" className="blog-empty__reset">View all posts</a>
+                )}
+              </div>
+            )}
+
+            {data?.pagination?.totalPages > 1 && (
+              <nav className="pagination" aria-label="Pagination">
+                {Array.from({ length: data.pagination.totalPages }).map((_, index) => {
+                  const pageNumber = index + 1;
+                  const isActive = pageNumber === data.pagination.page;
+                  const paramsClone = new URLSearchParams(params);
+                  paramsClone.set("page", pageNumber.toString());
+                  return (
+                    <a
+                      key={pageNumber}
+                      href={`/blog?${paramsClone.toString()}`}
+                      aria-current={isActive ? "page" : undefined}
+                      className={
+                        isActive
+                          ? "pagination__link pagination__link--active"
+                          : "pagination__link"
+                      }
+                    >
+                      {pageNumber}
+                    </a>
+                  );
+                })}
+              </nav>
+            )}
+          </section>
+
+          {/* ── Right sidebar ── */}
+          <aside className="blog-listing-body__sidebar">
+
+            {/* Category filter card */}
+            <div className="bl-sidebar-card">
+              <p className="bl-sidebar-card__label">Browse by Category</p>
+              <nav className="blog-cat-bar blog-cat-bar--vertical" aria-label="Filter by category">
                 <a
-                  key={pageNumber}
-                  href={`/blog?${paramsClone.toString()}`}
-                  aria-current={isActive ? "page" : undefined}
-                  className={
-                    isActive
-                      ? "pagination__link pagination__link--active"
-                      : "pagination__link"
-                  }
+                  href="/blog"
+                  className={`blog-cat-pill${!activeCategory ? " blog-cat-pill--active" : ""}`}
                 >
-                  {pageNumber}
+                  All
                 </a>
-              );
-            })}
-          </nav>
-        )}
+                {CATEGORIES.map(({ label, value }) => (
+                  <a
+                    key={value}
+                    href={`/blog?category=${encodeURIComponent(value)}`}
+                    className={`blog-cat-pill${activeCategory === value ? " blog-cat-pill--active" : ""}`}
+                  >
+                    {label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Enquiry form card — between category and bottom */}
+            <div className="bl-sidebar-card bl-sidebar-card--form">
+              <BlogEnquiryForm compact={true} />
+            </div>
+
+          </aside>
+        </div>
 
       </main>
     </div>

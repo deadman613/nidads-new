@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getBaseUrl } from "@/lib/base-url";
 import BlogBackGuard from "@/components/BlogBackGuard";
+import BlogEnquiryForm from "@/components/BlogEnquiryForm";
 import "@/styles/blog.css";
 
 export const dynamic = "force-dynamic";
@@ -161,6 +162,7 @@ export default async function BlogDetails(props) {
   };
 
   return (
+    <div className="blog-page">
     <main id="main-content" className="blog-detail" role="main">
       {/* Intercepts browser back/forward to force hard reload instead of
           React DOM reconciliation — prevents insertBefore crash from
@@ -192,6 +194,11 @@ export default async function BlogDetails(props) {
           </div>
 
           <div className="content" dangerouslySetInnerHTML={{ __html: blog.content }} />
+
+          {/* ── Enquiry form — inside the article, below content ── */}
+          <div className="blog-article-enquiry">
+            <BlogEnquiryForm compact={false} />
+          </div>
         </article>
 
         {/* ── Sidebar column ── */}
@@ -209,6 +216,7 @@ export default async function BlogDetails(props) {
               <p className="sidebar-card__hint">Browse all posts in this category</p>
             </div>
           ) : null}
+
 
           {/* Recommended / Latest posts */}
           {related?.data?.length ? (
@@ -288,5 +296,6 @@ export default async function BlogDetails(props) {
           />
         )}
     </main>
+    </div>
   );
 }

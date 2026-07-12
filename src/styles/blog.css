@@ -821,7 +821,7 @@
 }
 
 .blog-detail {
-  width: min(1200px, 100%);
+  width: min(1400px, 100%);
   margin: 0 auto;
   padding: 4rem 1.5rem 5rem;
   color: #d7e5ff;
@@ -830,7 +830,7 @@
 .blog-detail__layout {
   display: grid;
   grid-template-columns: 1fr 320px;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: start;
 }
 
@@ -1283,3 +1283,370 @@
     height: 220px;
   }
 }
+
+/* ════════════════════════════════════════════════════════════
+   Blog Listing — 2-column body (posts + sidebar)
+   ════════════════════════════════════════════════════════════ */
+.blog-listing-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.blog-listing-body__posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.blog-listing-body__sidebar {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Vertical pill bar inside sidebar */
+.blog-cat-bar--vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.blog-cat-bar--vertical .blog-cat-pill {
+  justify-content: flex-start;
+  border-radius: 14px;
+}
+
+/* Sidebar form card highlight */
+.bl-sidebar-card--form {
+  border-color: rgba(56, 182, 255, 0.25);
+  background: rgba(5, 10, 22, 0.92);
+}
+
+/* ════════════════════════════════════════════════════════════
+   Blog Enquiry Form — compact sidebar variant (beform)
+   ════════════════════════════════════════════════════════════ */
+.beform {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.beform--compact {
+  gap: 1rem;
+}
+
+/* Full-width header */
+.beform__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.beform__eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38b6ff;
+  margin: 0;
+}
+
+.beform__title {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  margin: 0;
+  color: #f0f6ff;
+  line-height: 1.15;
+}
+
+.beform__subtitle {
+  font-size: 0.95rem;
+  color: rgba(183, 206, 240, 0.78);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Compact label */
+.beform__compact-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38b6ff;
+}
+
+/* Error banner */
+.beform__error-banner {
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 50, 80, 0.12);
+  border: 1px solid rgba(255, 50, 80, 0.35);
+  color: #ff8095;
+  font-size: 0.88rem;
+}
+
+/* Form layout */
+.beform__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.beform__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.beform__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(183, 206, 240, 0.8);
+  letter-spacing: 0.02em;
+}
+
+.beform__input {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 182, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f0f6ff;
+  font-size: 0.9rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  box-sizing: border-box;
+}
+
+.beform__input:focus {
+  outline: none;
+  border-color: rgba(56, 182, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.12);
+}
+
+.beform__input--err {
+  border-color: rgba(255, 60, 80, 0.5);
+}
+
+.beform__input--select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2338b6ff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.2rem;
+}
+
+.beform__input--select option {
+  background: #0a1020;
+  color: #f0f6ff;
+}
+
+/* Mobile input row */
+.beform__mobile-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.beform__country-code {
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  background: rgba(56, 182, 255, 0.1);
+  border: 1px solid rgba(56, 182, 255, 0.18);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #38b6ff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.beform__input--mobile {
+  border-radius: 0 12px 12px 0;
+  flex: 1;
+}
+
+.beform__field-error {
+  font-size: 0.78rem;
+  color: #ff8095;
+  display: block;
+}
+
+/* Submit button */
+.beform__submit {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #38b6ff, #2450ff);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 14px 35px rgba(36, 80, 255, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  margin-top: 0.25rem;
+}
+
+.beform__submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(36, 80, 255, 0.48);
+}
+
+.beform__submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Success state */
+.beform--success {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 0;
+  gap: 0.6rem;
+}
+
+.beform__success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(56, 182, 255, 0.2), rgba(36, 80, 255, 0.25));
+  border: 1px solid rgba(56, 182, 255, 0.4);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  color: #38b6ff;
+  margin: 0 auto;
+}
+
+.beform__success-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f6ff;
+}
+
+.beform__success-sub {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(183, 206, 240, 0.75);
+}
+
+/* Sidebar enquiry card on blog detail page */
+.sidebar-enquiry-form {
+  border-color: rgba(56, 182, 255, 0.22);
+  background: rgba(5, 10, 22, 0.9);
+}
+
+/* ── Enquiry form embedded inside blog article ── */
+.blog-article-enquiry {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(56, 182, 255, 0.15);
+  background: linear-gradient(135deg, rgba(5, 10, 22, 0.9), rgba(10, 16, 36, 0.85));
+  border: 1px solid rgba(56, 182, 255, 0.18);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.blog-article-enquiry .beform__title {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+}
+
+.blog-article-enquiry .beform__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.blog-article-enquiry .beform__field:last-of-type {
+  grid-column: 1 / -1;
+}
+
+.blog-article-enquiry .beform__submit {
+  grid-column: 1 / -1;
+  max-width: 260px;
+}
+
+@media (max-width: 640px) {
+  .blog-article-enquiry {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .blog-article-enquiry .beform__form {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-article-enquiry .beform__field:last-of-type {
+    grid-column: auto;
+  }
+
+  .blog-article-enquiry .beform__submit {
+    grid-column: auto;
+    max-width: 100%;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   Responsive — listing body & detail layout
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .blog-listing-body {
+    grid-template-columns: 1fr 270px;
+  }
+
+  .blog-detail__layout {
+    grid-template-columns: 1fr 290px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .blog-listing-body {
+    grid-template-columns: 1fr 250px;
+  }
+
+  .blog-detail__layout {
+    grid-template-columns: 1fr 260px;
+  }
+}
+
+@media (max-width: 900px) {
+  .blog-listing-body {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-listing-body__sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .blog-listing-body__sidebar .bl-sidebar-card {
+    flex: 1 1 260px;
+  }
+
+  .blog-cat-bar--vertical {
+    flex-direction: row;
+  }
+
+  .blog-cat-bar--vertical .blog-cat-pill {
+    border-radius: 999px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-listing-body__sidebar {
+    flex-direction: column;
+  }
+}
