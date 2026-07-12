@@ -194,11 +194,6 @@ export default async function BlogDetails(props) {
           </div>
 
           <div className="content" dangerouslySetInnerHTML={{ __html: blog.content }} />
-
-          {/* ── Enquiry form — inside the article, below content ── */}
-          <div className="blog-article-enquiry">
-            <BlogEnquiryForm compact={false} />
-          </div>
         </article>
 
         {/* ── Sidebar column ── */}
@@ -217,6 +212,10 @@ export default async function BlogDetails(props) {
             </div>
           ) : null}
 
+          {/* ── Enquiry form — right sidebar, between category and recommended ── */}
+          <div className="sidebar-card sidebar-enquiry-form">
+            <BlogEnquiryForm compact={true} />
+          </div>
 
           {/* Recommended / Latest posts */}
           {related?.data?.length ? (

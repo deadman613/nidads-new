@@ -1,6 +1,5 @@
 import { getBaseUrl } from "@/lib/base-url";
 import BlogCard from "@/components/BlogCard";
-import BlogEnquiryForm from "@/components/BlogEnquiryForm";
 import "@/styles/blog.css";
 
 export const dynamic = "force-dynamic";
@@ -185,11 +184,6 @@ export default async function BlogPage({ searchParams }) {
                   </a>
                 ))}
               </nav>
-            </div>
-
-            {/* Enquiry form card — between category and bottom */}
-            <div className="bl-sidebar-card bl-sidebar-card--form">
-              <BlogEnquiryForm compact={true} />
             </div>
 
           </aside>
