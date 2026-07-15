@@ -1,7 +1,10 @@
 .container {
   min-height: 100vh;
   /* background-color: #000; */
-  color: #fff;
+  background: #000000;
+  background-image:
+    radial-gradient(circle 600px at 20% 30%, rgba(80, 180, 255, 0.15) 0, rgba(80, 180, 255, 0) 70%),
+    radial-gradient(circle 400px at 80% 70%, rgba(56, 182, 255, 0.12) 0, rgba(56, 182, 255, 0) 70%);
   padding: 210px 20px;
 }
 
@@ -25,7 +28,7 @@
   margin-bottom: 16px;
 
 
-   background: linear-gradient(135deg, #4da6ff 0%, #80bfff 50%, #b3d9ff 100%);
+  background: linear-gradient(135deg, #4da6ff 0%, #80bfff 50%, #b3d9ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -74,7 +77,9 @@
   color: #e4e4e7;
 }
 
-.input, .textarea, .phoneField {
+.input,
+.textarea,
+.phoneField {
   background-color: #18181b;
   border: 1px solid #27272a;
   border-radius: 8px;
@@ -85,12 +90,16 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input:focus, .textarea:focus, .phoneField:focus {
+.input:focus,
+.textarea:focus,
+.phoneField:focus {
   border-color: #fff;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
-.input::placeholder, .textarea::placeholder, .phoneField::placeholder {
+.input::placeholder,
+.textarea::placeholder,
+.phoneField::placeholder {
   color: #52525b;
 }
 
@@ -292,5 +301,8 @@
 }
 
 @media (max-width: 340px) {
-  .content { grid-template-columns: 1fr !important; gap: 20px; }
+  .content {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
 }
