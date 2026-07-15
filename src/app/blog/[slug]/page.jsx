@@ -240,6 +240,10 @@ export default async function BlogDetails(props) {
               </div>
             ) : null}
 
+            {/* ── Enquiry form — right sidebar, between category and recommended ── */}
+            <div className="sidebar-card sidebar-enquiry-form">
+              <BlogEnquiryForm compact={true} />
+            </div>
             {/* Category card */}
             {blog.category ? (
               <div className="sidebar-card sidebar-category">
@@ -254,10 +258,6 @@ export default async function BlogDetails(props) {
               </div>
             ) : null}
 
-            {/* ── Enquiry form — right sidebar, between category and recommended ── */}
-            <div className="sidebar-card sidebar-enquiry-form">
-              <BlogEnquiryForm compact={true} />
-            </div>
 
 
             {/* Tags card */}
