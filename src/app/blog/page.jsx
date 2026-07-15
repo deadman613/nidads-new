@@ -52,23 +52,27 @@ export default async function BlogPage({ searchParams }) {
 
         {/* ── Compact header ── */}
         <header className="blog-simple-header">
-          <BlogThemeToggle />
-          <div className="blog-simple-header__text">
+
+          {/* Top row: eyebrow + theme toggle side by side */}
+          <div className="blog-simple-header__top">
             <p className="blog-index__eyebrow">
               <span className="blog-index__eyebrow-dot" />
               Stories &amp; Updates
             </p>
-            <h1>
-              Insights that move <span className="blog-index__hero-accent">data forward</span>
-            </h1>
-            <p className="blog-simple-header__sub">
-              Explore our latest articles, tips, and industry insights on data science and analytics.
-            </p>
-            <div className="blog-index__hero-tags">
-              <span className="blog-index__hero-tag">📊 Data Science</span>
-              <span className="blog-index__hero-tag">📈 Analytics</span>
-              <span className="blog-index__hero-tag">💡 Guides</span>
-            </div>
+            <BlogThemeToggle />
+          </div>
+
+          {/* Headline */}
+          <h1>
+            Insights that move <span className="blog-index__hero-accent">data forward</span>
+          </h1>
+          <p className="blog-simple-header__sub">
+            Explore our latest articles, tips, and industry insights on data science and analytics.
+          </p>
+          <div className="blog-index__hero-tags">
+            <span className="blog-index__hero-tag">📊 Data Science</span>
+            <span className="blog-index__hero-tag">📈 Analytics</span>
+            <span className="blog-index__hero-tag">💡 Guides</span>
           </div>
 
           {/* ── Search + category pills in one bar ── */}
