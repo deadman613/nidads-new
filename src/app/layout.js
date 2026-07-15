@@ -42,6 +42,17 @@ export const metadata = {
   },
 };
 
+/**
+ * Viewport meta — critical for responsive layouts.
+ * Without this, mobile browsers use a default ~980px layout viewport,
+ * which means all CSS media queries (max-width: 768px etc.) never fire.
+ */
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
+
 export default function RootLayout({ children }) {
   return (
     /*
