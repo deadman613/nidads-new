@@ -55,14 +55,14 @@ export async function generateMetadata(props) {
   }
 
   const baseUrl = await getBaseUrl();
-  
+
   // Use metaTitle if available, otherwise use title
   const metaTitle = blog.metaTitle?.trim() || blog.title;
-  
+
   // Use metaDescription if available, otherwise extract from content
-  const metaDescription = blog.metaDescription?.trim() || 
+  const metaDescription = blog.metaDescription?.trim() ||
     blog.content.replace(/<[^>]+>/g, " ").trim().slice(0, 160);
-  
+
   // Use ogImage if available, otherwise use coverImg
   const imageUrl = blog.ogImage?.trim() || blog.coverImg?.trim();
   const isExternalImage = Boolean(imageUrl && /^(https?:)?\/\//i.test(imageUrl));
@@ -71,9 +71,9 @@ export async function generateMetadata(props) {
       ? imageUrl
       : new URL(imageUrl, baseUrl).toString()
     : undefined;
-  
+
   const canonical = new URL(`/blog/${blog.slug}`, baseUrl).toString();
-  
+
   // Generate image alt text
   const imageAlt = `Cover image for ${blog.title}`;
 
@@ -164,139 +164,140 @@ export default async function BlogDetails(props) {
 
   return (
     <div className="blog-page">
-    <main id="main-content" className="blog-detail" role="main">
-      {/* Intercepts browser back/forward to force hard reload instead of
+      <main id="main-content" className="blog-detail" role="main">
+        {/* Intercepts browser back/forward to force hard reload instead of
           React DOM reconciliation — prevents insertBefore crash from
           SEO browser extensions modifying the DOM */}
-      <BlogBackGuard />
-      <BlogThemeToggle />
-      <div className="blog-detail__layout">
-        {/* ── Main article column ── */}
-        <article className="blog-detail__main" aria-labelledby="blog-title">
-          <header>
-            <p className="eyebrow">{new Date(blog.createdAt).toLocaleDateString()}</p>
-            {blog.category ? (
-              <span className="blog-category-chip">{blog.category}</span>
-            ) : null}
-            <h1 id="blog-title">{blog.title}</h1>
-            {blog.tags?.length ? <p className="tags">{blog.tags.join(" / ")}</p> : null}
-          </header>
+        <BlogBackGuard />
+        <BlogThemeToggle />
+        <div className="blog-detail__layout">
+          {/* ── Main article column ── */}
+          <article className="blog-detail__main" aria-labelledby="blog-title">
+            <header>
+              <p className="eyebrow">{new Date(blog.createdAt).toLocaleDateString()}</p>
+              {blog.category ? (
+                <span className="blog-category-chip">{blog.category}</span>
+              ) : null}
+              <h1 id="blog-title">{blog.title}</h1>
+              {blog.tags?.length ? <p className="tags">{blog.tags.join(" / ")}</p> : null}
+            </header>
 
-          <div className={`cover${isPlaceholder ? " cover--placeholder" : ""}`}>
-            <Image
-              src={imageSrc}
-              alt={blog.title}
-              fill
-              sizes="(max-width: 900px) 100vw, 780px"
-              priority
-              style={{ objectFit: "cover" }}
-              unoptimized={isExternalCover}
-            />
-            {isPlaceholder ? <span className="cover__hint">Upload a cover image from the admin panel.</span> : null}
-          </div>
-
-          <div className="content" dangerouslySetInnerHTML={{ __html: blog.content }} />
-        </article>
-
-        {/* ── Sidebar column ── */}
-        <aside className="blog-detail__sidebar">
-          {/* Category card */}
-          {blog.category ? (
-            <div className="sidebar-card sidebar-category">
-              <p className="sidebar-card__label">Category</p>
-              <a
-                href={`/blog?category=${encodeURIComponent(blog.category)}`}
-                className="sidebar-category__chip"
-              >
-                {blog.category}
-              </a>
-              <p className="sidebar-card__hint">Browse all posts in this category</p>
+            <div className={`cover${isPlaceholder ? " cover--placeholder" : ""}`}>
+              <Image
+                src={imageSrc}
+                alt={blog.title}
+                fill
+                sizes="(max-width: 900px) 100vw, 780px"
+                priority
+                style={{ objectFit: "cover" }}
+                unoptimized={isExternalCover}
+              />
+              {isPlaceholder ? <span className="cover__hint">Upload a cover image from the admin panel.</span> : null}
             </div>
-          ) : null}
 
-          {/* ── Enquiry form — right sidebar, between category and recommended ── */}
-          <div className="sidebar-card sidebar-enquiry-form">
-            <BlogEnquiryForm compact={true} />
-          </div>
+            <div className="content" dangerouslySetInnerHTML={{ __html: blog.content }} />
+          </article>
 
-          {/* Recommended / Latest posts */}
-          {related?.data?.length ? (
-            <div className="sidebar-card sidebar-recommended">
-              <p className="sidebar-card__label">
-                {related.isFallback ? "Latest Posts" : "Recommended Posts"}
-              </p>
-              <ul className="sidebar-recommended__list">
-                {related.data.map((item) => {
-                  const rawCover = item.coverImg?.trim();
-                  const hasImg = Boolean(rawCover);
-                  const isExt = Boolean(rawCover && /^(https?:)?\/\//i.test(rawCover));
-                  return (
-                    <li key={item.id}>
-                      <a href={`/blog/${item.slug}`} className="sidebar-recommended__item">
-                        <div className="sidebar-recommended__thumb">
-                          <Image
-                            src={hasImg ? rawCover : "/placeholder.svg"}
-                            alt={item.title}
-                            fill
-                            sizes="72px"
-                            style={{ objectFit: "cover" }}
-                            unoptimized={isExt}
-                          />
-                        </div>
-                        <div className="sidebar-recommended__info">
-                          <span className="sidebar-recommended__title">{item.title}</span>
-                          {item.category ? (
-                            <span className="sidebar-recommended__cat">{item.category}</span>
-                          ) : item.tags?.length ? (
-                            <span className="sidebar-recommended__cat">{item.tags[0]}</span>
-                          ) : null}
-                        </div>
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ) : null}
-
-          {/* Tags card */}
-          {blog.tags?.length ? (
-            <div className="sidebar-card sidebar-tags">
-              <p className="sidebar-card__label">Tags</p>
-              <div className="sidebar-tags__list">
-                {blog.tags.map((tag) => (
-                  <a
-                    key={tag}
-                    href={`/blog?tag=${encodeURIComponent(tag)}`}
-                    className="sidebar-tag"
-                  >
-                    {tag}
-                  </a>
-                ))}
+          {/* ── Sidebar column ── */}
+          <aside className="blog-detail__sidebar">
+            {/* Recommended / Latest posts */}
+            {related?.data?.length ? (
+              <div className="sidebar-card sidebar-recommended">
+                <p className="sidebar-card__label">
+                  {related.isFallback ? "Latest Posts" : "Recommended Posts"}
+                </p>
+                <ul className="sidebar-recommended__list">
+                  {related.data.map((item) => {
+                    const rawCover = item.coverImg?.trim();
+                    const hasImg = Boolean(rawCover);
+                    const isExt = Boolean(rawCover && /^(https?:)?\/\//i.test(rawCover));
+                    return (
+                      <li key={item.id}>
+                        <a href={`/blog/${item.slug}`} className="sidebar-recommended__item">
+                          <div className="sidebar-recommended__thumb">
+                            <Image
+                              src={hasImg ? rawCover : "/placeholder.svg"}
+                              alt={item.title}
+                              fill
+                              sizes="72px"
+                              style={{ objectFit: "cover" }}
+                              unoptimized={isExt}
+                            />
+                          </div>
+                          <div className="sidebar-recommended__info">
+                            <span className="sidebar-recommended__title">{item.title}</span>
+                            {item.category ? (
+                              <span className="sidebar-recommended__cat">{item.category}</span>
+                            ) : item.tags?.length ? (
+                              <span className="sidebar-recommended__cat">{item.tags[0]}</span>
+                            ) : null}
+                          </div>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
-            </div>
-          ) : null}
-        </aside>
-      </div>
+            ) : null}
 
-      {/* JSON-LD structured data — placed at end so SEO browser extensions
+            {/* Category card */}
+            {blog.category ? (
+              <div className="sidebar-card sidebar-category">
+                <p className="sidebar-card__label">Category</p>
+                <a
+                  href={`/blog?category=${encodeURIComponent(blog.category)}`}
+                  className="sidebar-category__chip"
+                >
+                  {blog.category}
+                </a>
+                <p className="sidebar-card__hint">Browse all posts in this category</p>
+              </div>
+            ) : null}
+
+            {/* ── Enquiry form — right sidebar, between category and recommended ── */}
+            <div className="sidebar-card sidebar-enquiry-form">
+              <BlogEnquiryForm compact={true} />
+            </div>
+
+
+            {/* Tags card */}
+            {blog.tags?.length ? (
+              <div className="sidebar-card sidebar-tags">
+                <p className="sidebar-card__label">Tags</p>
+                <div className="sidebar-tags__list">
+                  {blog.tags.map((tag) => (
+                    <a
+                      key={tag}
+                      href={`/blog?tag=${encodeURIComponent(tag)}`}
+                      className="sidebar-tag"
+                    >
+                      {tag}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </aside>
+        </div>
+
+        {/* JSON-LD structured data — placed at end so SEO browser extensions
           that move <script type="application/ld+json"> tags don't break
           React's DOM reconciliation on back-navigation */}
-      {schemas.length
-        ? schemas.map((schema, index) => (
+        {schemas.length
+          ? schemas.map((schema, index) => (
             <script
               key={index}
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
           ))
-        : (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(fallbackJsonLd) }}
-          />
-        )}
-    </main>
+          : (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(fallbackJsonLd) }}
+            />
+          )}
+      </main>
     </div>
   );
 }
