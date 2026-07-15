@@ -1,5 +1,6 @@
 import { getBaseUrl } from "@/lib/base-url";
 import BlogCard from "@/components/BlogCard";
+import BlogThemeToggle from "@/components/BlogThemeToggle";
 import "@/styles/blog.css";
 
 export const dynamic = "force-dynamic";
@@ -47,6 +48,7 @@ export default async function BlogPage({ searchParams }) {
         {/* ── Hero ── */}
         <header className="blog-index__hero">
           <div className="blog-index__hero-glow" aria-hidden="true" />
+          <BlogThemeToggle />
           <div className="blog-index__hero-content">
             <p className="blog-index__eyebrow">
               <span className="blog-index__eyebrow-dot" />

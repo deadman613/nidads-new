@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getBaseUrl } from "@/lib/base-url";
 import BlogBackGuard from "@/components/BlogBackGuard";
 import BlogEnquiryForm from "@/components/BlogEnquiryForm";
+import BlogThemeToggle from "@/components/BlogThemeToggle";
 import "@/styles/blog.css";
 
 export const dynamic = "force-dynamic";
@@ -168,6 +169,7 @@ export default async function BlogDetails(props) {
           React DOM reconciliation — prevents insertBefore crash from
           SEO browser extensions modifying the DOM */}
       <BlogBackGuard />
+      <BlogThemeToggle />
       <div className="blog-detail__layout">
         {/* ── Main article column ── */}
         <article className="blog-detail__main" aria-labelledby="blog-title">
