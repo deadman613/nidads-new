@@ -3,6 +3,7 @@ import BrainCanvas from "../BrainCanvas";
 import Style from "./homeSection.module.css";
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import PopupButton from "@/components/PopupButton";
 
 const Silk = dynamic(
   () => import('../Silk'),
@@ -42,11 +43,9 @@ export default function Banner() {
             <Link href="/course#course-programs">
               <button className={Style.exploreBtn}>Explore Our Courses</button>
             </Link>
-            <Link href="/contact-us">
-              <button className={Style.careerBtn}>
-                Talk to a Career Expert
-              </button>
-            </Link>
+            <PopupButton className={Style.careerBtn}>
+              Talk to a Career Expert
+            </PopupButton>
           </div>
 
           {/* SOCIAL PROOF */}

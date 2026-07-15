@@ -16,13 +16,61 @@ export default function BlogThemeToggle() {
     setMounted(true);
   }, []);
 
-  /* ── Apply theme to .blog-page whenever it changes ── */
+  /* Apply theme to .blog-page AND inject navbar overrides into <head> */
   useEffect(() => {
     if (!mounted) return;
+
+    /* 1. Scope blog-page itself */
     const root = document.querySelector(".blog-page");
     if (root) {
       root.setAttribute("data-theme", theme);
     }
+
+    /* 2. Navbar lives outside .blog-page and uses CSS Modules whose
+          hashed class names beat a plain global selector even with
+          !important in some build orders. Injecting a <style> tag
+          directly into <head> is the only 100% reliable override. */
+    const STYLE_ID = "blog-theme-navbar-override";
+    let styleEl = document.getElementById(STYLE_ID);
+
+    if (theme === "light") {
+      if (!styleEl) {
+        styleEl = document.createElement("style");
+        styleEl.id = STYLE_ID;
+        document.head.appendChild(styleEl);
+      }
+      styleEl.textContent = `
+        /* Blog light-theme navbar overrides — injected by BlogThemeToggle */
+        nav {
+          background: rgba(255, 255, 255, 0.88) !important;
+          backdrop-filter: blur(20px) !important;
+          -webkit-backdrop-filter: blur(20px) !important;
+          box-shadow: 0 1px 0 rgba(0, 60, 160, 0.1) !important;
+        }
+        nav::after {
+          background: rgba(0, 80, 200, 0.14) !important;
+        }
+        nav a,
+        nav li a {
+          color: #0d1f3c !important;
+        }
+        nav a:hover,
+        nav li a:hover {
+          color: #1a72e8 !important;
+        }
+        /* mobile hamburger / close button */
+        nav button[aria-label="Open menu"],
+        nav button[aria-label="Close menu"] {
+          color: #0d1f3c !important;
+        }
+      `;
+    } else {
+      /* Dark mode — remove the injected overrides so the navbar returns to normal */
+      if (styleEl) {
+        styleEl.remove();
+      }
+    }
+
     localStorage.setItem(STORAGE_KEY, theme);
   }, [theme, mounted]);
 

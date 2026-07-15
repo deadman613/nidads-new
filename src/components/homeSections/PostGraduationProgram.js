@@ -1,5 +1,6 @@
-import Link from "next/link";
+"use client";
 import styles from "./PostGraduationProgram.module.css";
+import PopupButton from "@/components/PopupButton";
 
 export default function DegreePrograms() {
   const benefits = [
@@ -42,13 +43,12 @@ export default function DegreePrograms() {
               </div>
             </div>
 
-            <Link
-              href="/course/degree-program-in-ai"
+            <PopupButton
               className={styles.ctaButton}
               aria-label="Explore Degree Programs"
             >
               Explore Degree Programs
-            </Link>
+            </PopupButton>
           </div>
         </div>
 

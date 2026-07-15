@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import styles from "./GallerySection.module.css";
+import PopupButton from "@/components/PopupButton";
 
 const CARDS = [
   { id: 6, label: "Breakout", img: "/center/6.webp" },
@@ -44,9 +45,7 @@ export default function GallerySection() {
           </div>
 
           <div className={styles.actions}>
-            <Link href="/contact-us">
-              <button className={styles.primary}>Book a Campus Tour</button>
-            </Link>
+            <PopupButton className={styles.primary}>Book a Campus Tour</PopupButton>
             <Link href="/about">
               <button className={styles.secondary}>See Our Spaces</button>
             </Link>

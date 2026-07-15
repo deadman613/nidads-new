@@ -1,5 +1,6 @@
-import Link from "next/link";
+"use client";
 import styles from "./HomePGSection.module.css";
+import PopupButton from "@/components/PopupButton";
 
 export default function HomePGSection() {
   const benefits = [
@@ -42,13 +43,12 @@ export default function HomePGSection() {
               </div>
             </div>
 
-            <Link
-              href="/course/pg-program-in-ai"
+            <PopupButton
               className={styles.ctaButton}
               aria-label="Explore Post Graduation Programs"
             >
               Explore PG Programs
-            </Link>
+            </PopupButton>
           </div>
         </div>
 

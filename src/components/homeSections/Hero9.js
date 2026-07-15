@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./Hero9.module.css";
+import PopupButton from "@/components/PopupButton";
 
 const testimonials = [
   {
@@ -132,12 +132,7 @@ const TestimonialsColumn = ({ testimonials, speed, isPaused }) => {
 };
 
 const Hero9 = () => {
-  const router = useRouter();
   const isPaused = useRef(false);
-
-  const handleKickstart = () => {
-    router.push("/course");
-  };
 
   return (
     <section
@@ -177,9 +172,9 @@ const Hero9 = () => {
         </div>
 
         <div className={styles.ctaWrapper}>
-          <button className={styles.ctaButton} onClick={handleKickstart}>
-            <a href="#demosection" className={styles.ctaText}>Kickstart Your Career</a>
-          </button>
+          <PopupButton className={styles.ctaButton}>
+            Kickstart Your Career
+          </PopupButton>
         </div>
       </div>
     </section>

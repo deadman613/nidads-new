@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import styles from "./homeSection2.module.css";
-// background image instead of animated cubes
+import PopupButton from "@/components/PopupButton";
 
 export default function HomeSection2() {
   return (
@@ -23,8 +24,7 @@ export default function HomeSection2() {
           <span style={{color:"#38b6ff"}}>Data Science</span> Careers
         </h1>
 
-        <h2 className={styles.subheading} style={{textAlign:"justify"
-        }}>
+        <h2 className={styles.subheading} style={{textAlign:"justify"}}>
           From foundational statistics to advanced AI, NIDADS offers hands-on
           programs in Data Science, Machine Learning, Data Analytics, and AI
           Engineering. We nurture talent and transform aspiring analysts into
@@ -36,16 +36,12 @@ export default function HomeSection2() {
         </ul>
 
         <div className={styles.courseActions}>
-          <Link href="/contact-us">
-            <button className={styles.exploreBtn}>
-              Book My Free Counseling Call
-            </button>
-          </Link>
-          <Link href="/course#course-programs">
-            <button className={styles.careerBtn}>
-              Help Me Choose the Right Course
-            </button>
-          </Link>
+          <PopupButton className={styles.exploreBtn}>
+            Book My Free Counseling Call
+          </PopupButton>
+          <PopupButton className={styles.careerBtn}>
+            Help Me Choose the Right Course
+          </PopupButton>
         </div>
       </div>
     </section>
