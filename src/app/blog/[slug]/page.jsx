@@ -1,30 +1,54 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getBaseUrl } from "@/lib/base-url";
+import prisma from "@/lib/prisma";
 import BlogBackGuard from "@/components/BlogBackGuard";
-import BlogEnquiryForm from "@/components/BlogEnquiryForm";
 import BlogThemeToggle from "@/components/BlogThemeToggle";
 import "@/styles/blog.css";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+const BlogEnquiryForm = dynamic(() => import("@/components/BlogEnquiryForm"), {
+  ssr: false,
+  loading: () => null,
+});
+
+export const revalidate = 300;
+
+const BLOG_SELECT = {
+  id: true,
+  title: true,
+  slug: true,
+  content: true,
+  coverImg: true,
+  ogImage: true,
+  metaTitle: true,
+  metaDescription: true,
+  category: true,
+  tags: true,
+  keywords: true,
+  schema: true,
+  faqSchema: true,
+  schemas: true,
+  createdAt: true,
+  updatedAt: true,
+};
+
+const LIST_SELECT = {
+  id: true,
+  title: true,
+  slug: true,
+  coverImg: true,
+  category: true,
+  tags: true,
+  createdAt: true,
+  updatedAt: true,
+};
 
 const fetchBlog = async (slug) => {
-  const baseUrl = await getBaseUrl();
   try {
-    const res = await fetch(`${baseUrl}/api/blog/${slug}`, { cache: "no-store" });
-
-    if (res.status === 404) {
-      return null;
-    }
-
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      console.error(`fetchBlog failed: ${res.status} ${res.statusText}`, body);
-      return null;
-    }
-
-    return res.json();
+    return await prisma.blog.findUnique({
+      where: { slug },
+      select: BLOG_SELECT,
+    });
   } catch (error) {
     console.error("fetchBlog request failed", error);
     return null;
@@ -32,15 +56,44 @@ const fetchBlog = async (slug) => {
 };
 
 const fetchRelated = async (slug, blogId) => {
-  const baseUrl = await getBaseUrl();
-  const params = new URLSearchParams({ relatedTo: slug, limit: "4" });
-  if (blogId) params.set("excludeId", blogId);
-  const res = await fetch(`${baseUrl}/api/blog?${params.toString()}`, {
-    next: { revalidate: 60 },
-  });
-  if (!res.ok) return { data: [], isFallback: true };
-  const json = await res.json();
-  return json;
+  try {
+    const reference = await prisma.blog.findUnique({
+      where: { slug },
+      select: { id: true, tags: true, category: true },
+    });
+
+    if (!reference) {
+      return { data: [], isFallback: true };
+    }
+
+    const filters = [];
+    const excludedIds = [reference.id];
+
+    if (blogId) excludedIds.push(blogId);
+
+    if (reference.category) {
+      filters.push({ category: { equals: reference.category, mode: "insensitive" } });
+    }
+    if (reference.tags?.length) {
+      filters.push({ tags: { hasSome: reference.tags } });
+    }
+
+    const where = filters.length
+      ? { AND: [{ id: { notIn: excludedIds } }, { OR: filters }] }
+      : { id: { notIn: excludedIds } };
+
+    const data = await prisma.blog.findMany({
+      where,
+      select: LIST_SELECT,
+      orderBy: { createdAt: "desc" },
+      take: 4,
+    });
+
+    return { data, isFallback: data.length === 0 };
+  } catch (error) {
+    console.error("fetchRelated request failed", error);
+    return { data: [], isFallback: true };
+  }
 };
 
 export async function generateMetadata(props) {
@@ -189,6 +242,8 @@ export default async function BlogDetails(props) {
                 fill
                 sizes="(max-width: 900px) 100vw, 780px"
                 priority
+                quality={80}
+                loading="eager"
                 style={{ objectFit: "cover" }}
                 unoptimized={isExternalCover}
               />
@@ -220,6 +275,8 @@ export default async function BlogDetails(props) {
                               alt={item.title}
                               fill
                               sizes="72px"
+                              quality={75}
+                              loading="lazy"
                               style={{ objectFit: "cover" }}
                               unoptimized={isExt}
                             />

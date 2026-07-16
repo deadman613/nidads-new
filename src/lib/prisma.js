@@ -1,6 +1,19 @@
-import { PrismaClient } from "@prisma/client";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const globalForPrisma = globalThis;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const envPath = path.resolve(__dirname, "..", "..", ".env.local");
+
+dotenv.config({ path: envPath, override: true });
+
+if (!process.env.DATABASE_URL && process.env.DIRECT_URL) {
+  process.env.DATABASE_URL = process.env.DIRECT_URL;
+}
+
+const { PrismaClient } = await import("@prisma/client");
 
 const normalizeDatabaseUrl = (rawUrl) => {
   if (!rawUrl || typeof rawUrl !== "string") return rawUrl;

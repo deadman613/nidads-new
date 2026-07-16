@@ -1,10 +1,10 @@
-import { getBaseUrl } from "@/lib/base-url";
+import prisma from "@/lib/prisma";
 import BlogCard from "@/components/BlogCard";
 import BlogThemeToggle from "@/components/BlogThemeToggle";
 import "@/styles/blog.css";
 
-/* ─── Cache for 60 s — avoids a DB hit on every single request ─── */
-export const revalidate = 60;
+/* ─── Cache public blog listings to keep the index fast and reduce DB churn ─── */
+export const revalidate = 300;
 
 export const metadata = {
   title: "Blog",
@@ -19,29 +19,90 @@ const CATEGORIES = [
 
 /* ─── data fetch — select only the columns BlogCard actually needs ─ */
 const fetchBlogs = async (searchParams) => {
-  const baseUrl = await getBaseUrl();
-  /* Only pass params that the API actually uses so cache keys stay narrow */
-  const qs = new URLSearchParams();
-  if (searchParams.page)     qs.set("page",     searchParams.page);
-  if (searchParams.search)   qs.set("search",   searchParams.search);
-  if (searchParams.category) qs.set("category", searchParams.category);
-  qs.set("limit", "12");          /* 12 cards fills 3-col grid neatly   */
+  const params = searchParams || {};
+  const page = Number(params.page) || 1;
+  const limit = 12;
+  const skip = (page - 1) * limit;
+  const search = params.search?.trim();
+  const category = params.category?.trim();
 
-  const sep = qs.toString() ? "?" : "";
-  const res = await fetch(`${baseUrl}/api/blog${sep}${qs.toString()}`, {
-    next: { revalidate: 60 },
-  });
-  if (!res.ok)
-    return { data: [], pagination: { page: 1, totalPages: 1, limit: 12, total: 0 } };
-  return res.json();
+  const filters = [];
+
+  if (search) {
+    filters.push({
+      OR: [
+        { title: { contains: search, mode: "insensitive" } },
+        { content: { contains: search, mode: "insensitive" } },
+        { tags: { has: search.toLowerCase() } },
+        { keywords: { has: search.toLowerCase() } },
+      ],
+    });
+  }
+
+  if (category) {
+    const words = category.toLowerCase().split(/\s+/).filter(Boolean);
+    filters.push({
+      OR: [
+        { category: { equals: category, mode: "insensitive" } },
+        { tags: { hasSome: words } },
+        { title: { contains: category, mode: "insensitive" } },
+        { content: { contains: category, mode: "insensitive" } },
+      ],
+    });
+  }
+
+  const where = filters.length ? { AND: filters } : undefined;
+
+  try {
+    const [data, count] = await Promise.all([
+      prisma.blog.findMany({
+        where,
+        select: {
+          id: true,
+          title: true,
+          slug: true,
+          coverImg: true,
+          category: true,
+          tags: true,
+          createdAt: true,
+          updatedAt: true,
+        },
+        orderBy: { createdAt: "desc" },
+        skip,
+        take: limit,
+      }),
+      prisma.blog.count({ where }),
+    ]);
+
+    return {
+      data,
+      pagination: {
+        page,
+        limit,
+        total: count,
+        totalPages: Math.max(1, Math.ceil(count / limit)),
+      },
+    };
+  } catch (error) {
+    console.error("Unable to fetch blog posts from the database", error);
+    return {
+      data: [],
+      pagination: {
+        page,
+        limit,
+        total: 0,
+        totalPages: 1,
+      },
+    };
+  }
 };
 
 /* ─────────────────────────────────────────────── page ── */
 
 export default async function BlogPage({ searchParams }) {
   const params = (await searchParams) || {};
-  const page          = Number(params.page) || 1;
-  const searchQuery   = params.search || "";
+  const page = Number(params.page) || 1;
+  const searchQuery = params.search || "";
   const activeCategory = params.category || "";
 
   const data = await fetchBlogs({ ...params, page });

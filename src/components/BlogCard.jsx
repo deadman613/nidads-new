@@ -38,6 +38,9 @@ const BlogCard = ({ blog }) => {
           fill
           sizes="(max-width: 600px) 100vw, (max-width: 1024px) 320px, 380px"
           priority={false}
+          quality={75}
+          loading="lazy"
+          decoding="async"
           style={{ objectFit: "contain" }}
           unoptimized={isExternalCover}
         />

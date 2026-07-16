@@ -845,12 +845,13 @@
   min-width: 0;
 }
 
-/* Sidebar — NO sticky. Appears below article on mobile (DOM order). */
+/* Sidebar — sticky on desktop, static on mobile (overridden in media query ≤1024px) */
 .blog-detail__sidebar {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  position: static;   /* was sticky — caused sidebar to stay fixed while article scrolled */
+  position: sticky;
+  top: 5rem;
 }
 
 .blog-detail header {

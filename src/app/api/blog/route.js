@@ -8,6 +8,16 @@ import { getClientIp } from "@/lib/request-info";
 
 const DEFAULT_LIMIT = 9;
 const MAX_LIMIT = 24;
+const LIST_SELECT = {
+  id: true,
+  title: true,
+  slug: true,
+  coverImg: true,
+  category: true,
+  tags: true,
+  createdAt: true,
+  updatedAt: true,
+};
 
 const extractJsonLdFromScriptTag = (raw) => {
   const trimmed = raw.trim();
@@ -173,6 +183,7 @@ export async function GET(request) {
     let [items, count] = await Promise.all([
       prisma.blog.findMany({
         where,
+        select: LIST_SELECT,
         orderBy: { createdAt: "desc" },
         skip,
         take: limit,
@@ -190,6 +201,7 @@ export async function GET(request) {
         : undefined;
       items = await prisma.blog.findMany({
         where: fallbackWhere,
+        select: LIST_SELECT,
         orderBy: { createdAt: "desc" },
         take: limit,
       });

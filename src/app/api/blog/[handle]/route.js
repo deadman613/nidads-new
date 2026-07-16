@@ -73,12 +73,31 @@ const parseSchemasArray = (schemas) => {
   return parsed;
 };
 
+const PUBLIC_BLOG_SELECT = {
+  id: true,
+  title: true,
+  slug: true,
+  content: true,
+  coverImg: true,
+  ogImage: true,
+  metaTitle: true,
+  metaDescription: true,
+  category: true,
+  tags: true,
+  keywords: true,
+  schema: true,
+  faqSchema: true,
+  schemas: true,
+  createdAt: true,
+  updatedAt: true,
+};
+
 const resolveLookup = async (handle, lookup) => {
   if (lookup === "id") {
-    return prisma.blog.findUnique({ where: { id: handle } });
+    return prisma.blog.findUnique({ where: { id: handle }, select: PUBLIC_BLOG_SELECT });
   }
 
-  return prisma.blog.findUnique({ where: { slug: handle } });
+  return prisma.blog.findUnique({ where: { slug: handle }, select: PUBLIC_BLOG_SELECT });
 };
 
 export async function GET(request, context) {
