@@ -1,12 +1,7 @@
-import path from "path";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
   compress: true,
-  turbopack: {
-    root: path.resolve(__dirname),
-  },
   experimental: {
     optimizePackageImports: [
       "lucide-react",
