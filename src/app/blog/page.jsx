@@ -87,6 +87,7 @@ const fetchBlogs = async (searchParams) => {
     console.error("Unable to fetch blog posts from the database", error);
     return {
       data: [],
+      error: true,
       pagination: {
         page,
         limit,
@@ -188,8 +189,11 @@ export default async function BlogPage({ searchParams }) {
           )}
         </header>
 
-        {/* ── 3-column grid — all posts ── */}
-        {data?.data?.length ? (
+        {data?.error ? (
+          <div className="blog-error">
+            <p>Unable to load blog posts right now. Please try again later.</p>
+          </div>
+        ) : data?.data?.length ? (
           <div className="blog-grid blog-grid--three-col">
             {data.data.map((blog) => (
               <BlogCard key={blog.id} blog={blog} />

@@ -7,7 +7,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const envPath = path.resolve(__dirname, "..", "..", ".env.local");
 
-dotenv.config({ path: envPath, override: true });
+// Only allow .env.local to override environment variables in development.
+// In production, the platform environment should take precedence.
+dotenv.config({
+  path: envPath,
+  override: process.env.NODE_ENV !== "production",
+});
 
 if (!process.env.DATABASE_URL && process.env.DIRECT_URL) {
   process.env.DATABASE_URL = process.env.DIRECT_URL;

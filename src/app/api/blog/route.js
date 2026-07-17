@@ -221,7 +221,16 @@ export async function GET(request) {
     });
   } catch (error) {
     console.error("GET /api/blog failed", error);
-    return NextResponse.json({ error: "Unable to fetch blogs" }, { status: 500 });
+    return NextResponse.json({
+      data: [],
+      isFallback: true,
+      pagination: {
+        page,
+        limit,
+        total: 0,
+        totalPages: 1,
+      },
+    });
   }
 }
 

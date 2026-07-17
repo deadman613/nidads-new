@@ -40,13 +40,14 @@ const LIST_SELECT = {
 
 const fetchBlog = async (slug) => {
   try {
-    return await prisma.blog.findUnique({
+    const blog = await prisma.blog.findUnique({
       where: { slug },
       select: BLOG_SELECT,
     });
+    return { blog };
   } catch (error) {
     console.error("fetchBlog request failed", error);
-    return null;
+    return { error: true };
   }
 };
 
@@ -94,11 +95,12 @@ const fetchRelated = async (slug, blogId) => {
 export async function generateMetadata(props) {
   const params = await props?.params;
   const slug = params?.slug;
-  const blog = slug ? await fetchBlog(slug) : null;
+  const blogResult = slug ? await fetchBlog(slug) : {};
+  const blog = blogResult.blog;
 
   if (!blog) {
     return {
-      title: "Post Not Found",
+      title: blogResult.error ? "Blog unavailable" : "Post Not Found",
     };
   }
 
@@ -162,7 +164,21 @@ export async function generateMetadata(props) {
 export default async function BlogDetails(props) {
   const params = await props?.params;
   const slug = params?.slug;
-  const blog = slug ? await fetchBlog(slug) : null;
+  const blogResult = slug ? await fetchBlog(slug) : {};
+  const blog = blogResult.blog;
+
+  if (blogResult.error) {
+    return (
+      <div className="blog-page">
+        <main id="main-content" className="blog-detail" role="main">
+          <div className="blog-error">
+            <h1>Blog unavailable</h1>
+            <p>We're unable to load this article right now. Please try again later.</p>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   if (!blog) {
     notFound();
