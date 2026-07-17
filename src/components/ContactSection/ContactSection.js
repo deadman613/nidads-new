@@ -209,7 +209,7 @@ export default function ContactSection() {
           <div className={styles.contactInfo}>
             <div className={styles.infoBlock}>
               <h3 className={styles.infoTitle}>Chat with us</h3>
-              <p className={styles.infoText}>Speak to our admissions team via live chat.</p>
+              <p className={styles.infoText}>Speak  to our admission team via live chat.</p>
               <div className={styles.links}>
                 <a href="#" className={styles.link}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
