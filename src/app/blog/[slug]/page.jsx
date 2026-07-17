@@ -1,15 +1,10 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
 import BlogBackGuard from "@/components/BlogBackGuard";
+import BlogEnquiryForm from "@/components/BlogEnquiryForm";
 import BlogThemeToggle from "@/components/BlogThemeToggle";
 import "@/styles/blog.css";
-
-const BlogEnquiryForm = dynamic(() => import("@/components/BlogEnquiryForm"), {
-  ssr: false,
-  loading: () => null,
-});
 
 export const revalidate = 300;
 
