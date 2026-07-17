@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
+import { getBaseUrl } from "@/lib/base-url";
 import BlogBackGuard from "@/components/BlogBackGuard";
 import BlogEnquiryForm from "@/components/BlogEnquiryForm";
 import BlogThemeToggle from "@/components/BlogThemeToggle";
