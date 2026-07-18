@@ -70,7 +70,7 @@ export default function Footer() {
               <Link href="/privacy-policy">Privacy Policy</Link>
               <Link href="/disclaimer">Disclaimer</Link>
               <Link href="/sitemap.xml">Sitemap XML</Link>
-              <Link href="/sitemap.html">Sitemap HTML</Link>
+              <Link href="/sitemap-page">Sitemap</Link>
             </div>
 
             <div>
