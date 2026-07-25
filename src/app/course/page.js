@@ -1,6 +1,4 @@
 
-// import "@/styles/blog.css";
-
 import CourseSection1 from "@/components/CourseSection/CourseSection1";
 import CourseSection2 from "@/components/CourseSection/CourseSection2";
 import CourseSection3 from "@/components/CourseSection/CourseSection3";
@@ -14,9 +12,23 @@ import WhyLearnWithNidads from "../../components/homeSections/WhyLearnWithNidads
 import ProjectShowcase from "../../components/homeSections/ProjectShowcase";
 import ProjectComparison from "../../components/homeSections/ProjectComparison";
 import Gallery from "../../components/homeSections/gallerySection";
-export const metadata = {
-  title: "Course",
-};
+import { buildMeta } from "@/lib/seo";
+
+export const metadata = buildMeta({
+  title: "Courses",
+  description:
+    "Explore NIDADS's industry-focused Data Science, Data Analytics, and AI courses. Choose from Diploma, Advanced Certification, and Certificate programs with placement support.",
+  path: "/course",
+  keywords: [
+    "data science course Delhi",
+    "AI course India",
+    "data analytics course",
+    "NIDADS courses",
+    "diploma in data science",
+    "machine learning course Delhi",
+  ],
+});
+
 
 export default function CoursePage() {
   return (

@@ -1,9 +1,12 @@
 import styles from "../legal/legal.module.css";
+import { buildMeta } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = buildMeta({
   title: "Disclaimer",
-  description: "Website and educational content disclaimer for NIDADS.",
-};
+  description: "Website and educational content disclaimer for NIDADS — National Institute of Data Analytics & Data Science.",
+  path: "/disclaimer",
+  noIndex: false,
+});
 
 export default function DisclaimerPage() {
   return (

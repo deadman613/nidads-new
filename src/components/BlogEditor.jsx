@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
 
@@ -129,6 +129,7 @@ function BlogToolbar() {
 const BlogEditor = ({ value, onChange }) => {
   const [editorReady, setEditorReady] = useState(false);
   const quillRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -148,6 +149,42 @@ const BlogEditor = ({ value, onChange }) => {
     return () => {
       isMounted = false;
     };
+  }, []);
+
+  // Override Quill's default image handler so it opens a local file picker
+  useEffect(() => {
+    if (!editorReady) return;
+    const editor = quillRef.current?.getEditor?.();
+    if (!editor) return;
+
+    const toolbar = editor.getModule("toolbar");
+    if (toolbar) {
+      toolbar.addHandler("image", () => {
+        fileInputRef.current?.click();
+      });
+    }
+  }, [editorReady]);
+
+  // Called when the user selects a file from the picker
+  const handleImageFileChange = useCallback((e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result;
+      const editor = quillRef.current?.getEditor?.();
+      if (!editor) return;
+
+      const range = editor.getSelection(true);
+      const index = range ? range.index : editor.getLength();
+      editor.insertEmbed(index, "image", dataUrl, "user");
+      editor.setSelection(index + 1, 0);
+    };
+    reader.readAsDataURL(file);
+
+    // Reset so the same file can be re-selected if needed
+    e.target.value = "";
   }, []);
 
   const handlePaste = (event) => {
@@ -183,6 +220,15 @@ const BlogEditor = ({ value, onChange }) => {
 
   return (
     <div className="editor">
+      {/* Hidden file input — triggered by the toolbar image button */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/webp,image/png,image/jpeg,image/gif,image/svg+xml"
+        style={{ display: "none" }}
+        onChange={handleImageFileChange}
+      />
+
       {/* Toolbar rendered OUTSIDE ReactQuill — avoids blur-on-click issue */}
       <BlogToolbar />
 
