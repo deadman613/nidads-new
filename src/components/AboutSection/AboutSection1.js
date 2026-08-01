@@ -9,18 +9,19 @@ const mainImg = "/studentImages/student1 (2).jpg";
 
 export default function AboutSection1() {
   return (
-    <section className={styles.wrapper}>
-      {/* Top Section */}
+    <section className={styles.wrapper} aria-labelledby="about-hero-title">
       <div className={styles.topGrid}>
         <div className={styles.left}>
-          <h2 className={styles.heading}>ABOUT<br />NIDADS</h2>
+          <p className={styles.eyebrow}>National Institute of Data Analytics and Data Science</p>
+          <h1 id="about-hero-title" className={styles.heading}>ABOUT<br />NIDADS</h1>
           <div className={styles.leftDesc}>
             <div className={styles.detail}>
-              National Institute of Data Analytics and Data Science
+              Build the skills that move the future forward.
             </div>
             <div className={styles.subdesc}>
-              Industry-focused training in Data Analytics, Data Science,<br />
-              and Machine Learning with real-world projects and mentorship.
+              NIDADS is a career-focused data science institute in New Delhi,
+              <br /> helping learners turn curiosity into practical expertise in
+              <br /> Data Analytics, Data Science, AI, and Machine Learning.
             </div>
           </div>
         </div>
