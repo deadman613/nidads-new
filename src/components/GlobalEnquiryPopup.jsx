@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const PopupEnquiryForm = dynamic(() => import("@/components/PopupEnquiryForm.jsx"), { ssr: false });
 
-const AUTO_OPEN_STORAGE_KEY = "nidads_enquiry_popup_auto_opened_v1";
+const AUTO_OPEN_STORAGE_KEY = "nidads_enquiry_popup_auto_opened_session_v1";
 
 export default function GlobalEnquiryPopup() {
   const [showEnquiry, setShowEnquiry] = useState(false);
@@ -13,7 +13,7 @@ export default function GlobalEnquiryPopup() {
 
   const hasAutoOpenedBefore = () => {
     try {
-      return window.localStorage.getItem(AUTO_OPEN_STORAGE_KEY) === "1";
+      return window.sessionStorage.getItem(AUTO_OPEN_STORAGE_KEY) === "1";
     } catch {
       return false;
     }
@@ -21,7 +21,7 @@ export default function GlobalEnquiryPopup() {
 
   const markAutoOpened = () => {
     try {
-      window.localStorage.setItem(AUTO_OPEN_STORAGE_KEY, "1");
+      window.sessionStorage.setItem(AUTO_OPEN_STORAGE_KEY, "1");
     } catch {
       // ignore
     }
@@ -40,11 +40,11 @@ export default function GlobalEnquiryPopup() {
   };
 
   useEffect(() => {
-    // Auto open after 5 seconds, but only once per browser (localStorage).
+    // Auto open after 5 seconds, but only once per browser session.
     if (!hasAutoOpenedBefore()) {
       timerRef.current = setTimeout(() => {
         openPopup("auto");
-      }, 5000);
+      }, 7000);
     }
 
     // Listen for custom event to open popup

@@ -57,7 +57,7 @@ export default function Banner() {
                 <img src="/studentImages/student1 (2).jpg" alt="Student 2" className={Style.avatar} width={40} height={40} />
                 <img src="/studentImages/student1 (3).jpg" alt="Student 3" className={Style.avatar} width={40} height={40} />
               </div>
-              <span className={Style.statText}>30,000+ enrolled</span>
+              <span className={Style.statText}>25,000+ enrolled</span>
             </div>
 
             {/* Google Reviews */}

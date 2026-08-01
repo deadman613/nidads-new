@@ -101,7 +101,7 @@ const SimpleNamePopup = ({ open, onClose, selectedCourseId, lockCourse }) => {
 
       setTimeout(() => {
         handleClose();
-      }, 3000);
+      }, 1000);
     } catch (error) {
       console.error("Submission failed:", error);
       setSubmitError(error.message || "Something went wrong. Please try again.");
