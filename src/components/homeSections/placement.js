@@ -9,14 +9,14 @@ export default function NewSection() {
           <span className={styles.badge}>PLACEMENT SUCCESS</span>
 
           <h2 className={styles.heading}>
-            See How Students Turned{" "}
-            <span style={{color:"#38b6ff"}}>Skills Into Real Offers</span>
+            Delhi&apos;s Best{" "}
+            <span style={{color:"#38b6ff"}}>Data Science &amp; Data Analytics Course with Placement</span>
           </h2>
 
           <p className={styles.subtext}>
-            Structured learning, live industry projects and a dedicated
-            placement cell that helps you move from learning to hiring —
-            confidently.
+            Our Data Science and Data Analytics courses are built around one goal: your first offer.
+            Live industry projects, mock interviews, and a dedicated placement cell help
+            you go from learning to hired — whether you&apos;re a beginner or a working professional.
           </p>
 
           <div className={styles.stats}>
@@ -40,9 +40,9 @@ export default function NewSection() {
           </div>
 
           <ul className={styles.points}>
-            <li>1:1 mock interviews with industry experts</li>
-            <li>Company-specific resume & portfolio reviews</li>
-            <li>Interview prep for SQL, Python, ML & case studies</li>
+            <li>1:1 mock interviews for Data Science &amp; Analytics roles</li>
+            <li>Resume &amp; portfolio reviews for Data Analyst and Data Scientist positions</li>
+            <li>Interview prep covering Python, SQL, Machine Learning, Big Data &amp; case studies</li>
           </ul>
         </div>
 

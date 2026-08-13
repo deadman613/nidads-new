@@ -14,20 +14,43 @@ import ProjectComparison from "../../components/homeSections/ProjectComparison";
 import Gallery from "../../components/homeSections/gallerySection";
 import { buildMeta } from "@/lib/seo";
 
-export const metadata = buildMeta({
-  title: "Courses",
+const _courseBaseMeta = buildMeta({
+  title: "Data Science & data Analytics Course [NIDADS]",
   description:
-    "Explore NIDADS's industry-focused Data Science, Data Analytics, and AI courses. Choose from Diploma, Advanced Certification, and Certificate programs with placement support.",
+    "Explore NIDADS's industry-focused Data Science, Data Analytics, Business Analytics, Python, AI, and Machine Learning courses in Delhi. Choose from Diploma, Advanced Certification, and Certificate programs — all with placement support and live projects.",
   path: "/course",
   keywords: [
-    "data science course Delhi",
-    "AI course India",
-    "data analytics course",
+    "data science courses",
+    "data analytics courses",
+    "business analytics",
+    "big data analytics",
+    "python for data science",
+    "artificial intelligence and data science",
+    "data science course for beginners",
+    "data analytics course for beginners",
+    "data science course with placement",
+    "data analytics course with placement",
+    "online data science course",
+    "online data analytics course",
+    "data science course with live projects",
+    "data science and analytics for working professionals",
+    "data science course in Delhi",
+    "data analyst course in Delhi",
+    "data analytics certification",
+    "best data science course near me",
+    "best data analytics course near me",
     "NIDADS courses",
     "diploma in data science",
     "machine learning course Delhi",
   ],
 });
+
+export const metadata = {
+  ..._courseBaseMeta,
+  title: {
+    absolute: "Data Science & data Analytics Course [NIDADS]",
+  },
+};
 
 
 export default function CoursePage() {

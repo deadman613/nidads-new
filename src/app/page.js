@@ -19,6 +19,56 @@ import PostGraduationProgram from "@/components/homeSections/PostGraduationProgr
 import CertificateSection from "@/components/homeSections/CertificateSection";
 import FormEnd from "@/components/homeSections/formend.jsx";
 import CourseSection2 from "../components/CourseSection/CourseSection2"
+import { buildMeta } from "@/lib/seo";
+
+const _baseMeta = buildMeta({
+  title: "Data Science & Analytics Course | Learn & Get Hired",
+  description:
+    "NIDADS offers the best Data Science and Data Analytics courses in Delhi with placement support. Learn Python, AI, Machine Learning, Business Analytics, Big Data, and SQL through live projects. Join India's top data science institute.",
+  path: "/",
+  keywords: [
+    "data science and data analytics course",
+    "data science courses",
+    "data analytics courses",
+    "business analytics",
+    "big data analytics",
+    "python for data science",
+    "artificial intelligence and data science",
+    "ai data science",
+    "python programming for data science",
+    "big data and data analytics",
+    "ai in data science",
+    "data science vs data analytics",
+    "data science course for beginners",
+    "data analytics course for beginners",
+    "business analytics and data science",
+    "data science and big data analytics",
+    "data science and business analytics course",
+    "data science projects for beginners",
+    "data analytics certification",
+    "online data science course",
+    "data science course with placement",
+    "data analytics course with placement",
+    "online data analytics course",
+    "data science course with live projects",
+    "data science and analytics for working professionals",
+    "data science course in Delhi",
+    "data analyst course in Delhi",
+    "data science institute in Delhi",
+    "data analytics institute in Delhi",
+    "data science and data analytics course near me",
+    "best data science course near me",
+    "best data analytics course near me",
+    "NIDADS",
+  ],
+});
+
+export const metadata = {
+  ..._baseMeta,
+  title: {
+    absolute: "Data Science & Analytics Course | Learn & Get Hired",
+  },
+};
 
 const professionalServiceSchema = {
   "@context": "https://schema.org",

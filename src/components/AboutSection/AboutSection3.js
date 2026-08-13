@@ -1,26 +1,27 @@
 "use client";
+import { useEffect, useRef } from "react";
 import styles from "./aboutSection3.module.css";
 
 /* ── Bento card data ─────────────────────────────────── */
 const bentoCards = [
   {
     id: "wwa-leap",
-    size: "wide",        // spans 2 cols
+    size: "wide",
     icon: "🚀",
     accent: "#38b6ff",
     tag: "Our Framework",
     heading: "The LEAP Framework",
-    body: "Learn. Engage. Apply. Place. — Our proven framework takes you from foundational concepts to job-ready professional, step by step.",
-    points: ["Python & Statistics", "Guided Labs & Real Datasets", "Portfolio Projects", "Dedicated Placement Support"],
+    body: "Learn. Engage. Apply. Place. — Our proven framework takes you from foundational Data Science and Data Analytics concepts to job-ready professional, step by step.",
+    points: ["Python for Data Science", "Real Business Datasets & Live Projects", "Portfolio Projects", "Dedicated Placement Support"],
   },
   {
     id: "wwa-mentors",
-    size: "tall",        // spans 2 rows
+    size: "tall",
     icon: "🎯",
     accent: "#a855f7",
     tag: "Industry-Led",
     heading: "Expert Mentors",
-    body: "Learn from seasoned professionals working across Data Science, ML, AI, Business Intelligence, NLP, and Computer Vision — who bring real industry experience to every session.",
+    body: "Learn Data Science, Data Analytics, Machine Learning, AI, Business Analytics, NLP, and Computer Vision from seasoned industry professionals who bring real experience to every session.",
   },
   {
     id: "wwa-projects",
@@ -49,7 +50,7 @@ const bentoCards = [
     tag: "Placement",
     heading: "Career & Placement Support",
     body: "Resume reviews, mock interviews, portfolio guidance, and dedicated career support — because learning doesn't end in the classroom.",
-    highlight: "96% placement rate within 6 months",
+    highlight: "96% placement rate — Data Science & Analytics roles within 6 months",
   },
   {
     id: "wwa-campus",
@@ -58,7 +59,8 @@ const bentoCards = [
     accent: "#38b6ff",
     tag: "Greater Kailash",
     heading: "Campus Built for Learning",
-    body: "A dedicated campus with learning bays, mentor spaces, breakout areas, studios, and library facilities — built for collaboration.",
+    body: "A dedicated campus with learning bays, mentor spaces, breakout areas, studios, and library facilities — built for collaboration and deep focus.",
+    points: ["Modern Learning Bays", "Mentor Rooms & Breakout Areas", "Studio & Library Facilities", "Collaborative Co-working Spaces"],
   },
 ];
 
@@ -69,10 +71,71 @@ const stats = [
   { value: "₹22 LPA", label: "Highest Package", icon: "💰" },
 ];
 
-export default function AboutSection3() {
+/* ── Reusable card sub-component ── */
+function BentoCard({ card, i, featured = false }) {
   return (
-    <section className={styles.wrapper} aria-labelledby="wwa-heading">
-      {/* ── decorative layers ── */}
+    <article
+      id={card.id}
+      className={`${styles.bentoCard}${featured ? " " + styles.featured : ""}`}
+      style={{ "--accent": card.accent, "--card-i": i }}
+    >
+      <div className={styles.cardLine} />
+
+      <div className={styles.cardTag}>
+        <span className={styles.cardTagIcon}>{card.icon}</span>
+        {card.tag}
+      </div>
+
+      <h3 className={styles.cardHead}>{card.heading}</h3>
+      <p className={styles.cardBody}>{card.body}</p>
+
+      {card.points && (
+        <ul className={styles.cardPoints}>
+          {card.points.map((pt) => (
+            <li key={pt}><span className={styles.dot} /> {pt}</li>
+          ))}
+        </ul>
+      )}
+
+      {card.list && (
+        <ul className={styles.cardList}>
+          {card.list.map((li) => (
+            <li key={li}>{li}</li>
+          ))}
+        </ul>
+      )}
+
+      {card.highlight && (
+        <div className={styles.cardHighlight}>{card.highlight}</div>
+      )}
+
+      <div className={styles.cardDepth} />
+    </article>
+  );
+}
+
+export default function AboutSection3() {
+
+  const wrapRef = useRef(null);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add(styles.visible);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section ref={wrapRef} className={styles.wrapper} aria-labelledby="wwa-heading">
       <div className={styles.orb1} aria-hidden="true" />
       <div className={styles.orb2} aria-hidden="true" />
       <div className={styles.orb3} aria-hidden="true" />
@@ -80,7 +143,7 @@ export default function AboutSection3() {
 
       <div className={styles.inner}>
 
-        {/* ══ HEADER ══ */}
+        {/* HEADER */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>Who We Are</span>
@@ -93,21 +156,22 @@ export default function AboutSection3() {
           <div className={styles.headerRight}>
             <p className={styles.intro}>
               A career-focused institute specialising in{" "}
-              <strong>Data Science, Data Analytics, AI, and Machine Learning</strong>.
-              We bridge the gap between academic knowledge and industry requirements
-              through practical learning, real-world projects, and industry mentorship.
+              <strong>Data Science, Data Analytics, AI, Machine Learning, and Business Analytics</strong>.
+              We bridge the gap between academic knowledge and real industry requirements
+              through practical learning, live projects, and expert mentorship —
+              making us the best data science and data analytics institute in Delhi.
             </p>
             <p className={styles.intro}>
               Our learners work with{" "}
               <span className={styles.tools}>
-                Python · SQL · Excel · Power BI · Tableau · TensorFlow · ML · AI
+                Python · SQL · Excel · Power BI · Tableau · TensorFlow · Big Data · AI
               </span>
-              — solving real business problems from day one.
+              {" "}— solving real business problems from day one, building a portfolio that gets them hired.
             </p>
           </div>
         </div>
 
-        {/* ══ STATS STRIP ══ */}
+        {/* STATS STRIP */}
         <div className={styles.statsStrip} aria-label="Key statistics">
           {stats.map((s) => (
             <div key={s.label} className={styles.statPill}>
@@ -118,62 +182,43 @@ export default function AboutSection3() {
           ))}
         </div>
 
-        {/* ══ BENTO GRID ══ */}
+        {/* BENTO GRID */}
         <div className={styles.bento} aria-label="Who we are — key highlights">
-          {bentoCards.map((card) => (
-            <article
-              key={card.id}
-              id={card.id}
-              className={`${styles.bentoCard} ${styles[`size_${card.size}`]}`}
-              style={{ "--accent": card.accent }}
-            >
-              {/* top accent line */}
-              <div className={styles.cardLine} />
 
-              <div className={styles.cardTag}>
-                <span className={styles.cardTagIcon}>{card.icon}</span>
-                {card.tag}
-              </div>
+          {/* ── Row A: Featured left | 2 stacked right ── */}
+          <div className={`${styles.bentoRow}`}>
+            <div className={styles.featuredSlot}>
+              <BentoCard card={bentoCards[0]} i={0} featured />
+            </div>
+            <div className={styles.stackSlot}>
+              <BentoCard card={bentoCards[1]} i={1} />
+              <BentoCard card={bentoCards[2]} i={2} />
+            </div>
+          </div>
 
-              <h3 className={styles.cardHead}>{card.heading}</h3>
-              <p className={styles.cardBody}>{card.body}</p>
+          {/* ── Row B: 2 stacked left | Featured right ── */}
+          <div className={styles.bentoRow} style={{ gridTemplateColumns: "1fr 1.15fr" }}>
+            <div className={styles.stackSlot}>
+              <BentoCard card={bentoCards[3]} i={3} />
+              <BentoCard card={bentoCards[4]} i={4} />
+            </div>
+            <div className={styles.featuredSlot}>
+              <BentoCard card={bentoCards[5]} i={5} featured />
+            </div>
+          </div>
 
-              {card.points && (
-                <ul className={styles.cardPoints}>
-                  {card.points.map((pt) => (
-                    <li key={pt}><span className={styles.dot} />  {pt}</li>
-                  ))}
-                </ul>
-              )}
-
-              {card.list && (
-                <ul className={styles.cardList}>
-                  {card.list.map((li) => (
-                    <li key={li}>{li}</li>
-                  ))}
-                </ul>
-              )}
-
-              {card.highlight && (
-                <div className={styles.cardHighlight}>{card.highlight}</div>
-              )}
-
-              {/* 3-D depth slab */}
-              <div className={styles.cardDepth} />
-            </article>
-          ))}
         </div>
 
-        {/* ══ MISSION STRIP ══ */}
+        {/* MISSION STRIP */}
         <div className={styles.mission}>
           <div className={styles.missionLine} aria-hidden="true" />
           <p className={styles.missionText}>
             Our mission:{" "}
             <strong>
-              to make Data Science, Data Analytics &amp; AI education practical,
+              to make Data Science, Data Analytics, Business Analytics, AI &amp; Machine Learning education practical,
               accessible, and career-focused
             </strong>
-            — moving learners from learning concepts → building projects → building careers.
+            {" "}— guiding learners from concepts → live projects → Data Science and Analytics careers in Delhi and beyond.
           </p>
           <div className={styles.missionLine} aria-hidden="true" />
         </div>

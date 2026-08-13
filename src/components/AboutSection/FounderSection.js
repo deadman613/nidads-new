@@ -75,13 +75,13 @@ export default function FounderSection() {
 
             <div className={styles.founderBadge}>
               <span className={styles.badgeYear}>Est. 2009</span>
-              <span className={styles.badgeLabel}>Founder &amp; Head Trainer</span>
+              <span className={styles.badgeLabel}>Founder </span>
             </div>
           </div>
 
           <div className={styles.accentCard}>
             <span className={styles.accentIcon}>🎓</span>
-            <span className={styles.accentText}>Doctorate · Digital &amp; Data</span>
+            <span className={styles.accentText}>Doctorate </span>
           </div>
         </div>
 

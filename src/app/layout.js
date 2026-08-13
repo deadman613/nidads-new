@@ -26,19 +26,34 @@ export const metadata = {
     process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   ),
   title: {
-    default: "NIDADS",
+    default: "NIDADS — Best Data Science & Data Analytics Course in Delhi",
     template: "%s | NIDADS",
   },
-  description: "NIDADS - Empowering careers through expert training and placement support.",
+  description: "NIDADS is Delhi's leading Data Science and Data Analytics institute offering courses in Python, AI, Machine Learning, Big Data, and Business Analytics with placement support.",
+  keywords: [
+    "data science course in Delhi",
+    "data analytics course in Delhi",
+    "data science institute in Delhi",
+    "data analytics institute in Delhi",
+    "best data science course near me",
+    "best data analytics course near me",
+    "data science and data analytics course",
+    "online data science course",
+    "data science course with placement",
+    "data analytics course with placement",
+    "python for data science",
+    "artificial intelligence and data science",
+    "NIDADS",
+  ],
   openGraph: {
-    title: "NIDADS",
-    description: "NIDADS - Empowering careers through expert training and placement support.",
+    title: "NIDADS — Best Data Science & Data Analytics Course in Delhi",
+    description: "NIDADS is Delhi's leading Data Science and Data Analytics institute offering courses in Python, AI, Machine Learning, Big Data, and Business Analytics with placement support.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NIDADS",
-    description: "NIDADS - Empowering careers through expert training and placement support.",
+    title: "NIDADS — Best Data Science & Data Analytics Course in Delhi",
+    description: "NIDADS is Delhi's leading Data Science and Data Analytics institute offering courses in Python, AI, Machine Learning, Big Data, and Business Analytics with placement support.",
   },
 };
 

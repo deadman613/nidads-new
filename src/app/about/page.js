@@ -6,14 +6,32 @@ import { buildMeta, buildLocalBusinessSchema } from "@/lib/seo";
 import Expert from "../../components/homeSections/ExpertMentors"
 import Gallery from "../../components/homeSections/gallerySection"
 import MissionSection from "@/components/AboutSection/MissionSection"
+import StatsSection from "@/components/AboutSection/StatsSection"
+import Form from "../../components/homeSections/formend"
 import "@/styles/blog.css";
 
 export const metadata = buildMeta({
-  title: "About NIDADS | Data Science and AI Institute in New Delhi",
+  title: "About NIDADS | Top Data Science & Data Analytics Institute in Delhi",
   description:
-    "Discover NIDADS, a career-focused data science and AI institute in New Delhi offering practical programs in Data Analytics, Data Science, Artificial Intelligence, and Machine Learning.",
+    "Learn about NIDADS — the best Data Science and Data Analytics institute in Delhi. Offering practical Data Science courses, Data Analytics courses, AI training, Python for Data Science, Business Analytics, and more with 97% placement support in New Delhi.",
   path: "/about",
-  keywords: ["about NIDADS", "data science institute New Delhi", "AI training institute Delhi", "data analytics courses", "NIDADS about"],
+  keywords: [
+    "data science institute in Delhi",
+    "data analytics institute in Delhi",
+    "best data science course near me",
+    "best data analytics course near me",
+    "data science and data analytics",
+    "python for data science",
+    "artificial intelligence and data science",
+    "business analytics",
+    "data science course with placement",
+    "data analytics course with placement",
+    "data science and analytics for working professionals",
+    "ai in data science",
+    "about NIDADS",
+    "data science training New Delhi",
+    "data analyst course in Delhi",
+  ],
 });
 
 const localBusinessSchema = buildLocalBusinessSchema();
@@ -31,7 +49,9 @@ export default function AboutPage() {
       <FounderSection />
       <Expert />
       <Gallery />
+      <StatsSection />
       <MissionSection />
+      <Form />
     </main>
   );
 }

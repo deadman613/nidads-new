@@ -78,16 +78,24 @@ export default function MissionSection() {
             NIDADS exists to close the gap between what India&apos;s education system teaches
             and what India&apos;s job market actually requires. We believe that every student —
             regardless of their academic background, city, or financial position — deserves
-            access to practical, current, career-ready training that leads directly to employment.
+            access to practical, current <strong>Data Science and Data Analytics courses</strong> that lead
+            directly to employment. That belief is why thousands of learners across Delhi choose
+            us as their preferred{" "}
+            <strong>data science institute in Delhi</strong>.
           </p>
           <p className={styles.body}>
-            Our courses are designed with one outcome in mind: your first job, your first
-            promotion, and your long-term career independence.
+            Our <strong>Data Science and Data Analytics courses</strong> are designed for both
+            beginners and working professionals — covering Python for Data Science, Business Analytics,
+            Big Data Analytics, AI in Data Science, Machine Learning, and SQL through
+            real-world, live projects. Whether you are looking for a{" "}
+            <strong>data science course with placement</strong> or an{" "}
+            <strong>online data analytics course</strong>, we have a program built for your goal.
           </p>
           <p className={styles.body}>
             We measure our success not by enrolment numbers, but by the number of students
             who are employed, earning, and growing in their careers within 6 months of
-            completing their training.
+            completing their training — making NIDADS the best data analytics institute in Delhi
+            for career-ready outcomes.
           </p>
         </div>
 

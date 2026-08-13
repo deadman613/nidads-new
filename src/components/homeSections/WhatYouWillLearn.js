@@ -6,42 +6,42 @@ const courses = [
   {
     number: "1",
     title: "Data Analysis & Visualization",
-    description: "Analyze raw data and transform it into meaningful insights using charts, dashboards, and reports.",
+    description: "Master data analysis and data analytics — transform raw data into insights using Power BI, Tableau, and Excel dashboards.",
     icon: "",
     tools: ["Excel", "Power BI", "Tableau"],
   },
   {
     number: "2",
     title: "Python for Data Science",
-    description: "Learn Python from scratch and use it for data analysis, automation, and building real-world projects.",
+    description: "Learn Python programming for Data Science from scratch — data wrangling, automation, and building real-world data science projects.",
     icon: "",
     tools: ["Pandas", "NumPy", "Matplotlib"],
   },
   {
     number: "3",
-    title: "Machine Learning",
-    description: "Build predictive models using machine learning algorithms to solve real business problems.",
+    title: "Machine Learning & AI in Data Science",
+    description: "Build predictive models using Machine Learning and AI — core skills for every Data Science and Business Analytics role.",
     icon: "",
     tools: ["Regression", "Classification", "Clustering"],
   },
   {
     number: "4",
-    title: "Artificial Intelligence (AI)",
-    description: "Understand AI concepts and build intelligent systems using real datasets and modern tools.",
+    title: "Artificial Intelligence & Data Science",
+    description: "Apply AI in Data Science — build intelligent systems, NLP pipelines, and AI-driven analytics using modern tools.",
     icon: "",
-    tools: ["NLP", "AI Tools", "Automation"],
+    tools: ["NLP", "AI Tools", "Deep Learning"],
   },
   {
     number: "5",
-    title: "SQL & Data Management",
-    description: "Learn how to extract, manage, and manipulate data from databases using SQL.",
+    title: "SQL & Big Data Analytics",
+    description: "Extract, manage, and analyse data from databases using SQL — a must-have skill for Data Analysts and Data Scientists.",
     icon: "",
-    tools: ["Queries", "Joins", "Data Handling"],
+    tools: ["Queries", "Joins", "Big Data"],
   },
   {
     number: "6",
-    title: "Business & Real-World Case Studies",
-    description: "Work on real-world projects and case studies to gain practical industry experience.",
+    title: "Business Analytics & Live Projects",
+    description: "Work on real business analytics case studies and live data science projects to build a portfolio that gets you hired in Delhi.",
     icon: "",
     tools: ["Live Projects", "Portfolio Building"],
   },
@@ -53,10 +53,10 @@ export default function WhatYouWillLearn() {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>
-            What will You <span style={{ color: "#38b6ff" }}>Learn</span>
+            What You <span style={{ color: "#38b6ff" }}>Learn</span> in Our Data Science &amp; Analytics Courses
           </h2>
           <p className={styles.subtitle}>
-            Master the in-demand skills to become a Data Science &amp; Analytics with AI professional.
+            From Python for Data Science to Business Analytics, Big Data, and AI — master every skill needed for a Data Science or Data Analytics career in Delhi.
           </p>
         </div>
 

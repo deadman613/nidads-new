@@ -31,9 +31,7 @@ export default function Banner() {
           <h1 className={Style.heading}>Master <span style={{color:"hsla(202, 100%, 61%, 1.00)"}}>Data Science</span><span style={{color:"#ffffff"}}> &</span>  <span style={{color:"#38b6ff"}}>Data Analytics</span> <span style={{color:"#ffffff"}}>with</span> <span style={{color:"#38b6ff"}}>AI</span></h1>
           
           <p className={Style.description}>
-            Launch your career with practical Data Analytics & AI training aligned
-            to industry needs. Gain job-ready skills in SQL, Python, Power BI,
-            Excel and Machine Learning through real-world projects.
+            Delhi&apos;s best <strong>Data Science and Data Analytics course with placement</strong> — covering Python for Data Science, Business Analytics, Big Data, SQL, Power BI, and AI through live industry projects. Online &amp; offline batches available for beginners and working professionals.
           </p>
 <div className={Style.spanButton}>
      <span className={Style.mode}>Online</span>
