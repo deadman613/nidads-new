@@ -1,0 +1,210 @@
+/* ═══════════════════════════════════════════════════
+   MissionSection — Mission & Values
+   ═══════════════════════════════════════════════════ */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #020609;
+  padding: 100px 0 100px;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  color: #fff;
+}
+
+/* ── Ambient orbs ── */
+.orb1 {
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.orb2 {
+  position: absolute;
+  bottom: -80px;
+  right: -60px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 182, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Layout ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ══════════════════════════
+   LEFT — Mission text
+   ══════════════════════════ */
+.left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+/* Mission & Values pill */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #38B6FF, #38B6FF);
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35);
+}
+
+.heading {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0 0 28px;
+}
+
+.body {
+  font-size: 0.92rem;
+  line-height: 1.82;
+  color: #6a8fa8;
+  margin: 0 0 16px;
+}
+
+.body:last-child {
+  margin-bottom: 0;
+}
+
+/* ══════════════════════════
+   RIGHT — Value cards
+   ══════════════════════════ */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.card {
+  padding: 26px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0.1s),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0.1s),
+    background 0.2s ease;
+}
+
+.card:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.card:hover {
+  background: rgba(168, 85, 247, 0.04);
+}
+
+.cardTop {
+  margin-bottom: 14px;
+}
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #38B6FF, #38B6FF);
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
+}
+
+.iconWrap svg {
+  width: 20px;
+  height: 20px;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #e8f0fa;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.cardBody {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #4e6d84;
+  margin: 0;
+}
+
+/* ══════════════════════════
+   VISIBLE — IntersectionObserver
+   ══════════════════════════ */
+.visible .left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.visible .card {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ══════════════════════════
+   RESPONSIVE
+   ══════════════════════════ */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .left {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.7s ease 0.1s;
+  }
+
+  .card {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.6s ease var(--delay, 0.1s);
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 72px 0 72px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 22px 0;
+  }
+}

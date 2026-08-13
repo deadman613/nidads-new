@@ -1,0 +1,547 @@
+/* ═══════════════════════════════════════════════════════
+   AboutSection3 — "Who We Are" Bento 3D Section
+   ═══════════════════════════════════════════════════════ */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #04080f;
+  padding: 100px 0 80px;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  color: #fff;
+}
+
+/* ── Ambient orbs ── */
+.orb1 {
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 182, 255, 0.13) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.orb2 {
+  position: absolute;
+  top: 30%;
+  right: -160px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.orb3 {
+  position: absolute;
+  bottom: 80px;
+  left: 40%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Perspective grid ── */
+.perspGrid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background-image:
+    linear-gradient(rgba(56, 182, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 182, 255, 0.07) 1px, transparent 1px);
+  background-size: 52px 52px;
+  transform: perspective(480px) rotateX(58deg) translateY(28px);
+  transform-origin: bottom center;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ── Layout container ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+/* ══════════════════════════════════════
+   HEADER — two-column split
+   ══════════════════════════════════════ */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 52px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #38b6ff;
+  background: rgba(56, 182, 255, 0.08);
+  border: 1px solid rgba(56, 182, 255, 0.2);
+  padding: 5px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+}
+
+.titleGrad {
+  /* background: linear-gradient(135deg, #38b6ff 0%, #a855f7 100%); */
+  background-color: #30B6FF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.intro {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.intro strong {
+  color: #c8dcf0;
+  font-weight: 700;
+}
+
+.tools {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #38b6ff;
+  background: rgba(56, 182, 255, 0.07);
+  border: 1px solid rgba(56, 182, 255, 0.18);
+  border-radius: 6px;
+  padding: 4px 10px;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════════════
+   STATS STRIP
+   ══════════════════════════════════════ */
+.statsStrip {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.statPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 14px 22px;
+  flex: 1 1 180px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.statPill:hover {
+  border-color: rgba(56, 182, 255, 0.3);
+  background: rgba(56, 182, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+.statIcon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.statVal {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 30%, #38b6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.statLbl {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4d6a82;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════
+   BENTO GRID
+   ══════════════════════════════════════ */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 18px;
+  margin-bottom: 52px;
+}
+
+/* ── Card base ── */
+.bentoCard {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  padding: 30px 28px 34px;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.4s ease;
+  transform: perspective(700px) rotateX(3deg) rotateY(-2deg);
+  transform-style: preserve-3d;
+  animation: bentoPop 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.bentoCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.bentoCard:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.bentoCard:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.bentoCard:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.bentoCard:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.bentoCard:nth-child(6) {
+  animation-delay: 0.40s;
+}
+
+@keyframes bentoPop {
+  from {
+    opacity: 0;
+    transform: perspective(700px) rotateX(16deg) translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: perspective(700px) rotateX(3deg) rotateY(-2deg);
+  }
+}
+
+.bentoCard:hover {
+  transform: perspective(700px) rotateX(-1deg) rotateY(2deg) translateY(-8px);
+  background: rgba(255, 255, 255, 0.045);
+  border-color: var(--accent, #38b6ff);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 0 0 1px color-mix(in srgb, var(--accent, #38b6ff) 40%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ── Size variants ── */
+.size_wide {
+  grid-column: span 2;
+}
+
+.size_tall {
+  grid-row: span 2;
+}
+
+.size_normal {
+  /* default */
+}
+
+/* ── Top accent line ── */
+.cardLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent, #38b6ff);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 0 18px 3px color-mix(in srgb, var(--accent, #38b6ff) 55%, transparent);
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.bentoCard:hover .cardLine {
+  opacity: 1;
+}
+
+/* ── Tag chip ── */
+.cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, #38b6ff);
+  background: color-mix(in srgb, var(--accent, #38b6ff) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #38b6ff) 22%, transparent);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 18px;
+}
+
+.cardTagIcon {
+  font-size: 0.85rem;
+}
+
+/* ── Heading ── */
+.cardHead {
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #e8f4ff;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+/* ── Body text ── */
+.cardBody {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: #6e8fa8;
+  margin: 0 0 14px;
+}
+
+/* ── Bullet points ── */
+.cardPoints {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardPoints li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #b0c8de;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent, #38b6ff);
+  flex-shrink: 0;
+}
+
+/* ── Numbered list ── */
+.cardList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  counter-reset: card-counter;
+}
+
+.cardList li {
+  counter-increment: card-counter;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #8dafc9;
+  line-height: 1.5;
+}
+
+.cardList li::before {
+  content: counter(card-counter, decimal-leading-zero);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent, #38b6ff);
+  opacity: 0.7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Highlight badge ── */
+.cardHighlight {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent, #f59e0b);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 28%, transparent);
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+/* ── 3D depth slab ── */
+.cardDepth {
+  position: absolute;
+  inset: 8px -5px -14px 5px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--accent, #38b6ff) 10%, #000);
+  filter: blur(10px);
+  opacity: 0.35;
+  z-index: -1;
+  transition: opacity 0.4s ease, inset 0.4s ease;
+  pointer-events: none;
+}
+
+.bentoCard:hover .cardDepth {
+  opacity: 0.6;
+  inset: 14px -7px -18px 7px;
+}
+
+/* ══════════════════════════════════════
+   MISSION STRIP
+   ══════════════════════════════════════ */
+.mission {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.missionLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 182, 255, 0.3), transparent);
+}
+
+.missionText {
+  flex: 3;
+  text-align: center;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: #6c8ba5;
+  margin: 0;
+}
+
+.missionText strong {
+  color: #c4dcf4;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .size_wide {
+    grid-column: span 2;
+  }
+
+  .size_tall {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .size_wide,
+  .size_tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bentoCard {
+    transform: none;
+    animation: none;
+  }
+
+  .bentoCard:hover {
+    transform: translateY(-4px);
+  }
+
+  .mission {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .missionLine {
+    width: 80%;
+    height: 1px;
+  }
+
+  .statsStrip {
+    gap: 10px;
+  }
+
+  .statPill {
+    flex: 1 1 140px;
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 70px 0 60px;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .perspGrid {
+    height: 130px;
+  }
+}

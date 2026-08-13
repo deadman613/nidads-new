@@ -1,0 +1,495 @@
+/* ═══════════════════════════════════════════════════════
+   FounderSection — Photo-from-behind + Text-from-right
+   ═══════════════════════════════════════════════════════ */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #020609;
+  padding: 110px 0 100px;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  color: #fff;
+}
+
+/* ── Ambient glows ── */
+.bgGlow1 {
+  position: absolute;
+  top: -80px;
+  left: -100px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 182, 255, 0.11) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bgGlow2 {
+  position: absolute;
+  bottom: -60px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(48, 182, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Thin horizontal accent stripe ── */
+.bgStripe {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 182, 255, 0.15) 50%, transparent 100%);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ── Layout ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ═══════════════════════════════════════
+   PHOTO COLUMN — starts hidden, reveals on .visible
+   ═══════════════════════════════════════ */
+
+/* depth slab — the "behind" element */
+.depthSlab {
+  position: absolute;
+  inset: 24px -18px -24px 18px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(56, 182, 255, 0.18) 0%, rgba(30, 90, 140, 0.22) 100%);
+  border: 1px solid rgba(56, 182, 255, 0.12);
+  z-index: 0;
+
+  /* initial: hidden far behind */
+  opacity: 0;
+  transform: scale(0.88) translateZ(-80px) translateY(30px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.photoCol {
+  position: relative;
+  height: 560px;
+}
+
+/* glow ring */
+.glowRing {
+  position: absolute;
+  inset: -12px;
+  border-radius: 32px;
+  border: 1px solid rgba(56, 182, 255, 0.1);
+  box-shadow:
+    0 0 60px 10px rgba(56, 182, 255, 0.06),
+    inset 0 0 40px rgba(56, 182, 255, 0.04);
+  z-index: 1;
+
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.8s ease 0.25s,
+    transform 0.8s ease 0.25s;
+}
+
+/* main photo card */
+.photoCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  z-index: 2;
+  border: 1px solid rgba(56, 182, 255, 0.14);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(56, 182, 255, 0.08);
+
+  /* initial: scaled down, partially transparent — comes from "behind" */
+  opacity: 0;
+  transform: scale(0.82) translateY(40px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    box-shadow 0.4s ease;
+}
+
+.photoCard:hover {
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(56, 182, 255, 0.22),
+    0 0 40px rgba(56, 182, 255, 0.08);
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(2, 6, 9, 0.75) 0%,
+    rgba(2, 6, 9, 0.1) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Floating "founder since" badge ── */
+.founderBadge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.badgeYear {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #38b6ff;
+}
+
+.badgeLabel {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e8f4ff;
+  letter-spacing: 0.02em;
+}
+
+/* ── Floating accent card ── */
+.accentCard {
+  position: absolute;
+  top: -18px;
+  right: -20px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 20, 32, 0.92);
+  border: 1px solid rgba(56, 182, 255, 0.22);
+  border-radius: 12px;
+  padding: 10px 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  transform: translateY(-12px) translateX(12px);
+  transition:
+    opacity 0.7s ease 0.55s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s;
+}
+
+.accentIcon {
+  font-size: 1.1rem;
+}
+
+.accentText {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #b8d4ea;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════
+   TEXT COLUMN — slides in from the right
+   ═══════════════════════════════════════ */
+.textCol {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.35s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #38b6ff;
+  background: rgba(56, 182, 255, 0.08);
+  border: 1px solid rgba(56, 182, 255, 0.2);
+  padding: 5px 16px;
+  border-radius: 100px;
+  margin-bottom: 22px;
+}
+
+.heading {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #fff;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, #ffffff 40%, #38b6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleRule {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #38b6ff, transparent);
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+.body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #7a9ab5;
+  margin: 0 0 18px;
+}
+
+.body strong {
+  color: #c0d8ef;
+  font-weight: 700;
+}
+
+/* ── Quote ── */
+.quote {
+  position: relative;
+  margin: 28px 0 32px;
+  padding: 18px 24px;
+  border-left: 3px solid #38b6ff;
+  background: rgba(56, 182, 255, 0.05);
+  border-radius: 0 12px 12px 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #a8c8e0;
+  line-height: 1.65;
+}
+
+.quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  font-size: 3rem;
+  color: rgba(56, 182, 255, 0.25);
+  font-style: normal;
+  line-height: 1;
+}
+
+/* ── Stats row ── */
+.stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 28px;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 20px 0 0;
+  position: relative;
+}
+
+.statItem + .statItem {
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.statValue {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #fff 30%, #38b6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3d5f78;
+  line-height: 1.4;
+}
+
+/* ── Brands Section ── */
+.brandsSection {
+  margin-top: 36px;
+}
+
+.brandsHeading {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #38b6ff;
+  margin: 0 0 18px;
+}
+
+.brandCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.brandCard {
+  background: rgba(56, 182, 255, 0.04);
+  border: 1px solid rgba(56, 182, 255, 0.12);
+  border-radius: 14px;
+  padding: 18px 16px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.brandCard:hover {
+  background: rgba(56, 182, 255, 0.08);
+  border-color: rgba(56, 182, 255, 0.28);
+}
+
+.brandName {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fff 30%, #38b6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.brandBody {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #5a7a92;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════
+   VISIBLE STATE — triggered by IntersectionObserver
+   ═══════════════════════════════════════ */
+.visible .depthSlab {
+  opacity: 1;
+  transform: scale(1) translateZ(0) translateY(0);
+}
+
+.visible .glowRing {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.visible .photoCard {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.visible .accentCard {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+.visible .textCol {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 52px;
+    max-width: 560px;
+  }
+
+  .photoCol {
+    height: 480px;
+  }
+
+  .textCol {
+    transform: translateX(0);
+    opacity: 0;
+    transition:
+      opacity 0.8s ease 0.2s,
+      transform 0s;
+  }
+
+  .visible .textCol {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 70px 0 72px;
+  }
+
+  .photoCol {
+    height: 380px;
+  }
+
+  .accentCard {
+    top: -12px;
+    right: -8px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .statItem + .statItem {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding-top: 18px;
+  }
+
+  .brandCards {
+    grid-template-columns: 1fr;
+  }
+
+  .depthSlab {
+    inset: 12px -10px -12px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .photoCard,
+  .depthSlab,
+  .glowRing,
+  .accentCard,
+  .textCol {
+    transition-duration: 0s !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

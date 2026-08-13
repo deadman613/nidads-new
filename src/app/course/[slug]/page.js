@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getCourseBySlug, courses } from "@/data/courses";
-import { buildMeta, buildCourseSchema } from "@/lib/seo";
+import { buildMeta, buildCourseSchema, buildCourseBreadcrumbSchema } from "@/lib/seo";
 import CourseDetailClient from "./CourseDetailClient";
 
 /**
@@ -48,13 +48,19 @@ export default async function CourseDetailPage({ params }) {
   }
 
   const courseSchema = buildCourseSchema(course);
+  const breadcrumbSchema = buildCourseBreadcrumbSchema(course);
 
   return (
     <>
-      {/* Course structured data for Google rich results */}
+      {/* Product structured data for Google rich results */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      {/* BreadcrumbList structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Interactive client component (tabs, enroll popup, etc.) */}
       <CourseDetailClient course={course} />

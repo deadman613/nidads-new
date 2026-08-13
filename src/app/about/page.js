@@ -1,6 +1,11 @@
 import Section1About from "@/components/AboutSection/section1about";
 import AboutSection2 from "@/components/AboutSection/AboutSection2";
+import AboutSection3 from "@/components/AboutSection/AboutSection3";
+import FounderSection from "@/components/AboutSection/FounderSection";
 import { buildMeta, buildLocalBusinessSchema } from "@/lib/seo";
+import Expert from "../../components/homeSections/ExpertMentors"
+import Gallery from "../../components/homeSections/gallerySection"
+import MissionSection from "@/components/AboutSection/MissionSection"
 import "@/styles/blog.css";
 
 export const metadata = buildMeta({
@@ -22,6 +27,11 @@ export default function AboutPage() {
       />
       <Section1About />
       <AboutSection2 />
+      <AboutSection3 />
+      <FounderSection />
+      <Expert />
+      <Gallery />
+      <MissionSection />
     </main>
   );
 }

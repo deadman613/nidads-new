@@ -75,62 +75,71 @@ export function buildMeta({
 }
 
 /**
- * Build Course JSON-LD structured data for Google rich results.
+ * Build Course Product JSON-LD structured data for Google rich results.
+ * Uses schema.org/Product type with AggregateRating, matching the site's schema spec.
  * @param {Object} course  – course object from courses.js
  * @param {string} baseUrl – site base URL
  */
 export function buildCourseSchema(course, baseUrl = BASE_URL) {
   const courseUrl = `${baseUrl}/course/${course.slug}`;
   return {
-    "@context": "https://schema.org",
-    "@type": "Course",
+    "@context": "https://schema.org/",
+    "@type": "Product",
     name: course.title,
-    description: course.fullDescription || course.description,
-    url: courseUrl,
-    provider: {
-      "@type": "EducationalOrganization",
-      name: "National Institute of Data Analytics & Data Science (NIDADS)",
-      url: baseUrl,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress:
-          "Ground Floor, Savitri Cinema Complex, Block E, Greater Kailash II",
-        addressLocality: "New Delhi",
-        addressRegion: "Delhi",
-        postalCode: "110048",
-        addressCountry: "IN",
-      },
+    image: course.image?.startsWith("http")
+      ? course.image
+      : `${baseUrl}${course.image}`,
+    description: course.description,
+    brand: {
+      "@type": "Brand",
+      name: "NIDADS",
     },
-    educationalLevel: course.level,
-    timeRequired: course.duration,
-    hasCourseInstance: {
-      "@type": "CourseInstance",
-      courseMode: course.mode || "blended",
-      courseWorkload: course.duration,
-    },
-    ...(course.image
-      ? { image: course.image.startsWith("http") ? course.image : `${baseUrl}${course.image}` }
-      : {}),
-    ...(course.rating
-      ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: course.rating,
-            bestRating: "5",
-            worstRating: "1",
-            ratingCount: course.students || 10,
-          },
-        }
-      : {}),
     offers: {
-      "@type": "Offer",
-      price: (course.price || "").replace(/[^0-9]/g, "") || "0",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
+      "@type": "AggregateOffer",
       url: courseUrl,
+      priceCurrency: "",
+      lowPrice: "",
     },
-    teaches: course.topics || [],
-    inLanguage: "en-IN",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: "1043",
+    },
+  };
+}
+
+/**
+ * Build BreadcrumbList JSON-LD for a course detail page.
+ * Produces: Home → Course → <Course Name>
+ * @param {Object} course  – course object from courses.js
+ * @param {string} baseUrl – site base URL
+ */
+export function buildCourseBreadcrumbSchema(course, baseUrl = BASE_URL) {
+  return {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${baseUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Course",
+        item: `${baseUrl}/course`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: course.title,
+        item: `${baseUrl}/course/${course.slug}`,
+      },
+    ],
   };
 }
 
