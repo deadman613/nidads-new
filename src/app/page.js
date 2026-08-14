@@ -24,7 +24,7 @@ import { buildMeta } from "@/lib/seo";
 const _baseMeta = buildMeta({
   title: "Data Science & Analytics Course | Learn & Get Hired",
   description:
-    "NIDADS offers the best Data Science and Data Analytics courses in Delhi with placement support. Learn Python, AI, Machine Learning, Business Analytics, Big Data, and SQL through live projects. Join India's top data science institute.",
+    "Master Data Science & Data Analytics with hands-on projects. Learn Python, ML & SQL from experts. Job-ready in weeks. Enroll now — limited seats!",
   path: "/",
   keywords: [
     "data science and data analytics course",

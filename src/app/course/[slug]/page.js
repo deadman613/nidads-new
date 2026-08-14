@@ -24,8 +24,9 @@ export async function generateMetadata({ params }) {
   }
 
   return buildMeta({
-    title: course.title,
-    description: `${course.description} | ${course.duration} Data Science & Analytics program at NIDADS, Delhi. Enroll now for career-focused training with live projects and placement support.`,
+    title: course.metaTitle || course.title,
+    description: course.metaDescription ||
+      `${course.description} | ${course.duration} Data Science & Analytics program at NIDADS, Delhi. Enroll now for career-focused training with live projects and placement support.`,
     path: `/course/${course.slug}`,
     ogImage: course.image?.startsWith("http") ? course.image : undefined,
     keywords: [

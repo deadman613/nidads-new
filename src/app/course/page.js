@@ -6,7 +6,7 @@ import RecommendedCoursesSection from "@/components/CourseSection/RecommendedCou
 import WHATYOU from "../../components/homeSections/WhatYouWillLearn";
 import ExpertMentors from "../../components/homeSections/ExpertMentors";
 import Hero from "../../components/homeSections/Hero9"
-import  Formend from "../../components/homeSections/formend";
+import Formend from "../../components/homeSections/formend";
 import Hero8 from "../../components/homeSections/Hero8";
 import WhyLearnWithNidads from "../../components/homeSections/WhyLearnWithNidads";
 import ProjectShowcase from "../../components/homeSections/ProjectShowcase";
@@ -15,9 +15,9 @@ import Gallery from "../../components/homeSections/gallerySection";
 import { buildMeta } from "@/lib/seo";
 
 const _courseBaseMeta = buildMeta({
-  title: "Data Science & data Analytics Course [NIDADS]",
+  title: "Data Science and Data Analytics Course | Placement",
   description:
-    "Explore NIDADS's industry-focused Data Science, Data Analytics, Business Analytics, Python, AI, and Machine Learning courses in Delhi. Choose from Diploma, Advanced Certification, and Certificate programs — all with placement support and live projects.",
+    "Join our Data Science & Data Analytics Course with live training, real projects, certification & 100% placement support. Enroll today!",
   path: "/course",
   keywords: [
     "data science courses",
@@ -53,9 +53,29 @@ export const metadata = {
 };
 
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org/",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home Page",
+      "item": "https://www.nidads.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Courses",
+      "item": "https://www.nidads.com/course"
+    }
+  ]
+};
+
 export default function CoursePage() {
   return (
     <main style={{ background: "#090d15", paddingTop: 40 }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <CourseSection1 />
       <CourseSection2 />
       <RecommendedCoursesSection />

@@ -7,8 +7,8 @@ import "@/styles/blog.css";
 export const revalidate = 300;
 
 export const metadata = {
-  title: "Blog",
-  description: "Read the latest articles, guides, and updates from NIDADS.",
+  title: "Data Science & Analytics Course – Learn in 2026",
+  description: "Master data science and data analytics with hands-on projects and real datasets. Learn Python, SQL & ML. Free certificate. Start today!",
 };
 
 /* ─── hardcoded category list ─────────────────────────────────── */

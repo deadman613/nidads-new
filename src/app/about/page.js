@@ -11,9 +11,9 @@ import Form from "../../components/homeSections/formend"
 import "@/styles/blog.css";
 
 export const metadata = buildMeta({
-  title: "About NIDADS | Top Data Science & Data Analytics Institute in Delhi",
+  title: "About Us | Data Science & Analytics Institute",
   description:
-    "Learn about NIDADS — the best Data Science and Data Analytics institute in Delhi. Offering practical Data Science courses, Data Analytics courses, AI training, Python for Data Science, Business Analytics, and more with 97% placement support in New Delhi.",
+    "Meet the team behind our Data Science & Data Analytics Course. Learn our mission, mentors, and proven track record of student success worldwide.",
   path: "/about",
   keywords: [
     "data science institute in Delhi",
@@ -36,13 +36,71 @@ export const metadata = buildMeta({
 
 const localBusinessSchema = buildLocalBusinessSchema();
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org/",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home Page",
+      "item": "https://www.nidads.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Page",
+      "item": "https://www.nidads.com/about"
+    }
+  ]
+};
+
+const collegeOrUniversitySchema = {
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "name": "National institute of data analytics and data science",
+  "alternateName": "nidads",
+  "url": "https://www.nidads.com/",
+  "logo": "https://www.nidads.com/Nidads-2.webp",
+  "sameAs": [
+    "https://www.instagram.com/nidads_official/",
+    "https://in.linkedin.com/in/national-institute-of-data-analytics-and-data-science-28b709381"
+  ]
+};
+
+const productSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "National institute of data analytics and data science",
+  "image": "https://www.nidads.com/Nidads-2.webp",
+  "description": "Learn Data Analytics, Data Science, Artificial Intelligence, and Machine Learning through practical projects, expert guidance, and career-focused training in New Delhi.",
+  "brand": {
+    "@type": "Brand",
+    "name": "nidads"
+  },
+  "sku": "About",
+  "offers": {
+    "@type": "AggregateOffer",
+    "url": "",
+    "priceCurrency": "",
+    "lowPrice": ""
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "1032"
+  }
+};
+
 export default function AboutPage() {
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collegeOrUniversitySchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <Section1About />
       <AboutSection2 />
       <AboutSection3 />

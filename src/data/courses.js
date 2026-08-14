@@ -12,6 +12,9 @@ export const courses = [
     price: "₹99,999",
     monthlyPrice: "₹8,499",
     image: "/courseCards/1.png",
+    metaTitle: "Diploma in Data Science & AI – Enroll 2026",
+    metaDescription:
+      "Enroll in our Diploma in Data Science & AI and gain industry-ready skills, hands-on projects, certification, and placement support.",
     description:
       "For beginners and working pros alike. Master Python, R, Machine Learning, Deep Learning, SQL, Statistics and BI tools through real projects.",
     fullDescription:
@@ -196,7 +199,7 @@ export const courses = [
   },
   {
     id: 2,
-    title: "Diploma in Data Analytics & AI",
+    title: "Diploma in Data Analytics & AI | Get Job-Ready",
     level: "diploma",
     slug: "diploma-in-data-analytics-and-ai",
     category: "data-analytics",
@@ -208,7 +211,7 @@ export const courses = [
     monthlyPrice: "₹9,000",
     image: "/courseCards/2.png",
     description:
-      "Ideal for future analysts. Learn Excel, SQL, Python, Statistics, Machine Learning and Power BI with business datasets.",
+      "Enroll in our Diploma in Data Analytics & AI to gain industry-ready skills, hands-on projects, certification, and placement support.",
     fullDescription:
       "This comprehensive 12-month diploma program is ideal for aspiring data analysts. Master Excel, SQL, Python, Statistics, Machine Learning and Power BI through hands-on work with real business datasets. Career outcomes include Data Analyst, Business Analyst, and Analytics Consultant roles.",
     instructor: {
@@ -418,7 +421,7 @@ export const courses = [
   },
   {
     id: 3,
-    title: "Advanced Certification in Data Science & AI",
+    title: "Advanced Certification in Data Science & AI Program",
     level: "advanced",
     slug: "advanced-certification-in-data-science-and-ai",
     category: "data-science",
@@ -430,7 +433,7 @@ export const courses = [
     monthlyPrice: "₹13,333",
     image: "/courseCards/3.png",
     description:
-      "For candidates with basic analytics knowledge. Deep-dive into advanced ML, AI model deployment and statistical techniques.",
+      "Earn an Advanced Certification in Data Science & AI. Master ML, deep learning, NLP & generative AI with expert mentors and placement support. Apply now!",
     fullDescription:
       "This intensive 6-month advanced certification is designed for professionals with basic analytics knowledge looking to specialize in Data Science and AI. Deep-dive into advanced Machine Learning, AI model deployment, and sophisticated statistical techniques. Career outcomes include mid-level Data Science and AI roles.",
     instructor: {
