@@ -46,11 +46,11 @@ export default function CourseSection1() {
 
         {/* RIGHT VISUAL */}
         <div className={styles.right}>
-            <img
-              src="/teem photos.png"
-              alt="Instructor"
-              style={{objectFit:"contain", width:"100%", height:"100%"}}
-            />
+          <img
+            src="/teem photos.webp"
+            alt="Instructor"
+            style={{ objectFit: "contain", width: "100%", height: "100%" }}
+          />
         </div>
 
       </div>

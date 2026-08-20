@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./TrustedCompanies.module.css";
 import { useRef, useEffect, useState } from "react";
 
@@ -74,10 +75,15 @@ export default function TrustedCompanies() {
           <div className={styles.carousel} ref={carouselRef}>
             {[...companies, ...companies].map((company, idx) => (
               <div key={`${company.name}-${idx}`} className={styles.card}>
-                <img
+                <Image
                   src={company.logo}
                   alt={company.name}
                   className={styles.logo}
+                  width={120}
+                  height={48}
+                  loading="lazy"
+                  sizes="120px"
+                  quality={75}
                 />
               </div>
             ))}
@@ -88,10 +94,15 @@ export default function TrustedCompanies() {
         <div className={styles.mobileGrid}>
           {companies.map((company) => (
             <div key={company.name} className={styles.mobileCard}>
-              <img
+              <Image
                 src={company.logo}
                 alt={company.name}
                 className={styles.logo}
+                width={120}
+                height={48}
+                loading="lazy"
+                sizes="120px"
+                quality={75}
               />
             </div>
           ))}

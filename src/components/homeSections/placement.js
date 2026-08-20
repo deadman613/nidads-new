@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./newsection.module.css";
 
 export default function NewSection() {
@@ -56,7 +57,7 @@ export default function NewSection() {
           <div className={styles.testimonials}>
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1.jpg" alt="Aman Verma" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1.jpg" alt="Aman Verma" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Aman Verma</h4>
                   <span>Data Engineer · Bangalore</span>
@@ -72,7 +73,7 @@ export default function NewSection() {
 
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1 (2).jpg" alt="Priya Nair" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1 (2).jpg" alt="Priya Nair" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Priya Nair</h4>
                   <span>Data Analyst · Pune</span>
@@ -87,7 +88,7 @@ export default function NewSection() {
 
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Rahul Mehta</h4>
                   <span>ML Engineer · Gurgaon</span>
@@ -101,7 +102,7 @@ export default function NewSection() {
             </div>
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Satyam Misra</h4>
                   <span>ML Engineer · Gurgaon</span>
@@ -115,7 +116,7 @@ export default function NewSection() {
             </div>
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Rahul Mehta</h4>
                   <span>ML Engineer · Gurgaon</span>
@@ -129,7 +130,7 @@ export default function NewSection() {
             </div>
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Rahul Mehta</h4>
                   <span>ML Engineer · Gurgaon</span>
@@ -143,7 +144,7 @@ export default function NewSection() {
             </div>
             <div className={styles.card}>
               <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} width={44} height={44} />
+                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
                 <div>
                   <h4>Rahul Mehta</h4>
                   <span>ML Engineer · Gurgaon</span>

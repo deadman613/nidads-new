@@ -3,6 +3,7 @@ import BrainCanvas from "../BrainCanvas";
 import Style from "./homeSection.module.css";
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import PopupButton from "@/components/PopupButton";
 
 const Silk = dynamic(
@@ -51,16 +52,16 @@ export default function Banner() {
             {/* Enrolled Students */}
             <div className={Style.statBlock}>
               <div className={Style.avatarGroup}>
-                <img src="/studentImages/student1.jpg" alt="Student 1" className={Style.avatar} width={40} height={40} />
-                <img src="/studentImages/student1 (2).jpg" alt="Student 2" className={Style.avatar} width={40} height={40} />
-                <img src="/studentImages/student1 (3).jpg" alt="Student 3" className={Style.avatar} width={40} height={40} />
+                <Image src="/studentImages/student1.jpg" alt="Student 1" className={Style.avatar} width={40} height={40} priority sizes="40px" />
+                <Image src="/studentImages/student1 (2).jpg" alt="Student 2" className={Style.avatar} width={40} height={40} priority sizes="40px" />
+                <Image src="/studentImages/student1 (3).jpg" alt="Student 3" className={Style.avatar} width={40} height={40} priority sizes="40px" />
               </div>
               <span className={Style.statText}>25,000+ enrolled</span>
             </div>
 
             {/* Google Reviews */}
             <div className={Style.statBlock}>
-              <img src="/google (1).svg" alt="Google" className={Style.googleLogo} width={20} height={20} />
+              <Image src="/google (1).svg" alt="Google" className={Style.googleLogo} width={20} height={20} priority />
               <div className={Style.starRating}>
                 {[1, 2, 3, 4, 5].map((star) => (
                   <svg key={star} className={Style.star} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

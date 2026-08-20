@@ -7,6 +7,7 @@ import Expert from "../../components/homeSections/ExpertMentors"
 import Gallery from "../../components/homeSections/gallerySection"
 import MissionSection from "@/components/AboutSection/MissionSection"
 import StatsSection from "@/components/AboutSection/StatsSection"
+import CertificationsSection from "@/components/AboutSection/CertificationsSection"
 import Form from "../../components/homeSections/formend"
 import "@/styles/blog.css";
 
@@ -106,6 +107,7 @@ export default function AboutPage() {
       <AboutSection3 />
       <FounderSection />
       <Expert />
+      <CertificationsSection />
       <Gallery />
       <StatsSection />
       <MissionSection />

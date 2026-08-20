@@ -11,7 +11,7 @@ export const courses = [
     students: 450,
     price: "₹99,999",
     monthlyPrice: "₹8,499",
-    image: "/courseCards/1.png",
+    image: "/courseCards/1.webp",
     metaTitle: "Diploma in Data Science & AI – Enroll 2026",
     metaDescription:
       "Enroll in our Diploma in Data Science & AI and gain industry-ready skills, hands-on projects, certification, and placement support.",
@@ -209,7 +209,7 @@ export const courses = [
     students: 520,
     price: "₹89,999",
     monthlyPrice: "₹9,000",
-    image: "/courseCards/2.png",
+    image: "/courseCards/2.webp",
     description:
       "Enroll in our Diploma in Data Analytics & AI to gain industry-ready skills, hands-on projects, certification, and placement support.",
     fullDescription:
@@ -431,7 +431,7 @@ export const courses = [
     students: 380,
     price: "₹79,999",
     monthlyPrice: "₹13,333",
-    image: "/courseCards/3.png",
+    image: "/courseCards/3.webp",
     description:
       "Earn an Advanced Certification in Data Science & AI. Master ML, deep learning, NLP & generative AI with expert mentors and placement support. Apply now!",
     fullDescription:
@@ -543,7 +543,7 @@ export const courses = [
     students: 290,
     price: "₹69,999",
     monthlyPrice: "₹11,666",
-    image: "/courseCards/4.png",
+    image: "/courseCards/4.webp",
     description:
       "For upskillers in analytics. Gain advanced expertise in data modeling, ML applications, dashboards and BI tools.",
     fullDescription:
@@ -682,7 +682,7 @@ export const courses = [
     students: 680,
     price: "₹49,999",
     monthlyPrice: "₹16,666",
-    image: "/courseCards/5.png",
+    image: "/courseCards/5.webp",
     description:
       "Intensive fundamentals course. Cover Excel, SQL, Python basics, data visualization and statistical analysis.",
     fullDescription:
@@ -788,7 +788,7 @@ export const courses = [
     students: 540,
     price: "₹39,999",
     monthlyPrice: "₹13,333",
-    image: "/courseCards/6.png",
+    image: "/courseCards/6.webp",
     description:
       "Focused training on Python data libraries and SQL querying. Analyze and visualize data to derive insights.",
     fullDescription:
@@ -882,7 +882,7 @@ export const courses = [
     students: 720,
     price: "₹29,999",
     monthlyPrice: "₹10,000",
-    image: "/courseCards/7.png",
+    image: "/courseCards/7.webp",
     description:
       "Become a Power BI expert. Learn data modeling, DAX formulas and interactive dashboard design.",
     fullDescription:
@@ -976,7 +976,7 @@ export const courses = [
     students: 410,
     price: "₹34,999",
     monthlyPrice: "₹11,666",
-    image: "/courseCards/8.png",
+    image: "/courseCards/8.webp",
     description:
       "Analytics for PMs. Learn to use data in product decisions, run A/B tests, track KPIs, and interpret user data.",
     fullDescription:
@@ -1070,7 +1070,7 @@ export const courses = [
     students: 350,
     price: "₹44,999",
     monthlyPrice: "₹14,999",
-    image: "/courseCards/9.png",
+    image: "/courseCards/9.webp",
     description:
       "Elevate your storytelling. Master Tableau and Power BI advanced techniques to present data clearly and persuasively.",
     fullDescription:

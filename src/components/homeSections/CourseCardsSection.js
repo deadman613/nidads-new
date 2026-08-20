@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { courses } from "@/data/courses";
 import styles from "./CoursesSection.module.css";
@@ -62,7 +63,7 @@ export default function CoursesSection() {
             <SwiperSlide key={course.id}>
               <article className={styles.card}>
                 <div className={styles.imageWrap}>
-                  <img src={course.image} alt={course.title} />
+                  <Image src={course.image} alt={course.title} width={400} height={240} loading="lazy" sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" quality={75} />
                 </div>
 
                 <div className={styles.content}>

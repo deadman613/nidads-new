@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./ExpertMentors.module.css";
 
 const mentors = [
@@ -45,7 +46,7 @@ export default function ExpertMentors() {
             <article key={mentor.name} className={styles.card}>
               <div className={styles.cardHeader}>
                 <div className={styles.avatarWrapper}>
-                  <img src={mentor.img} alt={mentor.name} className={styles.avatar} width={96} height={96} />
+                  <Image src={mentor.img} alt={mentor.name} className={styles.avatar} width={96} height={96} sizes="96px" loading="lazy" />
                 </div>
                 <div>
                   <p className={styles.cardTag}>Market Mentor</p>

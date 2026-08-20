@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./GallerySection.module.css";
 import PopupButton from "@/components/PopupButton";
@@ -57,7 +58,7 @@ export default function GallerySection() {
           <div className={styles.grid}>
             {CARDS.map((card) => (
               <div key={card.id} className={styles.card}>
-                <img src={card.img} alt={card.label} width={300} height={180} />
+                <Image src={card.img} alt={card.label} width={300} height={180} loading="lazy" sizes="(max-width:768px) 100vw, 300px" />
                 <span className={styles.label}>{card.label}</span>
               </div>
             ))}
