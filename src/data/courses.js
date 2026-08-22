@@ -1164,7 +1164,7 @@ export const courses = [
     students: 1200,
     price: "Contact for Fees",
     monthlyPrice: "",
-    image: "/TensorFlow (1)/Diploma in Data Analytics & AI (12 Months) SQL.png",
+    image: "/courseCards/1.webp",
     description:
       "Earn a UGC-approved university degree (DU SOL or Amity Online) combined with 300+ hours of NIDADS AI specialization. Weekly trips, annual expeditions, and social impact projects included.",
     fullDescription:
@@ -1222,7 +1222,7 @@ export const courses = [
     students: 600,
     price: "Contact for Fees",
     monthlyPrice: "",
-    image: "/TensorFlow (1)/Advanced Certification in Data Science & AI (6 Months).png",
+    image: "/courseCards/2.webp",
     description:
       "Advance from practitioner to expert. A 2-year postgraduate AI degree from DU SOL or Amity Online with advanced NIDADS curriculum covering GenAI, LLMs, and a publishable research thesis.",
     fullDescription:

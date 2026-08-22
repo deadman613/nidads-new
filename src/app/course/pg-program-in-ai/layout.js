@@ -5,8 +5,7 @@ export const metadata = buildMeta({
   description:
     "Advance from practitioner to expert. A 2-year postgraduate program combining a UGC-approved master's degree with NIDADS' advanced AI curriculum — built for professionals and ambitious graduates.",
   path: "/course/pg-program-in-ai",
-  ogImage:
-    "https://www.nidads.com/TensorFlow%20(1)/Advanced%20Certification%20in%20Data%20Science%20&%20AI%20(6%20Months).png",
+  ogImage: "https://www.nidads.com/Nidads-2.webp",
   keywords: [
     "PG program in AI",
     "postgraduate AI program",
@@ -21,8 +20,7 @@ const productSchema = {
   "@context": "https://schema.org/",
   "@type": "Product",
   name: "Post Graduation Program in Artificial Intelligence",
-  image:
-    "https://www.nidads.com/TensorFlow%20(1)/Advanced%20Certification%20in%20Data%20Science%20&%20AI%20(6%20Months).png",
+  image: "https://www.nidads.com/Nidads-2.webp",
   description:
     "Advance from practitioner to expert. A 2-year postgraduate program combining a UGC-approved master's degree with NIDADS' advanced AI curriculum — built for professionals and ambitious graduates.",
   brand: { "@type": "Brand", name: "NIDADS" },

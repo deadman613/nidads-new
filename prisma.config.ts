@@ -1,5 +1,24 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 import { defineConfig, env } from "prisma/config";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.join(__dirname, ".env.local"), override: true });
+
+// Build URL from env to ensure all pgBouncer params are included
+const rawUrl = process.env.DATABASE_URL || "";
+// Ensure pgbouncer and statement_cache_size are set for pooler connections
+let dbUrl = rawUrl;
+try {
+  const u = new URL(rawUrl);
+  if (u.hostname.includes("pooler.supabase.com")) {
+    u.searchParams.set("pgbouncer", "true");
+    u.searchParams.set("statement_cache_size", "0");
+    u.searchParams.set("connection_limit", "1");
+    dbUrl = u.toString();
+  }
+} catch {}
 
 export default defineConfig({
   schema: "prisma/schema.prisma",
@@ -8,6 +27,6 @@ export default defineConfig({
   },
   engine: "classic",
   datasource: {
-    url: env("DATABASE_URL"),
+    url: dbUrl,
   },
 });

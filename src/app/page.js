@@ -34,7 +34,6 @@ const _baseMeta = buildMeta({
     "data science courses",
     "data analytics courses",
     "business analytics",
-    "big data analytics",
     "python for data science",
     "artificial intelligence and data science",
     "ai data science",
