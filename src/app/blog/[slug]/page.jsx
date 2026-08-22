@@ -18,6 +18,7 @@ const BLOG_SELECT = {
   ogImage: true,
   metaTitle: true,
   metaDescription: true,
+  publisher: true,
   category: true,
   tags: true,
   keywords: true,
@@ -158,6 +159,9 @@ export async function generateMetadata(props) {
       ] : undefined,
     },
     keywords: resolvedKeywords,
+    other: {
+      publisher: blog.publisher?.trim() || "Team Nidads",
+    },
     alternates: { canonical },
   };
 }
@@ -217,7 +221,7 @@ export default async function BlogDetails(props) {
     },
     publisher: {
       "@type": "Organization",
-      name: "NIDADS",
+      name: blog.publisher?.trim() || "Team Nidads",
     },
     image: hasCover
       ? isExternalCover

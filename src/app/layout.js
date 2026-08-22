@@ -30,6 +30,9 @@ export const metadata = {
     template: "%s | NIDADS",
   },
   description: "NIDADS is Delhi's leading Data Science and Data Analytics institute offering courses in Python, AI, Machine Learning, Big Data, and Business Analytics with placement support.",
+  other: {
+    publisher: "Team Nidads",
+  },
   keywords: [
     "data science course in Delhi",
     "data analytics course in Delhi",

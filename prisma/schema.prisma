@@ -22,6 +22,7 @@ model Blog {
   ogImage         String?
   metaTitle       String?
   metaDescription String?
+  publisher       String?
   category        String?
   tags            String[]
   keywords        String[]

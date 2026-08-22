@@ -17,6 +17,7 @@ const BASE_URL =
 
 const DEFAULT_OG_IMAGE = `${BASE_URL}/Nidads-2.webp`;
 const SITE_NAME = "NIDADS";
+const DEFAULT_PUBLISHER = "Team Nidads";
 
 /**
  * @param {Object} opts
@@ -67,6 +68,9 @@ export function buildMeta({
       title: `${title} | ${SITE_NAME}`,
       description,
       images: [image],
+    },
+    other: {
+      publisher: DEFAULT_PUBLISHER,
     },
     ...(noIndex
       ? { robots: { index: false, follow: false } }

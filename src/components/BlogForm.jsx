@@ -12,6 +12,7 @@ const baseState = {
   ogImage: "",
   metaTitle: "",
   metaDescription: "",
+  publisher: "Team Nidads",
   category: "",
   tags: "",
   keywords: "",
@@ -52,6 +53,7 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
     ogImage: initialData?.ogImage || "",
     metaTitle: initialData?.metaTitle || "",
     metaDescription: initialData?.metaDescription || "",
+    publisher: initialData?.publisher || "Team Nidads",
   }));
   const [slugTouched, setSlugTouched] = useState(Boolean(initialData?.slug));
   const [status, setStatus] = useState({ type: null, message: "" });
@@ -144,6 +146,7 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
         ogImage: formValues.ogImage?.trim() || "",
         metaTitle: formValues.metaTitle?.trim() || "",
         metaDescription: formValues.metaDescription?.trim() || "",
+        publisher: formValues.publisher?.trim() || "Team Nidads",
         category: formValues.category?.trim() || "",
         tags: formValues.tags,
         keywords: formValues.keywords,
@@ -241,6 +244,18 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
             onChange={(event) => setField("metaDescription", event.target.value)}
           />
           <small>Brief summary for search results and social media (150-160 chars).</small>
+        </label>
+
+        <label>
+          Publisher
+          <input
+            type="text"
+            name="publisher"
+            placeholder="Team Nidads"
+            value={formValues.publisher}
+            onChange={(event) => setField("publisher", event.target.value)}
+          />
+          <small>Publisher name used in the article metadata and BlogPosting schema.</small>
         </label>
 
         <label>
