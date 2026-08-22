@@ -4,7 +4,7 @@ import { buildMeta } from "@/lib/seo";
 export const metadata = buildMeta({
   title: "Contact Our Data Science & Data Analytics Training Experts",
   description:
-    "Have questions about our Data Science and Data Analytics Course? Contact our admissions team for a free demo, fees, batch timings & enrollment help.",
+    "Contact our experts for Data Science and Data Analytics Course details, fees, syllabus, certification, admissions, and placement assistance.",
   path: "/contact-us",
   keywords: [
     "contact NIDADS",
