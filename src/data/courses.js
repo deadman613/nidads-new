@@ -210,6 +210,9 @@ export const courses = [
     price: "₹89,999",
     monthlyPrice: "₹9,000",
     image: "/courseCards/2.webp",
+    metaTitle: "Diploma in Data Analytics & AI | Placement Support",
+    metaDescription:
+      "Earn your Diploma in Data Analytics & AI with hands-on SQL, Python, Power BI and ML projects. Get certification, career support and placement assistance.",
     description:
       "Enroll in our Diploma in Data Analytics & AI to gain industry-ready skills, hands-on projects, certification, and placement support.",
     fullDescription:
@@ -228,6 +231,27 @@ export const courses = [
       "Statistics",
       "Machine Learning",
       "Power BI"
+    ],
+    seoKeywords: [
+      "diploma in data analytics",
+      "ai data analytics",
+      "ai for data analytics",
+      "ai analytics",
+      "diploma of data analytics",
+      "business analytics diploma",
+      "data analytics diploma courses",
+      "data analysis with ai",
+      "ai business analytics",
+      "postgraduate diploma in data analytics",
+      "business analytics and artificial intelligence",
+      "diploma courses in data analytics",
+      "diploma in big data analytics",
+      "diploma in data analytics in delhi",
+      "diploma in data analytics in india",
+      "pg diploma in data analytics online",
+      "post graduate diploma in data science and analytics",
+      "professional diploma in data analytics",
+      "data analytics diploma courses in delhi"
     ],
     whatYouWillLearn: [
       "Master Excel for advanced analytics",
@@ -432,6 +456,9 @@ export const courses = [
     price: "₹79,999",
     monthlyPrice: "₹13,333",
     image: "/courseCards/3.webp",
+    metaTitle: "Advanced Certification in Data Science & AI | Placement",
+    metaDescription:
+      "Earn an Advanced Certification in Data Science & AI with hands-on projects, expert mentorship, industry tools, and placement support.",
     description:
       "Earn an Advanced Certification in Data Science & AI. Master ML, deep learning, NLP & generative AI with expert mentors and placement support. Apply now!",
     fullDescription:
@@ -444,6 +471,23 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Advanced ML", "AI Deployment", "Statistical Techniques", "Deep Learning", "MLOps"],
+    seoKeywords: [
+      "advanced data science and AI certification online",
+      "data science certification with placement",
+      "AI data science course with certificate",
+      "Data Science Certification",
+      "Data Science Certification Course",
+      "AI Certification Course",
+      "Advanced Data Science Course",
+      "Professional Data Science Certification",
+      "Data Science and AI Certification",
+      "Advanced Certification in Data Science & AI",
+      "Data Science and AI Certification",
+      "Data Science and AI Course with Placement",
+      "Data Science and AI Certification with Internship",
+      "Data Science and AI Certification Program",
+      "Professional Certificate in Data Science and AI"
+    ],
     whatYouWillLearn: [
       "Master advanced machine learning algorithms",
       "Deploy AI models to production",
@@ -544,6 +588,9 @@ export const courses = [
     price: "₹69,999",
     monthlyPrice: "₹11,666",
     image: "/courseCards/4.webp",
+    metaTitle: "Advanced Certification in Data Analytics & AI | Placement",
+    metaDescription:
+      "Earn an Advanced Certification in Data Analytics & AI. Master Power BI, SQL, Python and generative AI with expert mentors and placement support. Apply now!",
     description:
       "For upskillers in analytics. Gain advanced expertise in data modeling, ML applications, dashboards and BI tools.",
     fullDescription:
@@ -556,6 +603,23 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Data Modeling", "ML Applications", "Advanced Dashboards", "BI Tools", "Advanced Analytics"],
+    seoKeywords: [
+      "advanced certification in data analytics",
+      "certification in data analytics",
+      "google data analytics certification",
+      "data analyst course online",
+      "business analytics certification",
+      "data analyst certification online",
+      "best data analytics certification",
+      "online data analytics certificate",
+      "data analyst certification for beginners",
+      "data analyst certification course",
+      "data analyst training and placement",
+      "data analytics certificate programs",
+      "data analytics classes near me",
+      "data and analytics certifications",
+      "certification courses for data analytics"
+    ],
     whatYouWillLearn: [
       "Master advanced data modeling techniques",
       "Apply Machine Learning to analytics problems",
@@ -683,6 +747,9 @@ export const courses = [
     price: "₹49,999",
     monthlyPrice: "₹16,666",
     image: "/courseCards/5.webp",
+    metaTitle: "Data Analytics & AI Certification | Get Job-Ready",
+    metaDescription:
+      "Get certified in Data Analytics & AI with hands-on training in Power BI, SQL, Python and generative AI. Learn from expert mentors with placement support.",
     description:
       "Intensive fundamentals course. Cover Excel, SQL, Python basics, data visualization and statistical analysis.",
     fullDescription:
@@ -695,6 +762,20 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Excel", "SQL", "Python Basics", "Data Visualization", "Statistical Analysis"],
+    seoKeywords: [
+      "certification in data analytics and ai",
+      "professional certification in data analytics and ai",
+      "data analytics and ai course with placement",
+      "data analytics and ai certification program",
+      "data analytics and ai training institute",
+      "industry ready data analytics and ai course",
+      "data analytics and ai course in delhi",
+      "data analytics and ai course for working professionals",
+      "data analytics and ai course with internship",
+      "data analytics and ai professional program",
+      "data analytics certification course",
+      "certified data analyst"
+    ],
     whatYouWillLearn: [
       "Master Excel for data analysis and reporting",
       "SQL fundamentals for database querying",
@@ -789,6 +870,9 @@ export const courses = [
     price: "₹39,999",
     monthlyPrice: "₹13,333",
     image: "/courseCards/6.webp",
+    metaTitle: "Applied Data Analytics with Python & SQL | Certification",
+    metaDescription:
+      "Master Applied Data Analytics with Python and SQL using real datasets, dashboards and hands-on projects. Expert mentors and placement support.",
     description:
       "Focused training on Python data libraries and SQL querying. Analyze and visualize data to derive insights.",
     fullDescription:
@@ -801,6 +885,29 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Python", "SQL", "Pandas", "NumPy", "Data Analysis", "Data Visualization"],
+    seoKeywords: [
+      "applied data analytics with python and sql",
+      "python for data analytics",
+      "sql for data analytics",
+      "libraries pandas numpy",
+      "data analytics course",
+      "data analytics with python",
+      "data analytics with sql",
+      "data analytics certification",
+      "data analyst course",
+      "data analytics course with placement",
+      "python sql data analytics course",
+      "applied data analytics",
+      "data analytics training",
+      "data analytics certification course",
+      "data analytics with python and sql",
+      "certified data analyst",
+      "data analysis with python",
+      "sql analytics",
+      "data analytics program",
+      "job oriented data analytics course",
+      "data analytics training with internship"
+    ],
     whatYouWillLearn: [
       "Master Python for data analysis",
       "Advanced SQL querying and optimization",
@@ -883,6 +990,9 @@ export const courses = [
     price: "₹29,999",
     monthlyPrice: "₹10,000",
     image: "/courseCards/7.webp",
+    metaTitle: "Business Intelligence with Power BI | Placement Support",
+    metaDescription:
+      "Join our Power BI course and master Business Intelligence with real dashboards, DAX, data modeling, and placement support. Enroll today!",
     description:
       "Become a Power BI expert. Learn data modeling, DAX formulas and interactive dashboard design.",
     fullDescription:
@@ -895,6 +1005,38 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Power BI", "DAX", "Data Modeling", "Interactive Dashboards", "BI Reporting"],
+    seoKeywords: [
+      "power bi online",
+      "power bi dashboard",
+      "power bi web",
+      "power bi tool",
+      "power business intelligence",
+      "power bi and tableau",
+      "msft power bi",
+      "power bi course",
+      "power bi certification",
+      "business intelligence course",
+      "microsoft power bi",
+      "power bi training",
+      "business intelligence with power bi",
+      "power bi course with placement",
+      "power bi certification course",
+      "power bi data analyst",
+      "power bi dashboard",
+      "business intelligence training",
+      "power bi online course",
+      "advanced power bi course",
+      "professional power bi certification",
+      "power bi developer",
+      "data visualization course",
+      "power bi training institute",
+      "power bi course fees",
+      "job oriented power bi course",
+      "business intelligence certification",
+      "power bi dashboard training",
+      "power bi analytics course",
+      "power bi and business analytics"
+    ],
     whatYouWillLearn: [
       "Master Power BI Desktop and Service",
       "Advanced data modeling techniques",
@@ -977,6 +1119,9 @@ export const courses = [
     price: "₹34,999",
     monthlyPrice: "₹11,666",
     image: "/courseCards/8.webp",
+    metaTitle: "Data Science for Product Managers | Placement Support",
+    metaDescription:
+      "Master Data Science for Product Managers with real-world case studies, AI-driven insights, expert mentorship, and placement support.",
     description:
       "Analytics for PMs. Learn to use data in product decisions, run A/B tests, track KPIs, and interpret user data.",
     fullDescription:
@@ -989,6 +1134,38 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Product Analytics", "A/B Testing", "KPIs", "User Data", "Data-Driven Decisions"],
+    seoKeywords: [
+      "data science product management course",
+      "data science",
+      "product managers",
+      "jira project management",
+      "jira tool",
+      "python for data science",
+      "artificial intelligence and data science",
+      "certified product manager",
+      "product management course",
+      "product manager course",
+      "product management certification",
+      "data science for product managers",
+      "ai for product managers",
+      "product analytics course",
+      "data analytics for product managers",
+      "product management course with placement",
+      "product analytics certification",
+      "ai product management course",
+      "product strategy course",
+      "data driven product management",
+      "product management training",
+      "product management certification course",
+      "sql for product managers",
+      "product metrics and analytics",
+      "a/b testing for product managers",
+      "product analytics with sql",
+      "machine learning for product managers",
+      "product management bootcamp",
+      "product management training institute",
+      "product manager certification"
+    ],
     whatYouWillLearn: [
       "Use data effectively in product decisions",
       "Design and run A/B tests",
@@ -1071,6 +1248,9 @@ export const courses = [
     price: "₹44,999",
     monthlyPrice: "₹14,999",
     image: "/courseCards/9.webp",
+    metaTitle: "Advanced Data Visualization | Certification & Placement",
+    metaDescription:
+      "Learn Advanced Data Visualization with Power BI and Tableau. Build interactive dashboards, storytelling visuals and real-world projects with placement support.",
     description:
       "Elevate your storytelling. Master Tableau and Power BI advanced techniques to present data clearly and persuasively.",
     fullDescription:
@@ -1083,6 +1263,38 @@ export const courses = [
       credentials: ["PhD in AI", "15+ Years Experience"]
     },
     topics: ["Tableau Advanced", "Power BI Advanced", "Data Storytelling", "Design Principles", "Visual Analytics"],
+    seoKeywords: [
+      "advanced data visualization",
+      "data visualization",
+      "data visualization tools",
+      "tableau data visualization",
+      "business intelligence dashboard",
+      "tools for data governance",
+      "visualization",
+      "database visualizer",
+      "code visualization",
+      "data visualization course",
+      "data visualization certification",
+      "data visualization training",
+      "business intelligence course",
+      "power bi course",
+      "tableau course",
+      "data visualization with power bi",
+      "data visualization with tableau",
+      "dashboard design course",
+      "data storytelling course",
+      "visual analytics course",
+      "power bi and tableau course",
+      "data visualization course with placement",
+      "advanced data visualization certification",
+      "business intelligence and data visualization",
+      "interactive dashboard design",
+      "data visualization and analytics",
+      "data visualization professional course",
+      "executive dashboard development",
+      "visual analytics certification",
+      "dashboard development course"
+    ],
     whatYouWillLearn: [
       "Master advanced Tableau techniques",
       "Advanced Power BI visualization methods",

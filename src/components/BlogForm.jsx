@@ -189,7 +189,7 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
   return (
     <form className="admin-form" onSubmit={handleSubmit} aria-busy={submitting || uploading}>
       <header className="admin-form__header">
-        <h2>{formTitle}</h2>
+        <h1>{formTitle}</h1>
         <p>Use the editor below to manage the blog content that powers every site.</p>
       </header>
 

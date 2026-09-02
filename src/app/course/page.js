@@ -14,6 +14,7 @@ import ProjectComparison from "../../components/homeSections/ProjectComparison";
 import Gallery from "../../components/homeSections/gallerySection";
 import { buildMeta } from "@/lib/seo";
 import { courses } from "@/data/courses";
+import courseSchemaData from "./courses.json";
 
 const _courseBaseMeta = buildMeta({
   title: "Data Science and Data Analytics Course | Placement",
@@ -212,6 +213,18 @@ export default function CoursePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flagshipCourseSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }} />
+      {courseSchemaData.courses.flatMap(({ product, breadcrumb }) => [
+        <script
+          key={product.offers.url}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(product) }}
+        />,
+        <script
+          key={breadcrumb.itemListElement[2].item}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />,
+      ])}
       <CourseSection1 />
       <CourseSection2 />
       <RecommendedCoursesSection />

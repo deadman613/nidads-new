@@ -3,11 +3,6 @@
  * Accessible at: https://www.nidads.com/robots.txt
  */
 export default function robots() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ||
-    process.env.NEXT_PUBLIC_APP_URL ||
-    "https://www.nidads.com";
-
   return {
     rules: [
       {
@@ -15,8 +10,18 @@ export default function robots() {
         allow: "/",
         disallow: ["/admin/", "/api/", "/_next/"],
       },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "Claude-Web", allow: "/" },
+      { userAgent: "anthropic-ai", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "Perplexity-User", allow: "/" },
+      { userAgent: "CCBot", allow: "/" },
+      { userAgent: "Bingbot", allow: "/" },
+      { userAgent: "BingPreview", allow: "/" },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: "https://www.nidads.com/sitemap.xml",
   };
 }

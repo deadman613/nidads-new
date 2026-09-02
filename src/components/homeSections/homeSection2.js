@@ -22,11 +22,11 @@ export default function HomeSection2() {
       </div>
 
       <div className={styles.rightContent}>
-        <h1 className={styles.heading}>
+        <h2 className={styles.heading}>
           <span style={{ color: "white" }}>Empowering</span>
           <br />
           <span style={{ color: "#38b6ff" }}>Data Science</span> Careers
-        </h1>
+        </h2>
 
         <h2 className={styles.subheading} style={{ textAlign: "justify" }}>
           From foundational statistics to advanced AI, NIDADS offers hands-on
