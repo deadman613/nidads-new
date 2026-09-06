@@ -40,6 +40,64 @@ const LIST_SELECT = {
   updatedAt: true,
 };
 
+const decodeHeadingText = (value) =>
+  value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&(?:amp;)?nbsp;|&#160;|&#xA0;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+    .replace(/&#x([\da-f]+);/gi, (_, code) => String.fromCodePoint(parseInt(code, 16)))
+    .replace(/\s+/g, " ")
+    .trim();
+
+const createHeadingId = (text, index) => {
+  const id = text
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+  return id || `heading-${index}`;
+};
+
+const prepareBlogContent = (html) => {
+  const headings = [];
+  const usedIds = new Set();
+  let headingIndex = 0;
+  const normalizedHtml = html.replace(/&(?:amp;)?nbsp;|&#160;|&#xA0;/gi, " ");
+
+  const content = normalizedHtml.replace(
+    /<h([12])(\s[^>]*)?>([\s\S]*?)<\/h\1>/gi,
+    (match, level, attributes = "", innerHtml) => {
+      const title = decodeHeadingText(innerHtml);
+      if (!title) return match;
+
+      const existingId = attributes.match(/\sid=["']([^"']+)["']/i)?.[1];
+      const baseId = existingId || createHeadingId(title, headingIndex + 1);
+      let id = baseId;
+      let suffix = 2;
+      while (usedIds.has(id)) {
+        id = `${baseId}-${suffix}`;
+        suffix += 1;
+      }
+      usedIds.add(id);
+      headingIndex += 1;
+
+      const attributesWithoutId = attributes.replace(/\sid=["'][^"']*["']/i, "");
+      headings.push({ id, level: Number(level), title });
+
+      return `<h${level}${attributesWithoutId} id="${id}">${innerHtml}</h${level}>`;
+    }
+  );
+
+  return { content, headings };
+};
+
 const fetchBlog = async (slug) => {
   try {
     const blog = await prisma.blog.findUnique({
@@ -134,6 +192,14 @@ export async function generateMetadata(props) {
   return {
     title: metaTitle,
     description: metaDescription,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
@@ -178,7 +244,7 @@ export default async function BlogDetails(props) {
         <main id="main-content" className="blog-detail" role="main">
           <div className="blog-error">
             <h1>Blog unavailable</h1>
-            <p>We're unable to load this article right now. Please try again later.</p>
+            <p>We&apos;re unable to load this article right now. Please try again later.</p>
           </div>
         </main>
       </div>
@@ -198,6 +264,7 @@ export default async function BlogDetails(props) {
 
   const baseUrl = await getBaseUrl();
   const canonical = `${baseUrl}/blog/${blog.slug}`;
+  const { content: blogContent, headings } = prepareBlogContent(blog.content);
 
   const schemas = [];
   if (Array.isArray(blog.schemas)) {
@@ -266,7 +333,22 @@ export default async function BlogDetails(props) {
               {isPlaceholder ? <span className="cover__hint">Upload a cover image from the admin panel.</span> : null}
             </div>
 
-            <div className="content" dangerouslySetInnerHTML={{ __html: blog.content }} />
+            {headings.length ? (
+              <details className="blog-toc">
+                <summary>Table of contents</summary>
+                <nav aria-label="Table of contents">
+                  <ol>
+                    {headings.map((heading) => (
+                      <li key={heading.id} className={`blog-toc__item--h${heading.level}`}>
+                        <a href={`#${heading.id}`}>{heading.title}</a>
+                      </li>
+                    ))}
+                  </ol>
+                </nav>
+              </details>
+            ) : null}
+
+            <div className="content" dangerouslySetInnerHTML={{ __html: blogContent }} />
           </article>
 
           {/* ── Sidebar column ── */}
