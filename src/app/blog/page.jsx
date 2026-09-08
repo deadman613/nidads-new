@@ -58,7 +58,6 @@ const fetchBlogs = async (searchParams) => {
       prisma.blog.findMany({
         where,
         select: {
-          id: true,
           title: true,
           slug: true,
           coverImg: true,
@@ -196,7 +195,7 @@ export default async function BlogPage({ searchParams }) {
         ) : data?.data?.length ? (
           <div className="blog-grid blog-grid--three-col">
             {data.data.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+              <BlogCard key={blog.slug} blog={blog} />
             ))}
           </div>
         ) : (

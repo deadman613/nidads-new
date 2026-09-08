@@ -9,7 +9,6 @@ import { getClientIp } from "@/lib/request-info";
 const DEFAULT_LIMIT = 9;
 const MAX_LIMIT = 24;
 const LIST_SELECT = {
-  id: true,
   title: true,
   slug: true,
   coverImg: true,
@@ -95,6 +94,11 @@ const sanitizeContent = (html) => {
 
 export async function GET(request) {
   try {
+    const session = await ensureAdminApi(request, { requireCsrf: false });
+    if (!session) {
+      return NextResponse.json({ error: "Not found" }, { status: 404 });
+    }
+
     const { searchParams } = new URL(request.url);
     const page = Number(searchParams.get("page")) || 1;
     const limitParam = Number(searchParams.get("limit")) || DEFAULT_LIMIT;

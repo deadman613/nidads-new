@@ -74,7 +74,6 @@ const parseSchemasArray = (schemas) => {
 };
 
 const PUBLIC_BLOG_SELECT = {
-  id: true,
   title: true,
   slug: true,
   content: true,
