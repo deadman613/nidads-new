@@ -317,3 +317,41 @@ export async function POST(request) {
     return NextResponse.json({ error: "Unable to create blog" }, { status: 500 });
   }
 }
+
+export async function DELETE(request) {
+  try {
+    const session = await ensureAdminApi(request);
+    if (!session) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(request.url);
+    const payload = await request.json().catch(() => ({}));
+    const id = searchParams.get("id") || payload.id;
+    const slug = searchParams.get("slug") || payload.slug;
+
+    if (!id && !slug) {
+      return NextResponse.json({ error: "Blog id or slug is required" }, { status: 400 });
+    }
+
+    const deleted = await prisma.blog.delete({
+      where: id ? { id } : { slug },
+    });
+    const ip = await getClientIp(request);
+    await recordAudit("blog.delete", {
+      actor: session.sub,
+      entity: "Blog",
+      entityId: deleted.id,
+      ip,
+      metadata: { title: deleted.title, slug: deleted.slug },
+    });
+
+    return NextResponse.json({ success: true, id: deleted.id, slug: deleted.slug });
+  } catch (error) {
+    console.error("DELETE /api/blog failed", error);
+    if (error?.code === "P2025") {
+      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+    }
+    return NextResponse.json({ error: "Unable to delete blog" }, { status: 500 });
+  }
+}
