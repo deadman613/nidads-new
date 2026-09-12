@@ -92,17 +92,18 @@
 
 .certificateImage {
   width: 100%;
-  height: 300px;
+  aspect-ratio: 19 / 13;
   background: linear-gradient(135deg, #1a1f2e, #0f1419);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 18px;
 }
 
 .certificateImage img {
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -191,11 +192,11 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .carouselContainer {
-    max-width: 700px;
+    max-width: 860px;
   }
 
   .certificateImage {
-    height: 250px;
+    padding: 16px;
   }
 
   .certificateInfo {
@@ -221,7 +222,7 @@
   }
 
   .certificateImage {
-    height: 200px;
+    padding: 14px;
   }
 
   .certificateInfo {
@@ -261,7 +262,7 @@
   }
 
   .certificateImage {
-    height: 180px;
+    padding: 10px;
   }
 
   .certificateInfo {

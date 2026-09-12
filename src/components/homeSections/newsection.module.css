@@ -100,10 +100,14 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .rightTitle {
   font-size: 26px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .rightSubtitle {
@@ -115,65 +119,98 @@
 .testimonials {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  max-height: 520px;
-  overflow-y: auto;
-  padding-right: 8px;
+  gap: 18px;
 }
 
 .card {
-  padding: 20px;
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  animation: storyReveal 0.55s ease;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, rgba(56, 182, 255, 0.16), rgba(36, 80, 255, 0.08));
+}
+
+.studentImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.cardContent {
+  padding: 20px;
 }
 
 .profile {
-  display: flex;
-  gap: 14px;
   margin-bottom: 14px;
-}
-
-.avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: linear-gradient(135deg, #38b6ff, #2450ff);
 }
 
 .profile h4 {
   margin: 0;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .profile span {
+  display: block;
   font-size: 12px;
   color: #b3bdcc;
+  margin-top: 6px;
 }
 
 .profile small {
   display: block;
   font-size: 11px;
   color: #38b6ff;
+  margin-top: 4px;
 }
 
 .card p {
   font-size: 14px;
   color: #d3dbea;
   line-height: 1.6;
-}
-.testimonials::-webkit-scrollbar {
-  width: 6px;
+  margin: 0;
 }
 
-.testimonials::-webkit-scrollbar-track {
-  background: transparent;
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.testimonials::-webkit-scrollbar-thumb {
-  background: rgba(56, 182, 255, 0.35);
-  border-radius: 10px;
+.indicator {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.indicator:hover {
+  transform: scale(1.1);
+}
+
+.indicatorActive {
+  width: 34px;
+  background: #38b6ff;
+}
+
+@keyframes storyReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==============================
@@ -289,16 +326,19 @@
   }
 
   .testimonials {
-    max-height: none; /* 👈 allow natural flow */
-    padding-right: 0;
+    gap: 16px;
   }
 
   .card {
+    border-radius: 14px;
+  }
+
+  .cardContent {
     padding: 16px;
   }
 
   .profile h4 {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .profile span {
@@ -325,5 +365,9 @@
 
   .rightTitle {
     font-size: 22px;
+  }
+
+  .imageFrame {
+    aspect-ratio: 5 / 6;
   }
 }

@@ -5,39 +5,33 @@ import styles from "./CertificateSection.module.css";
 const certificates = [
   {
     id: 1,
-    title: "Data Science & AI Diploma",
-    image: "/certificates/diploma-data-science.png",
-    description: "Comprehensive 12-month program covering Python, ML, Deep Learning, and AI applications"
+    image: encodeURI("/certificates/Abhishek Rawat - Advanced Data Science.webp"),
+    alt: "Abhishek Rawat certificate"
   },
   {
     id: 2,
-    title: "Data Analytics & AI Diploma",
-    image: "/certificates/diploma-data-analytics.png",
-    description: "12-month intensive program focused on analytics, BI tools, and business intelligence"
+    image: encodeURI("/certificates/Mohit Kumar - NIDADS New.webp"),
+    alt: "Mohit Kumar certificate"
   },
   {
     id: 3,
-    title: "Advanced Data Science Certification",
-    image: "/certificates/advanced-data-science.png",
-    description: "6-month advanced certification for ML deployment and statistical modeling"
+    image: encodeURI("/certificates/Pallavi Yadav - Advanced Data Science.webp"),
+    alt: "Pallavi Yadav certificate"
   },
   {
     id: 4,
-    title: "Advanced Data Analytics Certification",
-    image: "/certificates/advanced-data-analytics.png",
-    description: "6-month program for advanced analytics, ML applications, and BI strategy"
+    image: encodeURI("/certificates/Priya - Advanced Data Science.webp"),
+    alt: "Priya certificate"
   },
   {
     id: 5,
-    title: "Data Analytics & AI Certification",
-    image: "/certificates/certification-data-analytics.png",
-    description: "4-month certification covering essential analytics and AI fundamentals"
+    image: encodeURI("/certificates/Shubham Negi - Advanced Data Science.webp"),
+    alt: "Shubham Negi certificate"
   },
   {
     id: 6,
-    title: "Data Analytics for Professionals",
-    image: "/certificates/professional-data-analytics.png",
-    description: "4-month program designed for working professionals in analytics roles"
+    image: encodeURI("/certificates/_Divyanshu Mishra - Advanced Data Science.webp"),
+    alt: "Divyanshu Mishra certificate"
   }
 ];
 
@@ -106,15 +100,11 @@ export default function CertificateSection() {
                   <div className={styles.certificateImage}>
                     <img
                       src={cert.image}
-                      alt={cert.title}
+                      alt={cert.alt}
                       onError={(e) => {
-                        e.target.src = "/placeholder.svg";
+                        e.currentTarget.src = "/placeholder.svg";
                       }}
                     />
-                  </div>
-                  <div className={styles.certificateInfo}>
-                    <h3>{cert.title}</h3>
-                    <p>{cert.description}</p>
                   </div>
                 </div>
               ))}

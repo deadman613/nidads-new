@@ -1,7 +1,85 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./newsection.module.css";
 
+const successStories = [
+  {
+    id: 1,
+    name: "Abhishek Rawat",
+    role: "Data Engineer",
+    location: "Bangalore",
+    company: "TechNova Analytics",
+    image: encodeURI("/studentImages/Abhishek Rawat .png"),
+    quote:
+      "NIDADS' project-based approach and mock interviews helped me switch careers confidently. I'm now working as a Data Engineer."
+  },
+  {
+    id: 2,
+    name: "Mohit Kumar",
+    role: "Data Analyst",
+    location: "Pune",
+    company: "DeepVision Labs",
+    image: encodeURI("/studentImages/Mohit Kumar- .webp"),
+    quote:
+      "Hands-on projects and mentorship helped me build a strong portfolio. I cracked interviews faster than expected."
+  },
+  {
+    id: 3,
+    name: "Pallavi Yadav",
+    role: "ML Engineer",
+    location: "Gurgaon",
+    company: "FinAI Solutions",
+    image: encodeURI("/studentImages/Pallavi Yadav .webp"),
+    quote:
+      "The structured roadmap and placement guidance made all the difference. This felt like real industry training."
+  },
+  {
+    id: 4,
+    name: "Priya",
+    role: "Business Analyst",
+    location: "Noida",
+    company: "Insight Grid",
+    image: encodeURI("/studentImages/Priya Data .webp"),
+    quote:
+      "From SQL practice to interview drills, every step was aligned to the job I wanted. The transition felt realistic and fast."
+  },
+  {
+    id: 5,
+    name: "Shubham Negi",
+    role: "AI Specialist",
+    location: "Hyderabad",
+    company: "NeuralWorks",
+    image: encodeURI("/studentImages/Shubham Negi .webp"),
+    quote:
+      "The placement cell kept me accountable, and the live projects gave me proof of work that recruiters immediately understood."
+  },
+  {
+    id: 6,
+    name: "Divyanshu Mishra",
+    role: "Analytics Consultant",
+    location: "Delhi NCR",
+    company: "StratEdge Data",
+    image: encodeURI("/studentImages/Divyanshu Mishra  .png"),
+    quote:
+      "I came in with theory and left with execution skills. That shift is what helped me convert interviews into offers."
+  }
+];
+
 export default function NewSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % successStories.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentStory = successStories[currentIndex];
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -55,106 +133,42 @@ export default function NewSection() {
           </p>
 
           <div className={styles.testimonials}>
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1.jpg" alt="Aman Verma" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Aman Verma</h4>
-                  <span>Data Engineer · Bangalore</span>
-                  <small>TechNova Analytics</small>
-                </div>
+            <article key={currentStory.id} className={styles.card}>
+              <div className={styles.imageFrame}>
+                <Image
+                  src={currentStory.image}
+                  alt={`${currentStory.name} success story portrait`}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 420px"
+                  className={styles.studentImage}
+                />
               </div>
-              <p>
-                “NIDADS’ project-based approach and mock interviews helped me
-                switch careers confidently. I’m now working as a Data
-                Engineer.”
-              </p>
-            </div>
 
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1 (2).jpg" alt="Priya Nair" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Priya Nair</h4>
-                  <span>Data Analyst · Pune</span>
-                  <small>DeepVision Labs</small>
+              <div className={styles.cardContent}>
+                <div className={styles.profile}>
+                  <h4>{currentStory.name}</h4>
+                  <span>
+                    {currentStory.role} · {currentStory.location}
+                  </span>
+                  <small>{currentStory.company}</small>
                 </div>
-              </div>
-              <p>
-                “Hands-on projects and mentorship helped me build a strong
-                portfolio. I cracked interviews faster than expected.”
-              </p>
-            </div>
 
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Rahul Mehta</h4>
-                  <span>ML Engineer · Gurgaon</span>
-                  <small>FinAI Solutions</small>
-                </div>
+                <p>"{currentStory.quote}"</p>
               </div>
-              <p>
-                “The structured roadmap and placement guidance made all the
-                difference. This felt like real industry training.”
-              </p>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Satyam Misra</h4>
-                  <span>ML Engineer · Gurgaon</span>
-                  <small>FinAI Solutions</small>
-                </div>
-              </div>
-              <p>
-                “The structured roadmap and placement guidance made all the
-                difference. This felt like real industry training.”
-              </p>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Rahul Mehta</h4>
-                  <span>ML Engineer · Gurgaon</span>
-                  <small>FinAI Solutions</small>
-                </div>
-              </div>
-              <p>
-                “The structured roadmap and placement guidance made all the
-                difference. This felt like real industry training.”
-              </p>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Rahul Mehta</h4>
-                  <span>ML Engineer · Gurgaon</span>
-                  <small>FinAI Solutions</small>
-                </div>
-              </div>
-              <p>
-                “The structured roadmap and placement guidance made all the
-                difference. This felt like real industry training.”
-              </p>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.profile}>
-                <img src="/studentImages/student1 (3).jpg" alt="Rahul Mehta" className={styles.avatar} sizes="44px" loading="lazy" />
-                <div>
-                  <h4>Rahul Mehta</h4>
-                  <span>ML Engineer · Gurgaon</span>
-                  <small>FinAI Solutions</small>
-                </div>
-              </div>
-              <p>
-                “The structured roadmap and placement guidance made all the
-                difference. This felt like real industry training.”
-              </p>
+            </article>
+
+            <div className={styles.indicators}>
+              {successStories.map((story, index) => (
+                <button
+                  key={story.id}
+                  type="button"
+                  className={`${styles.indicator} ${
+                    index === currentIndex ? styles.indicatorActive : ""
+                  }`}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Show success story ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
