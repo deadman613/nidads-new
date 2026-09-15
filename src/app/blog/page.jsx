@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import BlogCard from "@/components/BlogCard";
 import BlogThemeToggle from "@/components/BlogThemeToggle";
+import Link from "next/link";
 import "@/styles/blog.css";
 
 /* ─── Cache public blog listings to keep the index fast and reduce DB churn ─── */
@@ -9,6 +10,19 @@ export const revalidate = 300;
 export const metadata = {
   title: "Data Science & Analytics Course – Learn in 2026",
   description: "Master data science and data analytics with hands-on projects and real datasets. Learn Python, SQL & ML. Free certificate. Start today!",
+  keywords: [
+    "data science",
+    "data analytics",
+    "what is data science",
+    "business intelligence",
+    "python for data science",
+    "data science vs data analytics",
+    "big data analytics",
+    "best data analytics tools 2026",
+    "data analytics salary in India",
+    "AI and Data Science Blog",
+    "Machine Learning Blog",
+  ],
 };
 
 /* ─── hardcoded category list ─────────────────────────────────── */
@@ -159,20 +173,20 @@ export default async function BlogPage({ searchParams }) {
             </form>
 
             <nav className="blog-cat-bar" aria-label="Filter by category">
-              <a
+              <Link
                 href="/blog"
                 className={`blog-cat-pill${!activeCategory ? " blog-cat-pill--active" : ""}`}
               >
                 All
-              </a>
+              </Link>
               {CATEGORIES.map(({ label, value }) => (
-                <a
+                <Link
                   key={value}
                   href={`/blog?category=${encodeURIComponent(value)}${searchQuery ? `&search=${encodeURIComponent(searchQuery)}` : ""}`}
                   className={`blog-cat-pill${activeCategory === value ? " blog-cat-pill--active" : ""}`}
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
@@ -182,7 +196,7 @@ export default async function BlogPage({ searchParams }) {
             <div className="blog-filter-bar">
               <span className="blog-filter-chip">
                 Category: <strong>{activeCategory}</strong>
-                <a href="/blog" className="blog-filter-chip__clear" aria-label="Clear filter">×</a>
+                <Link href="/blog" className="blog-filter-chip__clear" aria-label="Clear filter">×</Link>
               </span>
             </div>
           )}
@@ -212,7 +226,7 @@ export default async function BlogPage({ searchParams }) {
             </div>
             <p>No posts found.</p>
             {activeCategory && (
-              <a href="/blog" className="blog-empty__reset">View all posts</a>
+              <Link href="/blog" className="blog-empty__reset">View all posts</Link>
             )}
           </div>
         )}
@@ -226,7 +240,7 @@ export default async function BlogPage({ searchParams }) {
               const paramsClone = new URLSearchParams(params);
               paramsClone.set("page", pageNumber.toString());
               return (
-                <a
+                <Link
                   key={pageNumber}
                   href={`/blog?${paramsClone.toString()}`}
                   aria-current={isActive ? "page" : undefined}
@@ -237,7 +251,7 @@ export default async function BlogPage({ searchParams }) {
                   }
                 >
                   {pageNumber}
-                </a>
+                </Link>
               );
             })}
           </nav>

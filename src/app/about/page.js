@@ -19,43 +19,17 @@ export const metadata = buildMeta({
   keywords: [
     "about nidads",
     "data science and data analytics institute",
-    "best institute for data science and data analytics course",
+    "Best institute for data science and data analytics course",
     "best data science training institute",
-    "Google certified data analytics partner",
-    "AI and Data Science Institute",
-    "Data Science Career Development",
     "Best Data Science Institute",
     "Best Data Analytics Institute",
     "Data Science Institute with Placement",
     "Data Analytics Institute with Placement",
-    "Job-Oriented Data Science Institute",
-    "Industry-Focused Data Science Training",
-    "Professional Data Analytics Training",
     "Data Science Certification Program",
     "Data Analytics Certification Program",
-    "Data Science Training with Internship",
-    "Data Analytics Training with Internship",
     "Advanced Data Science Program",
-    "Data Analytics Professional Course",
-    "Professional Data Science Training",
-    "data science and data analytics institute near me",
     "best data science institute near me",
     "best data analytics institute near me",
-    "data science institute in Delhi",
-    "data analytics institute in Delhi",
-    "best data science course near me",
-    "best data analytics course near me",
-    "data science and data analytics",
-    "python for data science",
-    "artificial intelligence and data science",
-    "business analytics",
-    "data science course with placement",
-    "data analytics course with placement",
-    "data science and analytics for working professionals",
-    "ai in data science",
-    "about NIDADS",
-    "data science training New Delhi",
-    "data analyst course in Delhi",
   ],
 });
 
@@ -153,44 +127,31 @@ export default function AboutPage() {
       >
         <h2>About NIDADS — Best Data Science and Data Analytics Institute</h2>
         <p>
-          NIDADS is the <strong>best institute for data science and data analytics course</strong> in Delhi.
-          We are a leading <strong>data science and data analytics institute</strong> and a
-          <strong> Google certified data analytics partner</strong> committed to
-          <strong> Data Science Career Development</strong> for students and working professionals.
+          Learn <strong>about nidads</strong>, a leading
+          <strong> data science and data analytics institute</strong> known as the
+          <strong> Best institute for data science and data analytics course</strong>
+          for learners building strong technical and placement-focused careers.
         </p>
         <p>
           As the <strong>Best Data Science Institute</strong> and
-          <strong> Best Data Analytics Institute</strong> in Delhi, NIDADS offers a
-          <strong> Data Science Institute with Placement</strong> and
-          <strong> Data Analytics Institute with Placement</strong> guarantee.
-          Our <strong>Job-Oriented Data Science Institute</strong> programs are
-          <strong> Industry-Focused Data Science Training</strong> designed to make
-          you career-ready from day one.
+          <strong> Best Data Analytics Institute</strong>, NIDADS is recognized as a
+          <strong> best data science training institute</strong> offering a
+          <strong> Data Science Institute with Placement</strong> and a
+          <strong> Data Analytics Institute with Placement</strong> pathway for
+          students who want structured guidance and hiring support.
         </p>
         <p>
           We offer a comprehensive <strong>Data Science Certification Program</strong> and
-          <strong> Data Analytics Certification Program</strong> with
-          <strong> Professional Data Analytics Training</strong> and
-          <strong> Professional Data Science Training</strong>. Enroll in our
-          <strong> Advanced Data Science Program</strong> or
-          <strong> Data Analytics Professional Course</strong> with internship support.
+          <strong> Data Analytics Certification Program</strong> for learners who want
+          applied projects, expert mentorship, and recognized credentials. You can also
+          enroll in our <strong>Advanced Data Science Program</strong> to deepen your
+          machine learning and analytics skills.
         </p>
         <p>
-          Our <strong>Data Science Training with Internship</strong> and
-          <strong> Data Analytics Training with Internship</strong> programs give you
-          real-world experience. Find the <strong>best data science institute near me</strong> or
-          <strong> best data analytics institute near me</strong> — NIDADS is your
-          <strong> data science and data analytics institute near me</strong> in
-          Greater Kailash, New Delhi.
-        </p>
-        <p>
-          Learn more <strong>about NIDADS</strong> — the
-          <strong> best data science training institute</strong> offering
-          <strong> AI and Data Science Institute</strong> programs,
-          <strong> data science and analytics for working professionals</strong>, and
-          expert-led <strong>artificial intelligence and data science</strong> courses
-          at our <strong>data science institute in Delhi</strong> and
-          <strong> data analytics institute in Delhi</strong>.
+          If you are searching for the <strong>best data science institute near me</strong>
+          or the <strong>best data analytics institute near me</strong>, NIDADS presents
+          an industry-aligned institute model built around outcomes, mentoring, and
+          placement support in Delhi.
         </p>
       </section>
     </main>

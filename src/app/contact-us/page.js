@@ -7,16 +7,13 @@ export const metadata = buildMeta({
     "Contact our experts for Data Science and Data Analytics Course details, fees, syllabus, certification, admissions, and placement assistance.",
   path: "/contact-us",
   keywords: [
-    "contact NIDADS",
-    "data science admissions Delhi",
-    "data analytics course admission",
-    "data science course in Delhi enquiry",
-    "data analyst course in Delhi admission",
-    "best data science course near me contact",
-    "data science institute in Delhi contact",
-    "NIDADS enquiry",
-    "AI course enrollment Delhi",
-    "data science course with placement admission",
+    "data science course admission enquiry",
+    "data science course free demo class",
+    "data analytics course fees and contact details",
+    "data science course near me contact number",
+    "data science course book free counselling session",
+    "Contact Data Science Institute",
+    "Enroll in Data Science Course",
   ],
 });
 

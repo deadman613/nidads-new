@@ -48,9 +48,9 @@ const successStories = [
   {
     id: 5,
     name: "Shubham Negi",
-    role: "AI Specialist",
-    location: "Hyderabad",
-    company: "NeuralWorks",
+    role: "Data Analyst Intern",
+    location: "New Delhi",
+    company: "DizitalAdda ",
     image: encodeURI("/studentImages/Shubham Negi .webp"),
     quote:
       "The placement cell kept me accountable, and the live projects gave me proof of work that recruiters immediately understood."
@@ -58,9 +58,9 @@ const successStories = [
   {
     id: 6,
     name: "Divyanshu Mishra",
-    role: "Analytics Consultant",
+    role: "Analytics Intern",
     location: "Delhi NCR",
-    company: "StratEdge Data",
+    company: "DizitalAdda ",
     image: encodeURI("/studentImages/Divyanshu Mishra  .png"),
     quote:
       "I came in with theory and left with execution skills. That shift is what helped me convert interviews into offers."

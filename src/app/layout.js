@@ -30,14 +30,6 @@ export const metadata = {
     template: "%s | NIDADS",
   },
   description: "NIDADS is Delhi's leading Data Science and Data Analytics institute offering courses in Python, AI, Machine Learning and Business Analytics with placement support.",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
   other: {
     publisher: "Team Nidads",
   },
@@ -89,6 +81,9 @@ export default function RootLayout({ children }) {
      */
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         {/*
           ─── EXTENSION DOM GUARD ───────────────────────────────────────────────
           Runs SYNCHRONOUSLY before React hydrates (inline script, no defer/async).

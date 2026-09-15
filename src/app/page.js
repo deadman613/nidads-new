@@ -27,47 +27,19 @@ const _baseMeta = buildMeta({
     "Master Data Science & Data Analytics with hands-on projects. Learn Python, ML & SQL from experts. Job-ready in weeks. Enroll now — limited seats!",
   path: "/",
   keywords: [
-    "data science and data analytics",
-    "data science and data analytics course",
-    "data science",
-    "data analytics",
-    "data science courses",
-    "data analytics courses",
-    "business analytics",
+    "Data Science and Data Analytics Course",
+    "data science course",
+    "data analytics course",
     "python for data science",
     "artificial intelligence and data science",
-    "ai data science",
-    "python programming for data science",
-    "analysis data",
-    "big data and data analytics",
-    "ai in data science",
-    "data and analysis",
-    "data science vs data analytics",
     "data science course for beginners",
     "data analytics course for beginners",
-    "business analytics & data science",
-    "business analytics and data science",
-    "data science and big data analytics",
-    "data science and business analytics course",
-    "data science projects for beginners",
-    "data analytics certification",
-    "online data science course",
-    "data science course with placement",
-    "data analytics course with placement",
-    "online data analytics course",
-    "data science course with live projects",
-    "data science course with live projects project",
-    "data science and analytics for working professionals",
-    "data science course in Delhi",
+    "Data Science Course with Placement",
+    "Data Analytics Course with Placement",
     "data science Course in Delhi",
     "data analyst course in delhi",
-    "data analyst course in Delhi",
-    "data science institute in Delhi",
-    "data analytics institute in Delhi",
-    "data science and data analytics course near me",
-    "best data science course near me",
-    "best data analytics course near me",
-    "NIDADS",
+    "data science institute in delhi",
+    "data analytics institute in delhi",
   ],
 });
 
@@ -179,49 +151,28 @@ export default function Home() {
       >
         <h2>Data Science and Data Analytics Course</h2>
         <p>
-          NIDADS offers the best <strong>data science and data analytics</strong> course
-          with live projects, placement support, and expert mentorship. Whether you are
-          looking for a <strong>data science course for beginners</strong> or an
-          <strong> online data analytics course</strong> for working professionals, our
-          program covers <strong>python for data science</strong>,
-          <strong> artificial intelligence and data science</strong>,
-          <strong> big data analytics</strong>, <strong>business analytics</strong>,
-          and <strong>AI data science</strong>.
+          NIDADS offers a <strong>data science course</strong> and a
+          <strong> data analytics course</strong> designed for learners who want a
+          <strong> Data Science and Data Analytics Course</strong> with practical skills,
+          mentorship, and career support. The curriculum includes
+          <strong> python for data science</strong> and
+          <strong> artificial intelligence and data science</strong> to build job-ready
+          capabilities.
         </p>
         <p>
-          Enroll in our <strong>data science course with placement</strong> or
-          <strong> data analytics course with placement</strong>. We provide
-          <strong> data science course with live projects</strong> to help you build a
-          strong portfolio. Our curriculum includes
-          <strong> python programming for data science</strong>,
-          <strong> analysis data</strong>, <strong>data and analysis</strong>,
-          <strong> business analytics &amp; data science</strong>, and
-          <strong> data science and big data analytics</strong>.
+          Students looking for a <strong>data science course for beginners</strong> or a
+          <strong> data analytics course for beginners</strong> can start with structured
+          modules and live projects. We also provide a
+          <strong> Data Science Course with Placement</strong> and a
+          <strong> Data Analytics Course with Placement</strong> for students focused on
+          interview readiness and role transitions.
         </p>
         <p>
-          Looking for <strong>data science courses</strong> or
-          <strong> data analytics courses</strong> near you? NIDADS is a leading
-          <strong> data science institute in Delhi</strong> and
-          <strong> data analytics institute in Delhi</strong>. We offer
-          <strong> data science Course in Delhi</strong>,
-          <strong> data analyst course in Delhi</strong>,
-          <strong> online data science course</strong>, and programs for
-          <strong> data science and analytics for working professionals</strong>.
-        </p>
-        <p>
-          Compare <strong>data science vs data analytics</strong> and choose the right
-          path. Our <strong>data science and business analytics course</strong> and
-          <strong> business analytics and data science</strong> programs come with an
-          industry-recognised <strong>Data Analytics Certification</strong>. Beginners
-          can start with our <strong>data science projects for beginners</strong> to
-          gain hands-on experience with <strong>ai in data science</strong> and
-          <strong> big data and data analytics</strong>.
-        </p>
-        <p>
-          Find the <strong>best data science course near me</strong> or
-          <strong> best data analytics course near me</strong> at NIDADS — the
-          <strong> data science and data analytics course near me</strong> trusted by
-          thousands of learners across Delhi and India.
+          NIDADS is known for its <strong>data science Course in Delhi</strong> and
+          <strong> data analyst course in delhi</strong>. If you are searching for a
+          <strong> data science institute in delhi</strong> or a
+          <strong> data analytics institute in delhi</strong>, the home page highlights
+          the programs, mentorship, and placement support available in Delhi.
         </p>
       </section>
     </>

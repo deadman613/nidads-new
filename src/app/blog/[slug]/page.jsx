@@ -192,14 +192,6 @@ export async function generateMetadata(props) {
   return {
     title: metaTitle,
     description: metaDescription,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
-    },
     openGraph: {
       title: metaTitle,
       description: metaDescription,
