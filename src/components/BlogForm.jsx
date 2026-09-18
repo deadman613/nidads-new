@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import BlogEditor from "@/components/BlogEditor";
 import { withAdminCsrf } from "@/lib/client-csrf";
+import { BLOG_CATEGORIES } from "@/lib/blog-categories";
 
 const baseState = {
   title: "",
@@ -260,31 +261,18 @@ const BlogForm = ({ initialData = null, mode = "create" }) => {
 
         <label>
           Category
-          <input
-            type="text"
+          <select
             name="category"
-            placeholder="e.g. Data Science, Data Analytics, Digital Marketing"
             value={formValues.category}
             onChange={(event) => setField("category", event.target.value)}
-            list="category-suggestions"
-          />
-          <datalist id="category-suggestions">
-            <option value="Data Science" />
-            <option value="Data Analytics" />
-            <option value="Digital Marketing" />
-            <option value="Business Analytics" />
-            <option value="Machine Learning" />
-            <option value="Python" />
-            <option value="SQL" />
-            <option value="Tableau" />
-            <option value="Power BI" />
-            <option value="Career Tips" />
-            <option value="Placement" />
-            <option value="Course Guide" />
-            <option value="Interview Prep" />
-            <option value="Industry News" />
-            <option value="Tutorial" />
-          </datalist>
+          >
+            <option value="">Select a category</option>
+            {BLOG_CATEGORIES.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
           <small>Groups related posts. Shown as a chip on the blog post and used for recommendations.</small>
         </label>
 

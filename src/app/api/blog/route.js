@@ -5,6 +5,7 @@ import { normalizeTags } from "@/lib/tags";
 import { ensureAdminApi } from "@/lib/auth";
 import { recordAudit } from "@/lib/audit";
 import { getClientIp } from "@/lib/request-info";
+import { BLOG_CATEGORIES } from "@/lib/blog-categories";
 
 const DEFAULT_LIMIT = 9;
 const MAX_LIMIT = 24;
@@ -269,6 +270,10 @@ export async function POST(request) {
     }
 
     const finalSlug = await generateUniqueSlug(slug || title);
+    const preparedCategory = category?.trim() || null;
+    if (preparedCategory && !BLOG_CATEGORIES.includes(preparedCategory)) {
+      return NextResponse.json({ error: "Invalid blog category" }, { status: 400 });
+    }
     const preparedTags = normalizeTags(tags);
 
     const preparedKeywords = normalizeTags(keywords);
@@ -296,7 +301,7 @@ export async function POST(request) {
         metaTitle: metaTitle?.trim() || null,
         metaDescription: metaDescription?.trim() || null,
         publisher: publisher?.trim() || "Team Nidads",
-        category: category?.trim() || null,
+        category: preparedCategory,
         tags: preparedTags,
         keywords: preparedKeywords,
         schema: preparedSchema,

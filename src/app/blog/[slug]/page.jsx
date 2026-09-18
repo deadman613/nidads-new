@@ -307,7 +307,6 @@ export default async function BlogDetails(props) {
                 <span className="blog-category-chip">{blog.category}</span>
               ) : null}
               <h1 id="blog-title">{blog.title}</h1>
-              {blog.tags?.length ? <p className="tags">{blog.tags.join(" / ")}</p> : null}
             </header>
 
             <div className={`cover${isPlaceholder ? " cover--placeholder" : ""}`}>

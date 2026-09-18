@@ -2,6 +2,7 @@ import prisma from "@/lib/prisma";
 import BlogCard from "@/components/BlogCard";
 import BlogThemeToggle from "@/components/BlogThemeToggle";
 import Link from "next/link";
+import { BLOG_CATEGORIES } from "@/lib/blog-categories";
 import "@/styles/blog.css";
 
 /* ─── Cache public blog listings to keep the index fast and reduce DB churn ─── */
@@ -10,6 +11,9 @@ export const revalidate = 300;
 export const metadata = {
   title: "Data Science & Analytics Course – Learn in 2026",
   description: "Master data science and data analytics with hands-on projects and real datasets. Learn Python, SQL & ML. Free certificate. Start today!",
+  alternates: {
+    canonical: "https://www.nidads.com/blog",
+  },
   keywords: [
     "data science",
     "data analytics",
@@ -25,11 +29,7 @@ export const metadata = {
   ],
 };
 
-/* ─── hardcoded category list ─────────────────────────────────── */
-const CATEGORIES = [
-  { label: "Data Science", value: "Data Science" },
-  { label: "Data Analytics", value: "Data Analytics" },
-];
+const CATEGORIES = BLOG_CATEGORIES.map((category) => ({ label: category, value: category }));
 
 /* ─── data fetch — select only the columns BlogCard actually needs ─ */
 const fetchBlogs = async (searchParams) => {

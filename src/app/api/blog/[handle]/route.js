@@ -5,6 +5,7 @@ import { normalizeTags } from "@/lib/tags";
 import { ensureAdminApi } from "@/lib/auth";
 import { recordAudit } from "@/lib/audit";
 import { getClientIp } from "@/lib/request-info";
+import { BLOG_CATEGORIES } from "@/lib/blog-categories";
 
 const extractJsonLdFromScriptTag = (raw) => {
   const trimmed = raw.trim();
@@ -170,6 +171,11 @@ export async function PUT(request, context) {
         .replace(/\sid=\"docs-internal-guid-[^\"]*\"/gi, "");
     };
 
+    const preparedCategory = category?.trim() || null;
+    if (preparedCategory && !BLOG_CATEGORIES.includes(preparedCategory)) {
+      return NextResponse.json({ error: "Invalid blog category" }, { status: 400 });
+    }
+
     const data = {
       title: title.trim(),
       content: sanitizeContent(content),
@@ -178,7 +184,7 @@ export async function PUT(request, context) {
       metaTitle: metaTitle?.trim() || null,
       metaDescription: metaDescription?.trim() || null,
       publisher: publisher?.trim() || "Team Nidads",
-      category: category?.trim() || null,
+      category: preparedCategory,
       tags: preparedTags,
       slug: resolvedSlug,
     };
