@@ -76,14 +76,15 @@ export default function Footer() {
             <div>
               <h4>Find Us</h4>
               <iframe
-                src="https://maps.google.com/maps?q=28.5415141,77.240201&z=16&output=embedhttps://business.google.com/n/13139081987818720626/searchprofile?hl=en-GB"
-                width="100%"
-                height="180"
-                style={{ border: 0, borderRadius: '8px' }}
+                src="https://www.google.com/maps?q=National+Institute+of+Data+Analytics+%26+Data+Science&output=embed"
+                width="600"
+                height="450"
+                className={styles.map}
+                style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="NIDADS Location"
+                title="National Institute of Data Analytics and Data Science location"
               />
             </div>
           </div>
