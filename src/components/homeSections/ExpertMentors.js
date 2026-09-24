@@ -5,7 +5,7 @@ const mentors = [
   {
     name: "Miss Shagun shrivastav",
     role: "Lead Data Science Trainer · ML & AI",
-    headline: "8+ years of industry experience in Machine Learning, Deep Learning, and AI. Specializes in building end-to-end ML pipelines and deploying models at scale.",
+    headline: "3 years of industry experience in Machine Learning, Deep Learning, and AI. Specializes in building end-to-end ML pipelines and deploying models at scale.",
     stats: "4.9 ★ 320+ reviews",
     chips: ["ML & Deep Learning", "1:1 Doubt Support"],
     img: "/shagun.png",
@@ -13,7 +13,7 @@ const mentors = [
   {
     name: "Mr. Deepanshu Soni",
     role: "Senior Data Analyst · BI & Visualisation",
-    headline: "5+ years of experience in Data Analytics, Power BI, Tableau, and SQL. Expert in turning raw datasets into actionable business insights.",
+    headline: "3 years of experience in Data Analytics, Power BI, Tableau, and SQL. Expert in turning raw datasets into actionable business insights.",
     stats: "4.8 ★ 280+ reviews",
     chips: ["Power BI & Tableau", "SQL & Python"],
     img: "/deepanshu.jpeg",
