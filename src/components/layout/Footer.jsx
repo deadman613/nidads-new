@@ -76,7 +76,7 @@ export default function Footer() {
             <div>
               <h4>Find Us</h4>
               <iframe
-                src="https://maps.google.com/maps?q=28.5415141,77.240201&z=16&output=embed"
+                src="https://maps.google.com/maps?q=28.5415141,77.240201&z=16&output=embedhttps://business.google.com/n/13139081987818720626/searchprofile?hl=en-GB"
                 width="100%"
                 height="180"
                 style={{ border: 0, borderRadius: '8px' }}
